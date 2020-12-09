@@ -1,7 +1,7 @@
+import { GlobalConstants } from './../global-constants';
 import { UserService } from './../_services/user.service';
 import { DomSanitizer, SafeUrl, Title } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-product-listing',
   templateUrl: './product-listing.component.html',
@@ -10,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class ProductListingComponent implements OnInit {
 
   content: [];
+  ftpstring: string= GlobalConstants.ftpURL;
+
 
   constructor(
     private titleService: Title,
