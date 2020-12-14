@@ -33,6 +33,7 @@ export class AuthService {
       name: user.username,
       email: user.email,
       usertype: 5,
+      profile_pic: user.profile_pic,
       password: user.password,
       password_confirmation: user.cpassword
     }), httpOptions);
@@ -55,7 +56,7 @@ export class AuthService {
       deposit: details.deposit,
       available_for: details.available_for,
       type: details.type,
-      bedc_oun: details.bedc_ount,
+      bedc_ount: details.bedc_ount,
       bathroom: details.bathroom,
       garage: details.garage,
       garage_area: details.garage_area,
@@ -71,6 +72,12 @@ export class AuthService {
       description: details.description,
       registration_status: details.registration_status,
       build_name: details.build_name,
+    }), httpOptions);
+  }
+
+  product_see(prodid_no): Observable<any> {
+    return this.http.post(AUTH_API + 'product/see', JSON.stringify ({
+      prod_id: prodid_no,
     }), httpOptions);
   }
 

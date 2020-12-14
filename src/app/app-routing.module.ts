@@ -1,3 +1,4 @@
+import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { PostproductComponent } from './postproduct/postproduct.component';
 import { ProductListingComponent } from './product-listing/product-listing.component';
 import { ProductpageComponent } from './productpage/productpage.component';
@@ -13,20 +14,20 @@ import { Routes, RouterModule } from '@angular/router';
 import { ContactComponent } from './contact/contact.component';
 
 
-const frontendURL = 'frontend';
 
 const routes: Routes = [
 
   {path: '', component: HomeComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'login', component: UserloginComponent},
-  {path: 'productlisting', component: ProductListingComponent},
-  {path: 'productpage', component: ProductpageComponent},
+  // {path: 'productlisting', component: ProductListingComponent},
+  // {path: 'productpage', component: ProductpageComponent},
   {path: 'register', component: UserregisterComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'logout', component: UserlogoutComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'insertproduct', component: PostproductComponent},
+  {path: 'productlisting', component: BoardAdminComponent},
   {path: '**', component: NotfoundComponent},
 
 ];

@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { ProductService } from './../_services/product.service';
 import { GlobalConstants } from './../global-constants';
 import { UserService } from './../_services/user.service';
 import { DomSanitizer, SafeUrl, Title } from '@angular/platform-browser';
@@ -17,23 +19,32 @@ export class ProductListingComponent implements OnInit {
     private titleService: Title,
     private userService: UserService,
     private sanitizer: DomSanitizer,
-  ) { }
+    private myservice: ProductService,
+    private router: Router,
+  ) {}
 
   sanitizeImageUrl(imageUrl: string): SafeUrl {
     return this.sanitizer.bypassSecurityTrustUrl(imageUrl);
 }
 
   ngOnInit(): void {
+
     this.titleService.setTitle('Listing');
     this.userService.getproductlisting().pipe().subscribe(
       (data: any) => {
+
         this.content = data.data.data;
-        console.log(this.content);
+        //console.log(this.content);
       },
       err => {
         this.content = JSON.parse(err.error).message;
       }
     );
+  }
+
+  prod_func(data){
+    this.myservice.setData(data);
+    // this.router.navigate(["/productpage"])
   }
 
 }

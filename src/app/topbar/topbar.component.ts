@@ -16,7 +16,7 @@ export class TopbarComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
-  roles: string[] = [];
+  roles: string[] = null;
 
 
   constructor(
@@ -32,9 +32,7 @@ export class TopbarComponent implements OnInit {
     if (this.tokenStorage.getToken()){
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().username;
-    }
-    else{
-      this.isLoggedIn = false ;
+
     }
 
   }

@@ -1,3 +1,4 @@
+import { ProductService } from './_services/product.service';
 import { AuthInterceptor } from './_helpers/auth.interceptor';
 import { BrowserModule } from '@angular/platform-browser';
 import { Title } from '@angular/platform-browser';
@@ -27,6 +28,8 @@ import { ProductListingComponent } from './product-listing/product-listing.compo
 import { ProductpageComponent } from './productpage/productpage.component';
 import { ContactComponent } from './contact/contact.component';
 import { PostproductComponent } from './postproduct/postproduct.component';
+import { TopbardarkLoaderComponent } from './topbardark-loader/topbardark-loader.component';
+//import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,7 @@ import { PostproductComponent } from './postproduct/postproduct.component';
     BoardAgentComponent,
     BoardCompanyComponent,
     BoardUserComponent,
+//    FileUploadModule,
     UserloginComponent,
     UserregisterComponent,
     ProfileComponent,
@@ -51,6 +55,7 @@ import { PostproductComponent } from './postproduct/postproduct.component';
     ProductpageComponent,
     ContactComponent,
     PostproductComponent,
+    TopbardarkLoaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +65,7 @@ import { PostproductComponent } from './postproduct/postproduct.component';
   ],
   providers: [
     Title,
+    ProductService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

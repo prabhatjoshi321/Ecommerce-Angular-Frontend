@@ -12,6 +12,8 @@ export class UserregisterComponent implements OnInit {
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
+  theFile: any = null;
+  fileToUpload: File = null;
 
 
   public constructor(
@@ -31,6 +33,7 @@ export class UserregisterComponent implements OnInit {
 
   onSubmit(): void {
     {this.authService.register(this.form).subscribe(
+
       data => {
         console.log(data);
         this.isSuccessful = true;
@@ -39,9 +42,12 @@ export class UserregisterComponent implements OnInit {
         err => {
           this.errorMessage = err.error.message;
           this.isSignUpFailed = true;
+          console.log(this.form);
+          console.log(err);
         }
       );
     }
   }
+
 
 }
