@@ -1,3 +1,4 @@
+import { TokenStorageService } from './../_services/token-storage.service';
 import { GlobalConstants } from './../global-constants';
 import { ProductService } from './../_services/product.service';
 import { AuthService } from './../_services/auth.service';
@@ -20,15 +21,16 @@ export class ProductpageComponent implements OnInit {
   constructor(
     private titleService: Title,
     private authService: AuthService,
+    private idService: TokenStorageService,
     private prodservice: ProductService,
   ) { }
 
   ngOnInit(): void {
-    this.prodservice.setData(1);
-    this.prod_id = this.prodservice.getData();
+    // this.prodservice.setData(1);
+    // this.prod_id = this.prodservice.getData();
     this.titleService.setTitle('Property Page');
-    console.log(this.prod_id);
-    {this.authService.product_see(this.prod_id).subscribe(
+    console.log(this.idService.getProdId());
+    {this.authService.product_see(this.idService.getProdId()).subscribe(
 
       data => {
         this.user_data = data["user_data"];

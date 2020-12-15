@@ -28,14 +28,14 @@ export class AuthService {
     }), httpOptions);
   }
 
-  register(user): Observable<any> {
-    return this.http.post(AUTH_API + 'auth/signup', JSON.stringify({
+  register(user, profile_pic: File): Observable<any> {
+    return this.http.post(AUTH_API + 'auth/signup', ({
       name: user.username,
       email: user.email,
       usertype: 5,
-      profile_pic: user.profile_pic,
+      profile_pic: profile_pic,
       password: user.password,
-      password_confirmation: user.cpassword
+      password_confirmation: user.cpassword,
     }), httpOptions);
   }
 

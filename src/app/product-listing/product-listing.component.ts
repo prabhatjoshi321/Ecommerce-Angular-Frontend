@@ -1,3 +1,4 @@
+import { TokenStorageService } from './../_services/token-storage.service';
 import { Router } from '@angular/router';
 import { ProductService } from './../_services/product.service';
 import { GlobalConstants } from './../global-constants';
@@ -20,6 +21,7 @@ export class ProductListingComponent implements OnInit {
     private userService: UserService,
     private sanitizer: DomSanitizer,
     private myservice: ProductService,
+    private idservice: TokenStorageService,
     private router: Router,
   ) {}
 
@@ -43,7 +45,8 @@ export class ProductListingComponent implements OnInit {
   }
 
   prod_func(data){
-    this.myservice.setData(data);
+    this.idservice.saveProdId(data);
+    // this.myservice.setData(data);
     // this.router.navigate(["/productpage"])
   }
 

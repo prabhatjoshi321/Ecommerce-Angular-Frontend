@@ -20,14 +20,14 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'login', component: UserloginComponent},
-  // {path: 'productlisting', component: ProductListingComponent},
-  // {path: 'productpage', component: ProductpageComponent},
+  {path: 'productlisting', component: ProductListingComponent},
+  {path: 'productpage', component: ProductpageComponent},
   {path: 'register', component: UserregisterComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'logout', component: UserlogoutComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'insertproduct', component: PostproductComponent},
-  {path: 'productlisting', component: BoardAdminComponent},
+  {path: 'productlistingnew', component: BoardAdminComponent},
   {path: '**', component: NotfoundComponent},
 
 ];

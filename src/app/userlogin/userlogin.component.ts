@@ -14,6 +14,7 @@ export class UserloginComponent implements OnInit {
   ared: any = {};
   isLoggedIn = false;
   isLoginFailed = false;
+  usertype: boolean = false;
   errorMessage = '';
   roles: string[] = [];
 
@@ -28,6 +29,9 @@ export class UserloginComponent implements OnInit {
     if (this.tokenStorage.getToken()){
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().username;
+      if (this.tokenStorage.getUser().usertype == 1){
+        this.usertype = true;
+      }
     }
     else{
       this.isLoggedIn = false ;

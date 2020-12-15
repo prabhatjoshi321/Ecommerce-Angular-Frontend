@@ -14,6 +14,9 @@ export class UserregisterComponent implements OnInit {
   errorMessage = '';
   theFile: any = null;
   fileToUpload: File = null;
+  imageURL:string;
+  imgLink         : any
+  imgData         : any
 
 
   public constructor(
@@ -32,7 +35,7 @@ export class UserregisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    {this.authService.register(this.form).subscribe(
+    {this.authService.register(this.form, this.fileToUpload ).subscribe(
 
       data => {
         console.log(data);
@@ -42,11 +45,36 @@ export class UserregisterComponent implements OnInit {
         err => {
           this.errorMessage = err.error.message;
           this.isSignUpFailed = true;
-          console.log(this.form);
+          console.log(this.form,this.fileToUpload);
           console.log(err);
         }
       );
     }
+  }
+
+
+  onFileChanged(event){
+
+    this.imgLink = ''
+
+    this.imgData  = event.target.files[0]
+
+    //In your case
+
+    let mimeType  = this.imgData.type
+
+    if (mimeType.match(/image\/*/) == null) {
+      const message = "This file type is not supported, Please upload in image format"
+      return
+    }
+
+    let reader = new FileReader()
+    reader.readAsDataURL(this.imgData)
+    reader.onload = (event) => {
+      this.imgLink = reader.result
+    }
+    this.fileToUpload = this.imgData
+
   }
 
 

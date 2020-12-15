@@ -4,6 +4,7 @@ import { AuthService } from './../_services/auth.service';
 import { Title } from '@angular/platform-browser';
 import { GlobalConstants } from './../global-constants';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-board-admin',
@@ -18,13 +19,18 @@ export class BoardAdminComponent implements OnInit {
   user_data: [];
   product_data: [];
   ftpstring: string = GlobalConstants.ftpURL;
+  search_results: string;
+  strlen: number;
 
   constructor(
     private titleService: Title,
     private userService: UserService,
     private authService: AuthService,
+    private activeRoute: ActivatedRoute,
     private prodservice: ProductService,
-  ) { }
+  ) {
+
+  }
 
   ngOnInit(): void {
     this.titleService.setTitle('Listing');
@@ -38,6 +44,7 @@ export class BoardAdminComponent implements OnInit {
         this.content = JSON.parse(err.error).message;
       }
     );
+    this.search_results = this.content[this.content.length - 1];
   }
 
   prod_func(data){
