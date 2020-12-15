@@ -80,5 +80,12 @@ export class AuthService {
       prod_id: prodid_no,
     }), httpOptions);
   }
+  search(data): Observable<any> {
+    return this.http.post(AUTH_API + 'product/search', JSON.stringify({
+      build_name: data.build_name,
+      type: data.type,
+      city: data.city,
+    }), httpOptions);
+  }
 
 }

@@ -1,3 +1,6 @@
+import { SearchComponent } from './search/search.component';
+import { CompareComponent } from './compare/compare.component';
+import { RequirementComponent } from './requirement/requirement.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { PostproductComponent } from './postproduct/postproduct.component';
 import { ProductListingComponent } from './product-listing/product-listing.component';
@@ -27,7 +30,10 @@ const routes: Routes = [
   {path: 'logout', component: UserlogoutComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'insertproduct', component: PostproductComponent},
-  {path: 'productlistingnew', component: BoardAdminComponent},
+  {path: 'search', component: SearchComponent},
+  // {path: 'productlistingnew', component: BoardAdminComponent},
+  {path: 'requirement', component: RequirementComponent},
+  {path: 'compare', component: CompareComponent},
   {path: '**', component: NotfoundComponent},
 
 ];

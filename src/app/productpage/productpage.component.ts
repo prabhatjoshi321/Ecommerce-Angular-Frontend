@@ -1,3 +1,4 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { TokenStorageService } from './../_services/token-storage.service';
 import { GlobalConstants } from './../global-constants';
 import { ProductService } from './../_services/product.service';
@@ -16,6 +17,7 @@ export class ProductpageComponent implements OnInit {
   user_data: [];
   product_data: [];
   ftpstring: string = GlobalConstants.ftpURL;
+  sitestring: string = GlobalConstants.siteURL;
 
 
   constructor(
@@ -23,14 +25,24 @@ export class ProductpageComponent implements OnInit {
     private authService: AuthService,
     private idService: TokenStorageService,
     private prodservice: ProductService,
+    private router: Router,
+    private route:ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
     // this.prodservice.setData(1);
     // this.prod_id = this.prodservice.getData();
     this.titleService.setTitle('Property Page');
-    console.log(this.idService.getProdId());
-    {this.authService.product_see(this.idService.getProdId()).subscribe(
+    this.prod_id = this.idService.getProdId();
+    console.log(this.router.url);
+    {this.route.queryParams.subscribe(params => {
+      let id = params['id'];
+      console.log(id);
+      if(id != null){
+        this.prod_id = id;
+      }
+    })}
+    {this.authService.product_see(this.prod_id).subscribe(
 
       data => {
         this.user_data = data["user_data"];
@@ -44,6 +56,10 @@ export class ProductpageComponent implements OnInit {
         }
       );
     }
+  }
+
+  onShare(){
+    alert("Your Shareable Link is \n" + this.sitestring + this.router.url + "?id=" + this.prod_id);
   }
 
 }

@@ -29,6 +29,9 @@ import { ProductpageComponent } from './productpage/productpage.component';
 import { ContactComponent } from './contact/contact.component';
 import { PostproductComponent } from './postproduct/postproduct.component';
 import { TopbardarkLoaderComponent } from './topbardark-loader/topbardark-loader.component';
+import { RequirementComponent } from './requirement/requirement.component';
+import { CompareComponent } from './compare/compare.component';
+import { SearchComponent } from './search/search.component';
 //import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
@@ -56,6 +59,9 @@ import { TopbardarkLoaderComponent } from './topbardark-loader/topbardark-loader
     ContactComponent,
     PostproductComponent,
     TopbardarkLoaderComponent,
+    RequirementComponent,
+    CompareComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

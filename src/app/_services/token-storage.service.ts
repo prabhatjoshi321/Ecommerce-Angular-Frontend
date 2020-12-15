@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 const TOKEN_KEY = 'auth_token';
 const USER_KEY = 'auth_user';
 const ID_KEY = 'id_key';
-
+const COMPARE: any = [];
+const SEARCH_DATA = 'data';
 
 @Injectable({
   providedIn: 'root'
@@ -41,5 +42,26 @@ export class TokenStorageService {
 
   public getProdId(): any {
     return(sessionStorage.getItem(ID_KEY));
+  }
+
+  public compareInsertData(read: any): void{
+    window.sessionStorage.setItem(COMPARE, read);
+  }
+
+  public clearCompareData(){
+    window.sessionStorage.setItem(COMPARE, null);
+  }
+
+  public compareGetData(){
+    return(sessionStorage.getItem(COMPARE));
+  }
+
+  public searchData(data: any): void{
+    window.sessionStorage.removeItem(SEARCH_DATA);
+    window.sessionStorage.setItem(SEARCH_DATA, JSON.stringify(data));
+  }
+
+  public returnSearch(): any{
+    return JSON.parse(sessionStorage.getItem(SEARCH_DATA));
   }
 }

@@ -49,36 +49,46 @@
 									<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="/productpagepills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Rent</a>
 								</li> -->
 							</ul>
-							<div class="tab-content home1_adsrchfrm w-75 mx-auto" id="pills-tabContent">
+							<div class="tab-content home1_adsrchfrm mx-auto" style="width: 80%;" id="pills-tabContent">
 								<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-									<div class="home1-advnc-search">
+									<form class="home1-advnc-search" action="#" name="form" (ngSubmit)="f.form.valid && onSearch()" #f="ngForm">
 										<ul class="h1ads_1st_list mb0">
 											<li class="list-inline-item">
 											    <div class="form-group">
-											    	<input type="text" class="form-control" id="exampleInputName1" placeholder="Enter keyword...">
+											    	<input type="text" class="form-control" name="build_name" [(ngModel)]="form.build_name" #build_name="ngModel" id="build_name" placeholder="Building Name">
 											    </div>
 											</li>
 											<li class="list-inline-item">
-												<div class="search_option_two">
-													<div class="candidate_revew_select">
-														<select class="selectpicker w100 show-tick">
-															<option>Property Type</option>
-															<option>Apartment</option>
-															<option>Bungalow</option>
-															<option>Condo</option>
-															<option>House</option>
-															<option>Land</option>
-															<option>Single Family</option>
-														</select>
-													</div>
+												<div class="form-group">
+                          <input type="text" class="form-control" name="type" [(ngModel)]="form.type" #type="ngModel" id="type" placeholder="Type">
 												</div>
 											</li>
 											<li class="list-inline-item">
 											    <div class="form-group">
-											    	<input type="text" class="form-control" id="exampleInputEmail" placeholder="Location">
+											    	<input type="text" class="form-control" name="city" [(ngModel)]="form.city" #city="ngModel" id="City" placeholder="city">
 											    	<label for="exampleInputEmail"><span class="flaticon-maps-and-flags"></span></label>
 											    </div>
 											</li>
+											<li class="list-inline-item">
+												<div class="search_option_button form-group">
+												    <a href="/search"><button class="btn btn-thm">Search</button></a>
+												</div>
+											</li>
+											</ul>
+										</form>
+								</div>
+											<!-- <li class="list-inline-item">
+												<div class="search_option_two">
+													<div class=" form-group candidate_revew_select">
+														<select class="selectpicker w100 show-tick form-control" [(ngModel)]="form.type" #type="ngModel">
+															<option>Property Type</option>
+															<option>Lounge</option>
+
+														</select>
+													</div>
+												</div>
+                      </li> -->
+
 											<!-- <li class="list-inline-item">
 												<div class="small_dropdown2">
 												    <div id="prncgs" class="btn dd_btn">
@@ -290,15 +300,12 @@
 													</div>
 												</div>
 											</li> -->
-											<li class="list-inline-item">
-												<div class="search_option_button">
-												    <button type="submit" class="btn btn-thm">Search</button>
+											<!-- <li class="list-inline-item">
+												<div class="search_option_button form-group">
+												    <button class="btn btn-thm" >Search</button>
 												</div>
-											</li>
-										</ul>
-									</div>
-								</div>
-								<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+											</li> -->
+								<!-- <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 									<div class="home1-advnc-search">
 										<ul class="h1ads_1st_list mb0">
 											<li class="list-inline-item">
@@ -545,7 +552,7 @@
 											</li>
 										</ul>
 									</div>
-								</div>
+								</div> -->
 							</div>
 						</div>
 					</div>
