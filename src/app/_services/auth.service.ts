@@ -88,4 +88,11 @@ export class AuthService {
     }), httpOptions);
   }
 
+  requirements(req_data: any, user_id: any): Observable<any> {
+    return this.http.post(AUTH_API + 'product/requ', JSON.stringify({
+      user_id: user_id,
+      requirement: req_data,
+    }), httpOptions);
+  }
+
 }

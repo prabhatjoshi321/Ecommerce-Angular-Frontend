@@ -14,6 +14,7 @@ export class ProductListingComponent implements OnInit {
 
   content: [];
   ftpstring: string= GlobalConstants.ftpURL;
+  prod_if
 
 
   constructor(
@@ -30,7 +31,8 @@ export class ProductListingComponent implements OnInit {
 }
 
   ngOnInit(): void {
-
+    this.idservice.saveCdata(null);
+    this.idservice.saveProdId(null);
     this.titleService.setTitle('Listing');
     this.userService.getproductlisting().pipe().subscribe(
       (data: any) => {
@@ -49,5 +51,32 @@ export class ProductListingComponent implements OnInit {
     // this.myservice.setData(data);
     // this.router.navigate(["/productpage"])
   }
+
+  onComp(data){
+
+
+    console.log(this.idservice.getCdata());
+    console.log(this.idservice.getProdId());
+
+
+    if(this.idservice.getCdata() != null){
+      this.idservice.saveProdId(data);
+      console.log(this.idservice.getCdata());
+      console.log(this.idservice.getProdId());
+      console.log("1rd");
+    }
+
+    if(this.idservice.getCdata()){
+
+      this.prod_if = this.idservice.getCdata;
+      this.idservice.saveProdId(this.prod_if);
+      this.idservice.saveCdata(data);
+      console.log(this.idservice.getCdata());
+      console.log(this.idservice.getProdId());
+      console.log("3rd");
+    }
+  }
+
+
 
 }

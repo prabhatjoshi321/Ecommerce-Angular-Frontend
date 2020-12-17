@@ -36,4 +36,8 @@ export class UserService {
     return this.http.get(GlobalConstants.apiURL + 'product/get_product', { responseType: 'json' });
   }
 
+  getrequirements(): Observable<any> {
+    return this.http.get(GlobalConstants.apiURL + 'product/get_requ', { responseType: 'json' });
+  }
+
 }
