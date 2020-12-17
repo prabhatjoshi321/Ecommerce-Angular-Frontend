@@ -36,6 +36,7 @@ export class ProfileComponent implements OnInit {
       (data: any) => {
         this.content = data;
         this.currentUser = data.name;
+        this.profile_pic = data.profile_pic
         this.email = data.email;
         this.usertype = data.usertype;
         this.phn_no = data.phone_number;
