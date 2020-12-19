@@ -17,6 +17,7 @@ export class UserregisterComponent implements OnInit {
   imageURL:string;
   imgLink         : any
   imgData         : any
+  image;
 
 
   public constructor(
@@ -35,7 +36,7 @@ export class UserregisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    {this.authService.register(this.form, this.fileToUpload ).subscribe(
+    {this.authService.register(this.form, this.image ).subscribe(
 
       data => {
         console.log(data);
@@ -55,26 +56,18 @@ export class UserregisterComponent implements OnInit {
 
   onFileChanged(event){
 
-    this.imgLink = ''
+    this.readThis(event.target)
 
-    this.imgData  = event.target.files[0]
+  }
+  readThis(inputValue: any): void {
+    var file:File = inputValue.files[0];
+    var myReader:FileReader = new FileReader();
 
-    //In your case
-
-    let mimeType  = this.imgData.type
-
-    if (mimeType.match(/image\/*/) == null) {
-      const message = "This file type is not supported, Please upload in image format"
-      return
+    myReader.onloadend = (e) => {
+      this.image = myReader.result;
+      console.log(myReader.result);
     }
-
-    let reader = new FileReader()
-    reader.readAsDataURL(this.imgData)
-    reader.onload = (event) => {
-      this.imgLink = reader.result
-    }
-    this.fileToUpload = this.imgData
-
+    myReader.readAsDataURL(file);
   }
 
 

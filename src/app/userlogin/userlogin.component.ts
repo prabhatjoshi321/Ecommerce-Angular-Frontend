@@ -44,6 +44,7 @@ export class UserloginComponent implements OnInit {
     this.authService.login(this.form).subscribe(
       data => {
         this.tokenStorage.saveToken(data.access_token);
+        console.log(this.tokenStorage.getToken());
         this.tokenStorage.saveUser(data);
 
         this.isLoginFailed = false;
