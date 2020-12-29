@@ -18,6 +18,10 @@ export class PostproductComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
 
+  saleValue: boolean = false;
+  rentValue: boolean = false;
+
+
   constructor(
     private titleService: Title,
     private authService: AuthService,
@@ -36,22 +40,36 @@ export class PostproductComponent implements OnInit {
 
   }
 
-  onSubmit(): void {
-    this.authService.login(this.form).subscribe(
+  onSubmitSale(): void {
+    this.authService.product_insert_sale(this.form).subscribe(
       data => {
-        this.tokenStorage.saveToken(data.access_token);
-        this.tokenStorage.saveUser(data);
-
-        this.isFormSubmitted = false;
-        this.isLoggedIn = true;
-        this.roles = this.tokenStorage.getUser().name;
-        this.reloadPage();
+        console.log("successful" + data)
       },
       err => {
         this.errorMessage = err.error.message;
-        this.isFormSubmitted = true;
       }
     );
+  }
+
+  onSubmitRent(): void {
+    this.authService.product_insert_rent(this.form).subscribe(
+      data => {
+        console.log("successful" + data)
+      },
+      err => {
+        this.errorMessage = err.error.message;
+      }
+    );
+  }
+
+  saleButton(): void{
+    this.saleValue = true;
+    this.rentValue = false;
+  }
+
+  rentButton(): void{
+    this.saleValue = false;
+    this.rentValue = true;
   }
 
   reloadPage(): void {

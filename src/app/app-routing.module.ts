@@ -1,3 +1,4 @@
+import { BoardAgentComponent } from './board-agent/board-agent.component';
 import { SearchComponent } from './search/search.component';
 import { CompareComponent } from './compare/compare.component';
 import { RequirementComponent } from './requirement/requirement.component';
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'insertproduct', component: PostproductComponent},
   {path: 'search', component: SearchComponent},
+  {path: 'agentregister', component: BoardAgentComponent},
   // {path: 'productlistingnew', component: BoardAdminComponent},
   {path: 'requirement', component: RequirementComponent},
   {path: 'compare', component: CompareComponent},

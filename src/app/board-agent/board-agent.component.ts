@@ -1,3 +1,5 @@
+import { Title } from '@angular/platform-browser';
+import { AuthService } from './../_services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,127 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardAgentComponent implements OnInit {
 
-  constructor() { }
+  form: any = {};
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
+  theFile: any = null;
+  fileToUpload: File = null;
+  imageURL:string;
+  imgLink         : any
+  imgData         : any
+  image;
+
+  ownerVisible: boolean = true;
+  dealerVisible: boolean = false;
+  lawyerVisible: boolean = false;
+
+
+
+  public constructor(
+    private titleService: Title,
+    private authService: AuthService) {
+
+  }
+
+
+
+
 
   ngOnInit(): void {
+    this.titleService.setTitle('Register');
+
   }
+
+  onSubmitOwner(): void {
+    {this.authService.register_owner(this.form, this.image ).subscribe(
+
+      data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+      },
+        err => {
+          this.errorMessage = err.error.message;
+          this.isSignUpFailed = true;
+          console.log(this.form,this.fileToUpload);
+          console.log(err);
+        }
+      );
+    }
+  }
+
+  onSubmitDealer(): void {
+    {this.authService.register_dealer(this.form, this.image ).subscribe(
+
+      data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+      },
+        err => {
+          this.errorMessage = err.error.message;
+          this.isSignUpFailed = true;
+          console.log(this.form,this.fileToUpload);
+          console.log(err);
+        }
+      );
+    }
+  }
+
+  onSubmitLawyer(): void {
+    {this.authService.register_lawyer(this.form, this.image ).subscribe(
+
+      data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+      },
+        err => {
+          this.errorMessage = err.error.message;
+          this.isSignUpFailed = true;
+          console.log(this.form,this.fileToUpload);
+          console.log(err);
+        }
+      );
+    }
+  }
+
+
+  ownerButton(){
+    this.ownerVisible = true;
+    this.dealerVisible = false;
+    this.lawyerVisible = false;
+  }
+
+  dealerButton(){
+    this.ownerVisible = false;
+    this.dealerVisible = true;
+    this.lawyerVisible = false;
+  }
+
+  lawyerButton(){
+    this.ownerVisible = false;
+    this.dealerVisible = false;
+    this.lawyerVisible = true;
+  }
+
+
+  onFileChanged(event){
+
+    this.readThis(event.target)
+
+  }
+  readThis(inputValue: any): void {
+    var file:File = inputValue.files[0];
+    var myReader:FileReader = new FileReader();
+
+    myReader.onloadend = (e) => {
+      this.image = myReader.result;
+      console.log(myReader.result);
+    }
+    myReader.readAsDataURL(file);
+  }
+
 
 }
