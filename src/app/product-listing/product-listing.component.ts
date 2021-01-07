@@ -38,6 +38,7 @@ export class ProductListingComponent implements OnInit {
       (data: any) => {
 
         this.content = data.data.data;
+        console.log(this.content);
         //console.log(this.content);
       },
       err => {
