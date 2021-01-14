@@ -39,7 +39,7 @@ export class ProfileComponent implements OnInit {
         this.profile_pic = data.profile_pic
         this.email = data.email;
         this.usertype = data.usertype;
-        this.phn_no = data.phone_number;
+        this.phn_no = data.other_mobile_number;
         if(this.usertype = 1){
           this.usercat = "Seller";
         }

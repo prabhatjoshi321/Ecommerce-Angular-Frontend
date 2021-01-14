@@ -94,7 +94,8 @@ export class AuthService {
     }), httpOptions);
   }
 
-  product_insert_sale(details, imageName1, imageName2, imageName3, imageName4, imageName5): Observable<any> {
+  product_insert_sale(details): Observable<any> {
+    console.log(details);
     return this.http.post(AUTH_API + 'product/insert_product_sale', JSON.stringify ({
       user_id: details.user_id,
       build_name: details.build_name,
@@ -107,11 +108,11 @@ export class AuthService {
       map_latitude: details.map_latitude,
       map_longitude: details.map_longitude,
       display_address: details.display_address,
-      product_image1: imageName1,
-      product_image2: imageName2,
-      product_image3: imageName3,
-      product_image4: imageName4,
-      product_image5: imageName5,
+      product_image1: details.product_image1,
+      product_image2: details.product_image2,
+      product_image3: details.product_image3,
+      product_image4: details.product_image4,
+      product_image5: details.product_image5,
       area: details.area,
       area_unit: details.area_unit,
       carpet_area: details.carpet_area,

@@ -1,3 +1,4 @@
+import { UserService } from './../_services/user.service';
 import { Title } from '@angular/platform-browser';
 import { AuthService } from './../_services/auth.service';
 import { TokenStorageService } from './../_services/token-storage.service';
@@ -160,7 +161,7 @@ export class PostproductComponent implements OnInit {
     description: new FormControl('') ,
 
 })
-
+  content;
 
   image1;
   image2;
@@ -172,7 +173,8 @@ export class PostproductComponent implements OnInit {
   constructor(
     private titleService: Title,
     private authService: AuthService,
-    private tokenStorage: TokenStorageService
+    private tokenStorage: TokenStorageService,
+    private userService: UserService
     ) { }
 
     eventListen(event){
@@ -182,6 +184,17 @@ export class PostproductComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleService.setTitle('Create Listing');
+    this.userService.getUserBoard().pipe().subscribe(
+      (data: any) => {
+
+        this.content = data;
+        console.log(this.content.id);
+        //console.log(this.content);
+      },
+      err => {
+        this.content = JSON.parse(err.error).message;
+      }
+    );
     this.maintenance = true;
     this.parking = false;
     if (this.tokenStorage.getToken()){
@@ -346,6 +359,7 @@ z
   onSubmitSale(): void {
 
     this.listing_sale.patchValue({
+      user_id: this.content,
       amenities: this.amenityArray,
       furnishings: this.furnishingArray,
       product_image1: this.image1,
@@ -357,14 +371,15 @@ z
     })
 
     console.log(this.listing_sale.value)
-    // this.authService.product_insert_sale(this.listing_sale).subscribe(
-    //   data => {
-    //     console.log("successful" + data)
-    //   },
-    //   err => {
-    //     this.errorMessage = err.error.message;
-    //   }
-    // );
+    this.authService.product_insert_sale(this.listing_sale.value).subscribe(
+      data => {
+        console.log("successful" + data)
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        console.log(err);
+      }
+    );
   }
 
 

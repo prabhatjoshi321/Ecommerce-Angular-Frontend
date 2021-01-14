@@ -26,6 +26,7 @@ export class UserloginComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleService.setTitle('Login');
+    console.log(this.tokenStorage.getUser())
     if (this.tokenStorage.getToken()){
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().username;
