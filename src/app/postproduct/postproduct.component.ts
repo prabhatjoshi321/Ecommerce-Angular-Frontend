@@ -38,62 +38,7 @@ export class PostproductComponent implements OnInit {
 
   text : string;
 
-  listing_sale = new FormGroup({
 
-      user_id: new FormControl(''),
-      build_name: new FormControl(''),
-      type: new FormControl('') ,
-      address: new FormControl(''),
-      city: new FormControl(''),
-      locality: new FormControl(''),
-      property_detail: new FormControl(''),
-      nearest_landmark: new FormControl(''),
-      map_latitude: new FormControl(''),
-      map_longitude: new FormControl(''),
-      display_address: new FormControl(''),
-      product_image1: new FormControl(''),
-      product_image2: new FormControl(''),
-      product_image3: new FormControl(''),
-      product_image4: new FormControl(''),
-      product_image5: new FormControl(''),
-      area: new FormControl(''),
-      area_unit: new FormControl(''),
-      carpet_area: new FormControl(''),
-      bedroom: new FormControl(''),
-      bathroom: new FormControl(''),
-      balconies: new FormControl(''),
-      additional_rooms: new FormControl(''),
-      furnishing_status: new FormControl(''),
-      furnishings: new FormControl(''),
-      total_floors: new FormControl(''),
-      property_on_floor: new FormControl(''),
-      rera_registration_status: new FormControl(''),
-      additional_parking_status: new FormControl(''),
-      parking_covered_count: new FormControl('0'),
-      parking_open_count: new FormControl('0'),
-      sale_availability: new FormControl('1'),
-      possession_by: new FormControl(''),
-      ownership: new FormControl(''),
-      expected_pricing: new FormControl(''),
-      inclusive_pricing_details: new FormControl(''),
-      tax_govt_charge: new FormControl(''),
-      price_negotiable: new FormControl(''),
-      maintenance_charge_status: new FormControl(''),
-      maintenance_charge: new FormControl(''),
-      maintenance_charge_condition: new FormControl(''),
-      deposit: new FormControl(''),
-      brokerage_charges: new FormControl('None'),
-      facing_towards: new FormControl(''),
-      availability_condition: new FormControl(''),
-      amenities: new FormControl(''),
-      buildyear: new FormControl(''),
-      age_of_property: new FormControl(''),
-      description: new FormControl(''),
-      equipment: new FormControl(''),
-      features: new FormControl(''),
-      nearby_places: new FormControl(''),
-
-  })
 
 
   listing_rent = new FormGroup({
@@ -184,6 +129,7 @@ export class PostproductComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleService.setTitle('Create Listing');
+    console.log(this.form);
     this.userService.getUserBoard().pipe().subscribe(
       (data: any) => {
 
@@ -358,28 +304,28 @@ z
 
   onSubmitSale(): void {
 
-    this.listing_sale.patchValue({
-      user_id: this.content,
-      amenities: this.amenityArray,
-      furnishings: this.furnishingArray,
-      product_image1: this.image1,
-      product_image2: this.image2,
-      product_image3: this.image3,
-      product_image4: this.image4,
-      product_image5: this.image5,
+    // this.listing_sale.patchValue({
+    //   user_id: this.content.id,
+    //   amenities: this.amenityArray,
+    //   furnishings: this.furnishingArray,
+    //   product_image1: this.image1,
+    //   product_image2: this.image2,
+    //   product_image3: this.image3,
+    //   product_image4: this.image4,
+    //   product_image5: this.image5,
 
-    })
+    // })
 
-    console.log(this.listing_sale.value)
-    this.authService.product_insert_sale(this.listing_sale.value).subscribe(
-      data => {
-        console.log("successful" + data)
-      },
-      err => {
-        this.errorMessage = err.error.message;
-        console.log(err);
-      }
-    );
+    console.log(this.form)
+    // this.authService.product_insert_sale(this.listing_sale.value).subscribe(
+    //   data => {
+    //     console.log("successful" + data)
+    //   },
+    //   err => {
+    //     this.errorMessage = err.error.message;
+    //     console.log(err);
+    //   }
+    // );
   }
 
 
