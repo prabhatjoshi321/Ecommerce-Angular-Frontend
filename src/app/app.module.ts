@@ -32,6 +32,7 @@ import { TopbardarkLoaderComponent } from './topbardark-loader/topbardark-loader
 import { RequirementComponent } from './requirement/requirement.component';
 import { CompareComponent } from './compare/compare.component';
 import { SearchComponent } from './search/search.component';
+import { SavedsearchesComponent } from './savedsearches/savedsearches.component';
 //import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
@@ -62,6 +63,7 @@ import { SearchComponent } from './search/search.component';
     RequirementComponent,
     CompareComponent,
     SearchComponent,
+    SavedsearchesComponent,
   ],
   imports: [
     BrowserModule,

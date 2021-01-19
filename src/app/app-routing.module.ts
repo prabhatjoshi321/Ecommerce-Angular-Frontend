@@ -1,3 +1,4 @@
+import { SavedsearchesComponent } from './savedsearches/savedsearches.component';
 import { BoardAgentComponent } from './board-agent/board-agent.component';
 import { SearchComponent } from './search/search.component';
 import { CompareComponent } from './compare/compare.component';
@@ -23,7 +24,6 @@ const routes: Routes = [
 
   {path: '', component: HomeComponent},
   {path: 'dashboard', component: DashboardComponent},
-  {path: 'login', component: UserloginComponent},
   {path: 'productlisting', component: ProductListingComponent},
   {path: 'productpage', component: ProductpageComponent},
   {path: 'register', component: UserregisterComponent},
@@ -36,6 +36,8 @@ const routes: Routes = [
   // {path: 'productlistingnew', component: BoardAdminComponent},
   {path: 'requirement', component: RequirementComponent},
   {path: 'compare', component: CompareComponent},
+  {path: 'login', component: UserloginComponent},
+  {path: 'savedsearches', component: SavedsearchesComponent},
   {path: '**', component: NotfoundComponent},
 
 ];

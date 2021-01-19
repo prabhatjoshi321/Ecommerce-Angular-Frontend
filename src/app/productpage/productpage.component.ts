@@ -42,6 +42,20 @@ export class ProductpageComponent implements OnInit {
         this.prod_id = id;
       }
     })}
+
+    if( this.idService.getUser() != null)
+    {
+      this.authService.saveSearch(this.idService.getUser().id, this.prod_id).subscribe(
+        data => {
+          console.log(data)
+        },
+        err => {
+          console.log(err)
+        }
+      )
+    }
+
+
     {this.authService.product_see(this.prod_id).subscribe(
 
       data => {

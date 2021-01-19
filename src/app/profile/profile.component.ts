@@ -19,7 +19,21 @@ export class ProfileComponent implements OnInit {
   email_verifyd: any;
   email_verify: boolean = false;
   id_created_at:any;
-  phn_no: any;
+  phn_no
+  company_name
+  company_url
+  address
+  city
+  other_mobile_number
+  landline_number
+  company_profile
+  pan_number
+  aadhar_number
+  provided_service
+  place_of_practice
+  price_for_service
+  law_firm_number
+  practice_number
   content: {};
   ftpstring: string = GlobalConstants.ftpURL;
 
@@ -40,11 +54,30 @@ export class ProfileComponent implements OnInit {
         this.email = data.email;
         this.usertype = data.usertype;
         this.phn_no = data.other_mobile_number;
-        if(this.usertype = 1){
-          this.usercat = "Seller";
-        }
-        if(this.usertype = 2){
+        this.company_name = data.company_name
+        this.company_url = data.company_url
+        this.address = data.address
+        this.city = data.city
+        this.landline_number = data.landline_number
+        this.company_profile = data.company_profile
+        this.pan_number = data.pan_number
+        this.aadhar_number = data.aadhar_number
+        this.provided_service = data.provided_service
+        this.place_of_practice = data.place_of_practice
+        this.price_for_service = data.price_for_service
+        this.law_firm_number = data.law_firm_number
+        this.practice_number = data.practice_number
+        if(this.usertype == 1){
           this.usercat = "Customer";
+        }
+        else if(this.usertype == 2){
+          this.usercat = "Owner";
+        }
+        else if(this.usertype == 3){
+          this.usercat = "Dealer/Company";
+        }
+        else if(this.usertype == 4){
+          this.usercat = "Lawyer";
         }
         this.email_verifyd = data.email_verified_at;
         if(this.email_verifyd != null){

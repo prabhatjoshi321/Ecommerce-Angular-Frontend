@@ -94,10 +94,10 @@ export class AuthService {
     }), httpOptions);
   }
 
-  product_insert_sale(details): Observable<any> {
+  product_insert_sale(details, id, amenityArray, furnishingArray, imageName1, imageName2, imageName3, imageName4, imageName5): Observable<any> {
     console.log(details);
     return this.http.post(AUTH_API + 'product/insert_product_sale', JSON.stringify ({
-      user_id: details.user_id,
+      user_id: id,
       build_name: details.build_name,
       type: details.type,
       address: details.address,
@@ -108,11 +108,11 @@ export class AuthService {
       map_latitude: details.map_latitude,
       map_longitude: details.map_longitude,
       display_address: details.display_address,
-      product_image1: details.product_image1,
-      product_image2: details.product_image2,
-      product_image3: details.product_image3,
-      product_image4: details.product_image4,
-      product_image5: details.product_image5,
+      product_image1: imageName1,
+      product_image2: imageName2,
+      product_image3: imageName3,
+      product_image4: imageName4,
+      product_image5: imageName5,
       area: details.area,
       area_unit: details.area_unit,
       carpet_area: details.carpet_area,
@@ -121,14 +121,14 @@ export class AuthService {
       balconies: details.balconies,
       additional_rooms: details.additional_rooms,
       furnishing_status: details.furnishing_status,
-      furnishings: details.furnishings,
+      furnishings: furnishingArray,
       total_floors: details.total_floors,
       property_on_floor: details.property_on_floor,
       rera_registration_status: details.rera_registration_status,
       additional_parking_status: details.additional_parking_status,
       parking_covered_count: details.parking_covered_count,
       parking_open_count: details.parking_open_count,
-      sale_availability: details.sale_availability,
+      sale_availability: 1,
       possession_by: details.possession_by,
       ownership: details.ownership,
       expected_pricing: details.expected_pricing,
@@ -142,7 +142,7 @@ export class AuthService {
       brokerage_charges: details.brokerage_charges,
       facing_towards: details.facing_towards,
       availability_condition: details.availability_condition,
-      amenities: details.amenities,
+      amenities: amenityArray,
       buildyear: details.buildyear,
       age_of_property: details.age_of_property,
       description: details.description,
@@ -224,6 +224,7 @@ export class AuthService {
       prod_id: prodid_no,
     }), httpOptions);
   }
+
   search(data): Observable<any> {
     return this.http.post(AUTH_API + 'product/search', JSON.stringify({
       build_name: data.build_name,
@@ -232,10 +233,34 @@ export class AuthService {
     }), httpOptions);
   }
 
-  requirements(req_data: any, user_id: any): Observable<any> {
+  requirement_index(id): Observable<any> {
+    return this.http.post(AUTH_API + 'product/req_index', JSON.stringify({
+      user_id: id,
+    }), httpOptions);
+  }
+
+  requirements(detail: any = {}, user_id: any): Observable<any> {
     return this.http.post(AUTH_API + 'product/requ', JSON.stringify({
       user_id: user_id,
-      requirement: req_data,
+      rental_sale_condition: detail.rental_sale_condition,
+      purchase_mode: detail.purchase_mode,
+      cash_amount: detail.cash_amount,
+      loan_amount: detail.loan_amount,
+      property_type: detail.property_type,
+      requirement: detail.requirement,
+    }), httpOptions);
+  }
+
+  saveSearch(id, prod_id): Observable<any> {
+    return this.http.post(AUTH_API + 'product/save_search', JSON.stringify({
+      user_id: id,
+      product_id: prod_id
+    }), httpOptions);
+  }
+
+  getSearch(id): Observable<any> {
+    return this.http.post(AUTH_API + 'product/get_search', JSON.stringify({
+      user_id: id,
     }), httpOptions);
   }
 

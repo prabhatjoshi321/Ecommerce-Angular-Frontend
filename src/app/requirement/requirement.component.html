@@ -50,14 +50,18 @@
 									</ul>
 								</div>
 							</div>
-						</div>
+            </div>
+            <div class="text-center col-lg-12" *ngIf="!loginCheck"><p class="alert alert-danger">Login To Continue</p></div>
+            <div *ngIf="loginCheck">
 						<div class="col-lg-12 mb10">
 							<div class="breadcrumb_content style2">
 								<h2 class="breadcrumb_title">Requirements Form</h2>
 								<p>Enter your Requirement Details Here!</p>
 							</div>
-						</div>
-						<div class="col-lg-12">
+            </div>
+
+            <div class="text-center col-lg-12"><p class="alert alert-success" *ngIf="reqSubmitted">Requirement Submitted</p></div>
+						<div class="col-lg-12" *ngIf="!reqSubmitted">
 							<div class="my_dashboard_review">
 								<div class="row">
 									<div class="col-lg-12">
@@ -65,38 +69,83 @@
 
                   </div>
                   <form action="#" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
-									<div class="col-lg-12">
-										<div class="my_profile_setting_textarea form-group">
-										    <label for="propertyDescription">Please Enter your Requirements here.</label>
-										    <textarea type="text" name="username"
-                        [(ngModel)]="form"
-                        required
-                        #requirement="ngModel" class="form-control" id="exampleInputEmail3" placeholder="Requirements" rows="15" cols="100"></textarea>
-										</div>
-									</div>
-
-
-
-
-									<div class="col-xl-12 form-group">
-										<div class="my_profile_setting_input">
-											<button class="btn btn2 float-right">Submit</button>
-										</div>
-                  </div>
+                    <div class="col-lg-6 col-xl-12">
+                      <div class="my_profile_setting_input form-group">
+                          <label for="rental_sale_condition">Rental Sale Condition</label>
+                          <input type="text" class="form-control" name="rental_sale_condition" #rental_sale_condition="ngModel" [(ngModel)]="form.rental_sale_condition" placeholder="State the condition that you want for the rent. (If Applicable)">
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-12">
+                      <div class="my_profile_setting_input form-group">
+                          <label for="purchase_mode">Purchase Mode</label>
+                          <input type="text" class="form-control" name="purchase_mode" #purchase_mode="ngModel" [(ngModel)]="form.purchase_mode" placeholder="State the Purchase Mode you like." >
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-12">
+                      <div class="my_profile_setting_input form-group">
+                          <label for="cash_amount">Cash Amount</label>
+                          <input type="text" class="form-control" name="cash_amount" #cash_amount="ngModel" [(ngModel)]="form.cash_amount" placeholder="State the amount you are willing to pay by cash">
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-12">
+                      <div class="my_profile_setting_input form-group">
+                          <label for="loan_amount">Loan Amount</label>
+                          <input type="text" class="form-control" name="loan_amount" #loan_amount="ngModel" [(ngModel)]="form.loan_amount" placeholder="State the Loan amount that you would like to take. (If Applicable)">
+                      </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-12">
+                      <div class="my_profile_setting_input form-group">
+                          <label for="loan_amount">Property Type</label>
+                          <input type="text" class="form-control" name="property_type" #property_type="ngModel" [(ngModel)]="form.property_type" placeholder="State the Property Type that you would like to have.">
+                      </div>
+                    </div>
+									  <div class="col-lg-12">
+									  	<div class="my_profile_setting_textarea form-group">
+									  	    <label for="requirements">Please Enter your Requirements here.</label>
+									  	    <textarea type="text" name="requirements" [(ngModel)]="form.requirement" #requirement="ngModel" class="form-control" id="exampleInputEmail3" placeholder="Requirements" rows="15" cols="100"></textarea>
+									  	</div>
+									  </div>
+									  <div class="col-xl-12 form-group">
+									  	<div class="my_profile_setting_input">
+									  		<button type="submit" class="btn btn2 float-right">Submit</button>
+									  	</div>
+                    </div>
                 </form>
 								</div>
 							</div>
-							<div class="my_dashboard_review mt30" *ngFor="let number of content">
-								<div class="row">
-									<div class="col-lg-12">
-										<h4 class="mb30">Requirement Posted</h4>
-										<div class="my_profile_setting_input form-group">
-									    	<label for="propertyAddress">{{number.requirement}}</label>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+              <div class="my_dashboard_review mt30" *ngFor="let number of content">
+                <div class="row">
+                  <div class="col-lg-12 col-xl-12">
+                    <h4 class="mb30">Requirement Posted</h4>
+                    <div class="my_profile_setting_input form-group col-lg-12 col-xl-12">
+                        <label for="propertyAddress">Rental/Sale Condition</label>
+                        <p>{{number.rental_sale_condition}}</p>
+                    </div>
+                    <div class="my_profile_setting_input form-group col-lg-12 w-100">
+                        <label for="propertyAddress">Purchase Mode</label>
+                        <p>{{number.purchase_mode}}</p>
+                    </div>
+                    <div class="my_profile_setting_input form-group col-lg-12">
+                        <label for="propertyAddress">Cash Amount</label>
+                        <p>{{number.cash_amount}}</p>
+                    </div>
+                    <div class="my_profile_setting_input form-group col-lg-12">
+                        <label for="propertyAddress">Loan Amount</label>
+                        <p>{{number.loan_amount}}</p>
+                    </div>
+                    <div class="my_profile_setting_input form-group col-lg-12">
+                        <label for="propertyAddress">Property Type</label>
+                        <p>{{number.property_type}}</p>
+                    </div>
+                    <div class="my_profile_setting_input form-group col-lg-12">
+                        <label for="propertyAddress">Requirement Details</label>
+                        <p>{{number.requirement}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
 					</div>
 					<div class="row mt50">
 						<div class="col-lg-12">

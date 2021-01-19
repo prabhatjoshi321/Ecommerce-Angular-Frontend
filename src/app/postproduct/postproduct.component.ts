@@ -106,7 +106,7 @@ export class PostproductComponent implements OnInit {
     description: new FormControl('') ,
 
 })
-  content;
+  content: any = {};
 
   image1;
   image2;
@@ -130,17 +130,7 @@ export class PostproductComponent implements OnInit {
   ngOnInit(): void {
     this.titleService.setTitle('Create Listing');
     console.log(this.form);
-    this.userService.getUserBoard().pipe().subscribe(
-      (data: any) => {
-
-        this.content = data;
-        console.log(this.content.id);
-        //console.log(this.content);
-      },
-      err => {
-        this.content = JSON.parse(err.error).message;
-      }
-    );
+    this.content = this.tokenStorage.getUser().id;
     this.maintenance = true;
     this.parking = false;
     if (this.tokenStorage.getToken()){
@@ -317,15 +307,15 @@ z
     // })
 
     console.log(this.form)
-    // this.authService.product_insert_sale(this.listing_sale.value).subscribe(
-    //   data => {
-    //     console.log("successful" + data)
-    //   },
-    //   err => {
-    //     this.errorMessage = err.error.message;
-    //     console.log(err);
-    //   }
-    // );
+    this.authService.product_insert_sale(this.form, this.content.id, this.amenityArray, this.furnishingArray, this.image1, this.image2, this.image3, this.image4, this.image5).subscribe(
+      data => {
+        console.log("successful" + data)
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        console.log(err);
+      }
+    );
   }
 
 

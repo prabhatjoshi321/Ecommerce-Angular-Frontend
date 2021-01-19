@@ -13,43 +13,52 @@ import { Component, OnInit } from '@angular/core';
 export class RequirementComponent implements OnInit {
 
   content: [];
-  form:string;
+  form: any = {};
   ftpstring: string = GlobalConstants.ftpURL;
   user_id: string;
+  reqSubmitted: boolean = false;
+  errors: any = {};
+  loginCheck:boolean = false;
 
   constructor(
     private titleService: Title,
-    private dataService: TokenStorageService,
+    private tokenService: TokenStorageService,
     private userService: UserService,
     private authService: AuthService
   ) { }
 
   ngOnInit(): void {
     this.titleService.setTitle('Requirements');
-    this.userService.getrequirements().pipe().subscribe(
-      (data: any) => {
-        this.content =data.data.data;
-        console.log(this.content)
-      }
-    );
-    this.userService.getUserBoard().pipe().subscribe(
-      (data: any) => {
-        this.user_id = data.id;
-      },
-      err => {
-        this.content = JSON.parse(err.error).message;
-      }
-    );
+    if(this.tokenService.getToken())
+    {
+      console.log(this.tokenService.getUser())
+      this.user_id = this.tokenService.getUser().id
+      this.loginCheck = true;
+    }
 
+    this.authService.requirement_index(this.user_id).subscribe(
+      data => {
+        this.content = data.requirements.data
+        console.log(data.requirements.data)
+      }
+    )
   }
 
   onSubmit(): void{
+    console.log(this.form)
     this.authService.requirements(this.form, this.user_id).subscribe(
       data => {
+        this.reqSubmitted = true;
         console.log(data)
+        this.userService.getrequirements().pipe().subscribe(
+          (data: any) => {
+            this.content =data.data.data;
+            console.log(this.content)
+          }
+        );
       },
       err => {
-        console.log(err.error.message);
+        console.log(err.error);
       }
     );
   }
