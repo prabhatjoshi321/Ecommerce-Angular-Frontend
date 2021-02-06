@@ -1,3 +1,5 @@
+import { GlobalConstants } from './../global-constants';
+import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { TokenStorageService } from './../_services/token-storage.service';
 import { AuthService } from './../_services/auth.service';
@@ -45,7 +47,8 @@ export class UserloginComponent implements OnInit {
   constructor(
     private titleService: Title,
     private authService: AuthService,
-    private tokenStorage: TokenStorageService
+    private tokenStorage: TokenStorageService,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
@@ -75,7 +78,12 @@ export class UserloginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().name;
-        this.reloadPage();
+        // this.router.navigate({"/productpage"})
+
+        // this.router.navigate(["/profile"])
+        // this.reloadPage();
+        // window.location.href=GlobalConstants.siteURL+"";
+        this.redirect_to_profile();
       },
       err => {
         this.errorMessage = err.error.message;
@@ -86,6 +94,10 @@ export class UserloginComponent implements OnInit {
 
   reloadPage(): void {
     window.location.reload();
+  }
+
+  redirect_to_profile(): void {
+    window.location.href=GlobalConstants.siteURL+"profile"
   }
 
   logout(): void{

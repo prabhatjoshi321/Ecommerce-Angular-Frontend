@@ -152,9 +152,9 @@ export class AuthService {
     }), httpOptions);
   }
 
-  product_insert_rent(details, imageName1, imageName2, imageName3, imageName4, imageName5): Observable<any> {
+  product_insert_rent(details, id, amenityArray, furnishingArray,  imageName1, imageName2, imageName3, imageName4, imageName5): Observable<any> {
     return this.http.post(AUTH_API + 'product/insert_product_rent', JSON.stringify ({
-      user_id: details.user_id ,
+      user_id: id ,
       build_name: details.build_name ,
       type: details.type ,
       willing_to_rent_out_to: details.willing_to_rent_out_to ,
@@ -181,14 +181,14 @@ export class AuthService {
       balconies: details.balconies ,
       additional_rooms: details.additional_rooms ,
       furnishing_status: details.furnishing_status ,
-      furnishings: details.furnishings ,
+      furnishings: furnishingArray ,
       total_floors: details.total_floors ,
       property_on_floor: details.property_on_floor ,
       rera_registration_status: details.rera_registration_status ,
       additional_parking_status: details.additional_parking_status ,
       parking_covered_count: details.parking_covered_count ,
       parking_open_count: details.parking_open_count ,
-      rent_availability: details.rent_availability ,
+      rent_availability: 1,
       available_for: details.available_for ,
       buildyear: details.buildyear ,
       age_of_property: details.age_of_property ,
@@ -206,7 +206,7 @@ export class AuthService {
       price_negotiable: details.price_negotiable ,
       deposit: details.deposit ,
       brokerage_charges: details.brokerage_charges ,
-      amenities: details.amenities ,
+      amenities: amenityArray ,
       facing_towards: details.facing_towards ,
       availability_condition: details.availability_condition ,
       expected_rent: details.expected_rent ,

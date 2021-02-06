@@ -1,16 +1,16 @@
+import { FormGroup, FormControl } from '@angular/forms';
 import { UserService } from './../_services/user.service';
-import { Title } from '@angular/platform-browser';
-import { AuthService } from './../_services/auth.service';
 import { TokenStorageService } from './../_services/token-storage.service';
-import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-@Component({
-  selector: 'app-postproduct',
-  templateUrl: './postproduct.component.html',
-  styleUrls: ['./postproduct.component.css']
-})
-export class PostproductComponent implements OnInit {
+import { AuthService } from './../_services/auth.service';
+import { Title } from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core';
 
+@Component({
+  selector: 'app-postproductrent',
+  templateUrl: './postproductrent.component.html',
+  styleUrls: ['./postproductrent.component.css']
+})
+export class PostproductrentComponent implements OnInit {
 
   form: any = {};
   ared: any = {};

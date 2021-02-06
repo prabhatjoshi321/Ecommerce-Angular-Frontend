@@ -89,12 +89,14 @@
 
   <div class="dashboard_sidebar_menu dn-992">
     <ul class="sidebar-menu">
-       <li class="header"><img src="./assets/css/images/header-logo2.png" alt="header-logo2.png"> FindHouse</li>
-       <li class="title"><span>Main</span></li>
+      <li class="header"><img src="./assets/css/images/header-logo2.png" alt="header-logo2.png"> FindHouse</li>
+      <div *ngIf="usertype != 1 ">
+      <li class="title"><span>Main</span></li>
       <li class="treeview"><a href="/dashboard"><i class="flaticon-layers"></i><span> Dashboard</span></a></li>
-       <li class="title"><span>Manage Listings</span></li>
+      </div>
+      <li class="title"><span>Manage Listings</span></li>
         <li class="treeview">
-          <a href="page-my-properties.html"><i class="flaticon-home"></i> <span>My Properties</span><i class="fa fa-angle-down pull-right"></i></a>
+          <a href="/myproperties"><i class="flaticon-home"></i> <span>My Properties</span><i class="fa fa-angle-down pull-right"></i></a>
           <ul class="treeview-menu">
             <li><a href="#"><i class="fa fa-circle"></i> General Elements</a></li>
             <li><a href="#"><i class="fa fa-circle"></i> Advanced Elements</a></li>
@@ -102,7 +104,8 @@
           </ul>
         </li>
         <li><a href="/savedsearches"><i class="flaticon-magnifying-glass"></i> <span>Saved Search</span></a></li>
-       <li class="treeview">
+        <li *ngIf="usertype == 1 "><a href="/requirement"><i class="flaticon-magnifying-glass"></i> <span>Requirements</span></a></li>
+        <li class="treeview">
           <ul class="treeview-menu">
             <li><a href="#"><i class="fa fa-circle"></i> My Reviews</a></li>
             <li><a href="#"><i class="fa fa-circle"></i> Visitor Reviews</a></li>

@@ -9,14 +9,18 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardTopbarComponent implements OnInit {
 
   currentUser: any;
+  usertype;
 
   constructor(
     private token: TokenStorageService,
+
 
     ) { }
 
   ngOnInit(): void {
     this.currentUser = this.token.getUser().username;
+    this.usertype = this.token.getUser().usertype;
+    console.log(this.usertype)
   }
 
 

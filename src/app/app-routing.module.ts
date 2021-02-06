@@ -1,3 +1,5 @@
+import { PostproductrentComponent } from './postproductrent/postproductrent.component';
+import { MypropertiesComponent } from './myproperties/myproperties.component';
 import { SavedsearchesComponent } from './savedsearches/savedsearches.component';
 import { BoardAgentComponent } from './board-agent/board-agent.component';
 import { SearchComponent } from './search/search.component';
@@ -31,10 +33,12 @@ const routes: Routes = [
   {path: 'logout', component: UserlogoutComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'insertproduct', component: PostproductComponent},
+  {path: 'insertproductrent', component: PostproductrentComponent},
   {path: 'search', component: SearchComponent},
   {path: 'agentregister', component: BoardAgentComponent},
   // {path: 'productlistingnew', component: BoardAdminComponent},
   {path: 'requirement', component: RequirementComponent},
+  {path: 'myproperties', component: MypropertiesComponent},
   {path: 'compare', component: CompareComponent},
   {path: 'login', component: UserloginComponent},
   {path: 'savedsearches', component: SavedsearchesComponent},

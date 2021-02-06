@@ -33,6 +33,8 @@ import { RequirementComponent } from './requirement/requirement.component';
 import { CompareComponent } from './compare/compare.component';
 import { SearchComponent } from './search/search.component';
 import { SavedsearchesComponent } from './savedsearches/savedsearches.component';
+import { MypropertiesComponent } from './myproperties/myproperties.component';
+import { PostproductrentComponent } from './postproductrent/postproductrent.component';
 //import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
@@ -64,6 +66,8 @@ import { SavedsearchesComponent } from './savedsearches/savedsearches.component'
     CompareComponent,
     SearchComponent,
     SavedsearchesComponent,
+    MypropertiesComponent,
+    PostproductrentComponent,
   ],
   imports: [
     BrowserModule,
