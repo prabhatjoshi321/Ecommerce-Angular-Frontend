@@ -35,6 +35,14 @@ import { SearchComponent } from './search/search.component';
 import { SavedsearchesComponent } from './savedsearches/savedsearches.component';
 import { MypropertiesComponent } from './myproperties/myproperties.component';
 import { PostproductrentComponent } from './postproductrent/postproductrent.component';
+import { InsertselectorComponent } from './insertselector/insertselector.component';
+import { AdminpanelComponent } from './adminpanel/adminpanel.component';
+import { AdmingetusersComponent } from './admingetusers/admingetusers.component';
+import { AdmingetproductComponent } from './admingetproduct/admingetproduct.component';
+import { AdmindashtopbarComponent } from './admindashtopbar/admindashtopbar.component';
+import { AdmingetreviewsComponent } from './admingetreviews/admingetreviews.component';
+import { AdmingetrequirementsComponent } from './admingetrequirements/admingetrequirements.component';
+import { ReviewsComponent } from './reviews/reviews.component';
 //import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
@@ -68,6 +76,14 @@ import { PostproductrentComponent } from './postproductrent/postproductrent.comp
     SavedsearchesComponent,
     MypropertiesComponent,
     PostproductrentComponent,
+    InsertselectorComponent,
+    AdminpanelComponent,
+    AdmingetusersComponent,
+    AdmingetproductComponent,
+    AdmindashtopbarComponent,
+    AdmingetreviewsComponent,
+    AdmingetrequirementsComponent,
+    ReviewsComponent,
   ],
   imports: [
     BrowserModule,

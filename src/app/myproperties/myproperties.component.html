@@ -30,110 +30,118 @@
  <!-- Main Header Nav -->
 <!-- <app-topbardark></app-topbardark> -->
  <!-- Listing Grid View -->
- <app-topbardark-loader></app-topbardark-loader>
- <section class="our-listing bgc-f7 pb30-991">
-   <div class="container">
-     <div class="row">
-       <div class="col-lg-12">
-         <div class="listing_sidebar dn db-991">
-           <div class="sidebar_content_details style3">
+ <app-dashboard-topbar></app-dashboard-topbar>
+ <!-- Our Dashbord -->
+ <section class="our-dashbord dashbord bgc-f7 pb50">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 col-xl-2 dn-992 pl0"></div>
+      <div class="col-sm-12 col-lg-8 col-xl-10 maxw100flex-992">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="dashboard_navigationbar dn db-992">
+              <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn"><i class="fa fa-bars pr10"></i> Dashboard Navigation</button>
+                <ul id="myDropdown" class="dropdown-content">
+                  <li><a href="page-dashboard.html"><span class="flaticon-layers"></span> Dashboard</a></li>
+                  <li><a href="page-message.html"><span class="flaticon-envelope"></span> Message</a></li>
+                  <li class="active"><a href="page-my-properties.html"><span class="flaticon-home"></span> My Properties</a></li>
+                  <li><a href="page-my-favorites.html"><span class="flaticon-heart"></span> My Favorites</a></li>
+                  <li><a href="page-my-savesearch.html"><span class="flaticon-magnifying-glass"></span> Saved Search</a></li>
+                  <li><a href="page-my-review.html"><span class="flaticon-chat"></span> My Reviews</a></li>
+                  <li><a href="page-my-packages.html"><span class="flaticon-box"></span> My Package</a></li>
+                  <li><a href="page-my-profile.html"><span class="flaticon-user"></span> My Profile</a></li>
+                  <li><a href="page-add-new-property.html"><span class="flaticon-filter-results-button"></span> Add New Listing</a></li>
+                  <li><a href="page-login.html"><span class="flaticon-logout"></span> Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-xl-4 mb10">
+            <div class="breadcrumb_content style2 mb30-991">
+              <h2 class="breadcrumb_title">My Properties</h2>
+              <p>We are glad to see you again!</p>
+            </div>
+          </div>
+          <div class="col-lg-8 col-xl-8">
+            <div class="candidate_revew_select style2 text-right mb30-991">
+              <ul class="mb0">
 
-           </div>
-         </div>
-       </div>
-     </div>
-     <div class="row">
-       <div class="col-lg-6">
-         <div class="breadcrumb_content style2 mb0-991">
-           <ol class="breadcrumb">
-               <li class="breadcrumb-item"><a >Home</a></li>
-               <li class="breadcrumb-item active text-thm" aria-current="page">My Properties</li>
-           </ol>
-           <h2 class="breadcrumb_title">My Properties</h2>
-         </div>
-       </div>
-       <div class="col-lg-6">
-         <div class="listing_list_style mb20-xsd tal-991">
 
-         </div>
-
-       </div>
-     </div>
-     <div class="row">
-       <div class="col-lg-4 col-xl-4">
-         <div class="sidebar_listing_grid1 dn-991">
-
-         </div>
-       </div>
-       <div class="col-md-12 col-lg-12">
-         <div class="row">
-           <div class="grid_list_search_result">
-             <div class="col-sm-12 col-md-4 col-lg-4 col-xl-5" >
-               <div class="left_area tac-xsd">
-                 <p >{{content.length}} Properties</p>
-               </div>
-             </div>
-             <div class="col-sm-12 col-md-8 col-lg-8 col-xl-7">
-               <div class="right_area text-right tac-xsd">
-
-               </div>
-             </div>
-           </div>
-         </div>
-         <div class="row">
-           <div class="col-md-6 col-lg-6" *ngFor = "let number of content">
-             <div class="feat_property home7 style4">
-               <div class="thumb">
-                 <div class="fp_single_item_slider">
-                   <div class="item">
-                     <img class="img-whp" src= "{{ftpstring}}{{ number.product_image }}" alt="fp1.jpg">
-                   </div>
-
-                 </div>
-                 <div class="thmb_cntnt style2">
-                   <ul class="tag mb0">
-                     <li class="list-inline-item" *ngIf=" number.rent_availability "><a >For Rent</a></li>
-                     <li class="list-inline-item" *ngIf=" !number.rent_availability "><a >Featured</a></li>
-                   </ul>
-                 </div>
-                 <div class="thmb_cntnt style3">
-                   <ul class="icon mb0">
-                     <li class="list-inline-item"><a ><span class="flaticon-transfer-1"></span></a></li>
-                     <li class="list-inline-item"><a ><span class="flaticon-heart"></span></a></li>
-                   </ul>
-                   <a class="fp_price" >${{ number.price }}<small></small></a>
-                 </div>
-               </div>
-               <div class="details">
-                 <div class="tc_content">
-                   <p class="text-thm">{{ number.type }}</p>
-                   <h4>{{number.build_name}}</h4>
-                   <p><span class="flaticon-placeholder"></span> {{ number.address }}</p>
-                   <ul class="prop_details mb0">
-                     <li class="list-inline-item"><a >Beds: {{ number.bedc_ount }}</a></li>
-                     <li class="list-inline-item"><a >Baths: {{ number.bathroom }}</a></li>
-                     <li class="list-inline-item"><a >Sq Ft: {{ number.area }}</a></li>
-                   </ul>
-
-                 </div>
-                 <div class="fp_footer">
-                   <ul class="fp_meta float-left mb0">
-                   <li class="list-inline-item"> <h2 class="fp_pdate float-right">Available For: {{number.available_for}}</h2> </li>
-                     <!-- <li class="list-inline-item"><a >{{ number.username+1 }}</a></li> -->
-                   </ul>
-                   <div class="fp_pdate float-right"><a href="/productpage"><button type="button" (click)="prod_func(number.id)" class="btn btn-log btn-block btn-thm">Show Property</button></a></div>
-                 </div>
-               </div>
-             </div>
-           </div>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="my_dashboard_review mb40">
+              <div class="property_table">
+                <div class="table-responsive mt0">
+                  <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                          <th scope="col">Listing Title</th>
+                          <th scope="col">Date published</th>
+                          <!-- <th scope="col">Status</th> -->
+                          <th scope="col">View</th>
+                          <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let number of content">
+                          <th scope="row">
+                          <div class="feat_property list favorite_page style2">
+                            <div class="thumb">
+                              <img class="img-whp" src="{{ftpstring}}{{number.product_image1}}" alt="fp1.jpg">
+                              <div class="thmb_cntnt">
+                                <ul class="tag mb0">
+                                  <li class="list-inline-item dn"></li>
+                                  <li class="list-inline-item" *ngIf=" number.rent_availability "><a >For Rent</a></li>
+                                  <li class="list-inline-item" *ngIf=" number.sale_availability "><a >For Sale</a></li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="details">
+                              <div class="tc_content">
+                                <h4>{{ number.build_name }}</h4>
+                                <p><span class="flaticon-placeholder"></span>{{ number.address }}</p>
+                                <a class="fp_price text-thm" *ngIf="number.expected_pricing != null"  href="#">₹ {{ number.expected_pricing }}<small></small></a>
+                                <a class="fp_price text-thm" *ngIf="number.expected_rent != null"  href="#">₹ {{ number.expected_rent }}<small></small></a>
+                              </div>
+                            </div>
+                          </div>
+                          </th>
+                          <!-- <td>{{ number.updated_at }}</td> -->
+                          <td>{{ number.updated_at | date: 'MMM d, y, h:mm:ss a' }}</td>
+                          <!-- <td><span class="status_tag badge">Pending</span></td> -->
+                          <td>{{ number.view_counter }}</td>
+                          <td>
+                            <ul class="view_edit_delete_list mb0">
+                              <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Edit"><a href="#"><span class="flaticon-edit"></span></a></li>
+                              <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Delete"><a (click)="del_func(number.id)"><span class="flaticon-garbage"></span></a></li>
+                            </ul>
+                          </td>
+                        </tr>
 
 
 
-         </div>
-       </div>
-     </div>
-   </div>
- </section>
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt10">
+          <div class="col-lg-12">
+            <div class="copyright-widget text-center">
+              <p>© 2020 Find House. Made with love.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 </div>
 <!-- Wrapper End -->
 

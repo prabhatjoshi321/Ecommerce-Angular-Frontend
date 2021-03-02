@@ -1,3 +1,10 @@
+import { ReviewsComponent } from './reviews/reviews.component';
+import { AdmingetreviewsComponent } from './admingetreviews/admingetreviews.component';
+import { AdmingetrequirementsComponent } from './admingetrequirements/admingetrequirements.component';
+import { AdmingetproductComponent } from './admingetproduct/admingetproduct.component';
+import { AdmingetusersComponent } from './admingetusers/admingetusers.component';
+import { AdminpanelComponent } from './adminpanel/adminpanel.component';
+import { InsertselectorComponent } from './insertselector/insertselector.component';
 import { PostproductrentComponent } from './postproductrent/postproductrent.component';
 import { MypropertiesComponent } from './myproperties/myproperties.component';
 import { SavedsearchesComponent } from './savedsearches/savedsearches.component';
@@ -32,16 +39,23 @@ const routes: Routes = [
   {path: 'profile', component: ProfileComponent},
   {path: 'logout', component: UserlogoutComponent},
   {path: 'contact', component: ContactComponent},
-  {path: 'insertproduct', component: PostproductComponent},
+  {path: 'insertproductsale', component: PostproductComponent},
   {path: 'insertproductrent', component: PostproductrentComponent},
   {path: 'search', component: SearchComponent},
   {path: 'agentregister', component: BoardAgentComponent},
-  // {path: 'productlistingnew', component: BoardAdminComponent},
+  {path: 'insertproduct', component: InsertselectorComponent},
   {path: 'requirement', component: RequirementComponent},
   {path: 'myproperties', component: MypropertiesComponent},
   {path: 'compare', component: CompareComponent},
   {path: 'login', component: UserloginComponent},
   {path: 'savedsearches', component: SavedsearchesComponent},
+  {path: 'reviews', component: ReviewsComponent},
+  {path: 'admin', component: BoardAdminComponent},
+  {path: 'adminpanel', component: AdminpanelComponent},
+  {path: 'adminusers', component: AdmingetusersComponent},
+  {path: 'adminproducts', component: AdmingetproductComponent},
+  {path: 'adminrequirements', component: AdmingetrequirementsComponent},
+  {path: 'adminpreviews', component: AdmingetreviewsComponent},
   {path: '**', component: NotfoundComponent},
 
 ];

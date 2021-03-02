@@ -18,6 +18,11 @@ export class ProductpageComponent implements OnInit {
   product_data: [];
   ftpstring: string = GlobalConstants.ftpURL;
   sitestring: string = GlobalConstants.siteURL;
+  p_img1;
+  p_img2;
+  p_img3;
+  p_img4;
+  p_img5;
 
 
   constructor(
@@ -34,7 +39,7 @@ export class ProductpageComponent implements OnInit {
     // this.prod_id = this.prodservice.getData();
     this.titleService.setTitle('Property Page');
     this.prod_id = this.idService.getProdId();
-    console.log(this.router.url);
+    //console.log(this.router.url);
     {this.route.queryParams.subscribe(params => {
       let id = params['id'];
       console.log(id);
@@ -61,6 +66,13 @@ export class ProductpageComponent implements OnInit {
       data => {
         this.user_data = data["user_data"];
         this.product_data = data["product"];
+        this.p_img1 = GlobalConstants.ftpURL + data["product"]["0"]["product_image1"];
+        this.p_img2 = GlobalConstants.ftpURL + data["product"]["0"]["product_image2"];
+        this.p_img3 = GlobalConstants.ftpURL + data["product"]["0"]["product_image3"];
+        this.p_img4 = GlobalConstants.ftpURL + data["product"]["0"]["product_image4"];
+        this.p_img5 = GlobalConstants.ftpURL + data["product"]["0"]["product_image5"];
+
+
         console.log(this.product_data);
         console.log(this.user_data);
 

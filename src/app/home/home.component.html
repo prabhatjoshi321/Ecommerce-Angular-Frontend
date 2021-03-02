@@ -586,123 +586,85 @@
 					<div class="main-title text-center mb40">
 						<h2>Featured Properties</h2>
 						<p>Handpicked properties by our team.</p>
+          <h4 class="italic" *ngIf="content">No Properties</h4>
+
 					</div>
         </div>
         <div class="col-lg-12">
 
 
-<div class="row">
-						<div class="col-md-6 col-lg-4 col-xl-4">
-							<div class="feat_property">
-								<div class="thumb">
-									<img class="img-whp" src="./assets/css/images/property/fp1.jpg" alt="fp1.jpg">
-									<div class="thmb_cntnt">
-										<ul class="tag mb0">
-											<li class="list-inline-item"><a href="/productpage">For Rent</a></li>
-											<li class="list-inline-item"><a href="/productpage">Featured</a></li>
-										</ul>
-										<ul class="icon mb0">
-											<li class="list-inline-item"><a href="/productpage"><span class="flaticon-transfer-1"></span></a></li>
-											<li class="list-inline-item"><a href="/productpage"><span class="flaticon-heart"></span></a></li>
-										</ul>
-										<a class="fp_price" href="/productpage">$13,000<small>/mo</small></a>
-									</div>
-								</div>
-								<div class="details">
-									<div class="tc_content">
-										<p class="text-thm">Apartment</p>
-										<h4>Renovated Apartment</h4>
-										<p><span class="flaticon-placeholder"></span> 1421 San Pedro St, Los Angeles, CA 90015</p>
-										<ul class="prop_details mb0">
-											<li class="list-inline-item"><a href="/productpage">Beds: 4</a></li>
-											<li class="list-inline-item"><a href="/productpage">Baths: 2</a></li>
-											<li class="list-inline-item"><a href="/productpage">Sq Ft: 5280</a></li>
-										</ul>
-									</div>
-									<div class="fp_footer">
-										<ul class="fp_meta float-left mb0">
-											<li class="list-inline-item"><a href="/productpage"><img src="./assets/css/images/property/pposter1.png" alt="pposter1.png"></a></li>
-											<li class="list-inline-item"><a href="/productpage">{{ currentUser }}</a></li>
-										</ul>
-										<div class="fp_pdate float-right">4 years ago</div>
-									</div>
-								</div>
-							</div>
-            </div>
-            <div class="col-md-6 col-lg-4 col-xl-4">
-							<div class="feat_property">
-								<div class="thumb">
-									<img class="img-whp" src="./assets/css/images/property/fp2.jpg" alt="fp2.jpg">
-									<div class="thmb_cntnt">
-										<ul class="tag mb0">
-											<li class="list-inline-item"><a href="/productpage">For Rent</a></li>
-										</ul>
-										<ul class="icon mb0">
-											<li class="list-inline-item"><a href="/productpage"><span class="flaticon-transfer-1"></span></a></li>
-											<li class="list-inline-item"><a href="/productpage"><span class="flaticon-heart"></span></a></li>
-										</ul>
-										<a class="fp_price" href="/productpage">$13,000<small>/mo</small></a>
-									</div>
-								</div>
-								<div class="details">
-									<div class="tc_content">
-										<p class="text-thm">Apartment</p>
-										<h4>Renovated Apartment</h4>
-										<p><span class="flaticon-placeholder"></span> 1421 San Pedro St, Los Angeles, CA 90015</p>
-										<ul class="prop_details mb0">
-											<li class="list-inline-item"><a href="/productpage">Beds: 4</a></li>
-											<li class="list-inline-item"><a href="/productpage">Baths: 2</a></li>
-											<li class="list-inline-item"><a href="/productpage">Sq Ft: 5280</a></li>
-										</ul>
-									</div>
-									<div class="fp_footer">
-										<ul class="fp_meta float-left mb0">
-											<li class="list-inline-item"><a href="/productpage"><img src="./assets/css/images/property/pposter1.png" alt="pposter1.png"></a></li>
-											<li class="list-inline-item"><a href="/productpage">Ali Tufan</a></li>
-										</ul>
-										<div class="fp_pdate float-right">4 years ago</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 col-lg-4 col-xl-4" href="/productpage">
-							<div class="feat_property">
-								<div class="thumb">
-									<img class="img-whp" src="./assets/css/images/property/fp3.jpg" alt="fp3.jpg">
-									<div class="thmb_cntnt">
-										<ul class="tag mb0">
-											<li class="list-inline-item"><a href="/productpage">For Sale</a></li>
-										</ul>
-										<ul class="icon mb0">
-											<li class="list-inline-item"><a href="/productpage"><span class="flaticon-transfer-1"></span></a></li>
-											<li class="list-inline-item"><a href="/productpage"><span class="flaticon-heart"></span></a></li>
-										</ul>
-										<a class="fp_price" href="/productpage">$13,000<small>/mo</small></a>
-									</div>
-								</div>
-								<div class="details">
-									<div class="tc_content">
-										<p class="text-thm">Apartment</p>
-										<h4>Renovated Apartment</h4>
-										<p><span class="flaticon-placeholder"></span> 1421 San Pedro St, Los Angeles, CA 90015</p>
-										<ul class="prop_details mb0">
-											<li class="list-inline-item"><a href="/productpage">Beds: 4</a></li>
-											<li class="list-inline-item"><a href="/productpage">Baths: 2</a></li>
-											<li class="list-inline-item"><a href="/productpage">Sq Ft: 5280</a></li>
-										</ul>
-									</div>
-									<div class="fp_footer">
-										<ul class="fp_meta float-left mb0">
-											<li class="list-inline-item"><a href="/productpage"><img src="./assets/css/images/property/pposter1.png" alt="pposter1.png"></a></li>
-											<li class="list-inline-item"><a href="/productpage">Ali Tufan</a></li>
-										</ul>
-										<div class="fp_pdate float-right">4 years ago</div>
-									</div>
-								</div>
-							</div>
-						</div>
-</div>
+          <div class="row">
+            <div class="col-md-6 col-lg-6" *ngFor = "let number of content">
+              <div class="feat_property home7 style4">
+                <div class="thumb">
+                  <div class="fp_single_item_slider">
+                    <div class="item">
+                      <img class="img-whp" src= "{{ftpstring}}{{ number.product_image1 }}" alt="fp1.jpg">
+                    </div>
 
+                  </div>
+                  <div class="thmb_cntnt style2">
+                    <ul class="tag mb0">
+
+                      <li class="list-inline-item" *ngIf=" number.rent_availability "><a >For Rent</a></li>
+                      <li class="list-inline-item" *ngIf=" number.sale_availability "><a >For Sale</a></li>
+                    </ul>
+                  </div>
+                  <div class="thmb_cntnt style3">
+                    <ul class="icon mb0">
+                      <!-- <li class="list-inline-item"><a ><span class="flaticon-transfer-1"></span></a></li> -->
+                      <li class="list-inline-item"><a ><span class="flaticon-heart"></span></a></li>
+                    </ul>
+                    <a *ngIf="number.expected_pricing != null" class="fp_price" >${{ number.expected_pricing }}<small></small></a>
+                    <a *ngIf="number.expected_rent != null" class="fp_price" >${{ number.expected_rent }}<small></small></a>
+                   </div>
+                </div>
+                <div class="details">
+                  <div class="tc_content">
+                    <p class="text-thm">{{ number.type }}</p>
+                    <h4>{{number.build_name}}</h4>
+                    <p><span class="flaticon-placeholder"></span> {{ number.address }}</p>
+                    <ul class="prop_details mb0">
+                      <li class="list-inline-item"><a >Beds: {{ number.bedroom }}</a></li>
+                      <li class="list-inline-item"><a >Baths: {{ number.bathroom }}</a></li>
+                      <li class="list-inline-item"><a >Sq Ft: {{ number.area }}</a></li>
+                    </ul>
+
+                  </div>
+                  <div class="fp_footer">
+                    <ul class="fp_meta float-left mb0">
+                    <!-- <li class="list-inline-item"> <h2 class="fp_pdate float-right">Available For: {{number.available_for}}</h2> </li> -->
+                      <!-- <li class="list-inline-item"><a >{{ number.username+1 }}</a></li> -->
+                    </ul>
+                    <div class="fp_pdate float-right"><a><button type="button" (click)="onComp(number.id)" class="btn btn-log btn-block btn-thm bg-white text-black-50">Add to compare</button></a></div>
+                    <div class="fp_pdate float-left"><a href="/productpage"><button type="button" (click)="prod_func(number.id)" class="btn btn-log btn-block btn-thm">Show Property</button></a></div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- <div class="col-lg-12 mt20">
+              <div class="mbp_pagination">
+                <ul class="page_navigation">
+                    <li class="page-item disabled">
+                      <a class="page-link"  tabindex="-1" aria-disabled="true"> <span class="flaticon-left-arrow"></span> Prev</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" >1</a></li>
+                    <li class="page-item active" aria-current="page">
+                      <a class="page-link" >2 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="page-item"><a class="page-link" >3</a></li>
+                    <li class="page-item"><a class="page-link" >...</a></li>
+                    <li class="page-item"><a class="page-link" >29</a></li>
+                    <li class="page-item">
+                      <a class="page-link" href="#"><span class="flaticon-right-arrow"></span></a>
+                    </li>
+                </ul>
+              </div>
+            </div> -->
+          </div>
 
         </div>
 			</div>
@@ -726,7 +688,7 @@
 						<div class="thumb"><img class="img-fluid w100" src="./assets/css/images/property/pc1.jpg" alt="pc1.jpg"></div>
 						<div class="overlay">
 							<div class="details">
-								<h4>Miami</h4>
+								<h4>Mumbai</h4>
 								<p>24 Properties</p>
 							</div>
 						</div>
@@ -737,7 +699,7 @@
 						<div class="thumb"><img class="img-fluid w100" src="./assets/css/images/property/pc2.jpg" alt="pc2.jpg"></div>
 						<div class="overlay">
 							<div class="details">
-								<h4>Los Angeles</h4>
+								<h4>Delhi</h4>
 								<p>18 Properties</p>
 							</div>
 						</div>
@@ -748,7 +710,7 @@
 						<div class="thumb"><img class="img-fluid w100" src="./assets/css/images/property/pc3.jpg" alt="pc3.jpg"></div>
 						<div class="overlay">
 							<div class="details">
-								<h4>New York</h4>
+								<h4>Chennai</h4>
 								<p>89 Properties</p>
 							</div>
 						</div>
@@ -759,7 +721,7 @@
 						<div class="thumb"><img class="img-fluid w100" src="./assets/css/images/property/pc4.jpg" alt="pc4.jpg"></div>
 						<div class="overlay">
 							<div class="details">
-								<h4>Florida</h4>
+								<h4>Kolkata</h4>
 								<p>47 Properties</p>
 							</div>
 						</div>
@@ -818,83 +780,8 @@
 		</div>
 	</section>
 
- <!-- <app-testimonials></app-testimonials> -->
 
-	<!-- Our Blog -->
-	<section class="our-blog bgc-f7 pb30">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 offset-lg-3">
-					<div class="main-title text-center">
-						<h2>Articles & Tips</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6 col-lg-4 col-xl-4">
-					<div class="for_blog feat_property">
-						<div class="thumb">
-							<img class="img-whp" src="./assets/css/images/blog/bh1.jpg" alt="bh1.jpg">
-						</div>
-						<div class="details">
-							<div class="tc_content">
-								<p class="text-thm">Business</p>
-								<h4>Skills That You Can Learn In The Real Estate Market</h4>
-							</div>
-							<div class="fp_footer">
-								<ul class="fp_meta float-left mb0">
-									<li class="list-inline-item"><a href="/productpage"><img src="./assets/css/images/property/pposter1.png" alt="pposter1.png"></a></li>
-									<li class="list-inline-item"><a href="/productpage">{{ currentUser }}</a></li>
-								</ul>
-								<a class="fp_pdate float-right" href="/productpage">7 August 2019</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-4 col-xl-4">
-					<div class="for_blog feat_property">
-						<div class="thumb">
-							<img class="img-whp" src="./assets/css/images/blog/bh2.jpg" alt="bh2.jpg">
-						</div>
-						<div class="details">
-							<div class="tc_content">
-								<p class="text-thm">Business</p>
-								<h4>Bedroom Colors You’ll Never <br class="dn-1199"> Regret</h4>
-							</div>
-							<div class="fp_footer">
-								<ul class="fp_meta float-left mb0">
-									<li class="list-inline-item"><a href="/productpage"><img src="./assets/css/images/property/pposter1.png" alt="pposter1.png"></a></li>
-									<li class="list-inline-item"><a href="/productpage">{{ currentUser }}</a></li>
-								</ul>
-								<a class="fp_pdate float-right" href="/productpage">7 August 2019</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-4 col-xl-4">
-					<div class="for_blog feat_property">
-						<div class="thumb">
-							<img class="img-whp" src="./assets/css/images/blog/bh3.jpg" alt="bh3.jpg">
-						</div>
-						<div class="details">
-							<div class="tc_content">
-								<p class="text-thm">Business</p>
-								<h4>5 Essential Steps for Buying an Investment</h4>
-							</div>
-							<div class="fp_footer">
-								<ul class="fp_meta float-left mb0">
-									<li class="list-inline-item"><a href="/productpage"><img src="./assets/css/images/property/pposter1.png" alt="pposter1.png"></a></li>
-									<li class="list-inline-item"><a href="/productpage">{{ currentUser }}</a></li>
-								</ul>
-								<a class="fp_pdate float-right" href="/productpage">7 August 2019</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+
 
 	<!-- Our Partners -->
 	<section id="our-partners" class="our-partners">

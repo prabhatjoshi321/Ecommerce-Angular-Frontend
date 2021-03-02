@@ -157,8 +157,6 @@ export class AuthService {
       user_id: id ,
       build_name: details.build_name ,
       type: details.type ,
-      willing_to_rent_out_to: details.willing_to_rent_out_to ,
-      agreement_type: details.agreement_type ,
       address: details.address ,
       display_address: details.display_address ,
       city: details.city ,
@@ -167,12 +165,6 @@ export class AuthService {
       nearest_landmark: details.nearest_landmark ,
       map_latitude: details.map_latitude ,
       map_longitude: details.map_longitude ,
-      product_image1: imageName1,
-      product_image2: imageName2,
-      product_image3: imageName3,
-      product_image4: imageName4,
-      product_image5: imageName5,
-      nearby_places: details.nearby_places ,
       area: details.area ,
       area_unit: details.area_unit ,
       carpet_area: details.carpet_area ,
@@ -180,41 +172,50 @@ export class AuthService {
       bathroom: details.bathroom ,
       balconies: details.balconies ,
       additional_rooms: details.additional_rooms ,
+      equipment: details.equipment ,
+      features: details.features ,
+      nearby_places: details.nearby_places ,
+      age_of_property: details.age_of_property ,
       furnishing_status: details.furnishing_status ,
-      furnishings: furnishingArray ,
-      total_floors: details.total_floors ,
       property_on_floor: details.property_on_floor ,
+      total_floors: details.total_floors ,
+      facing_towards: details.facing_towards ,
       rera_registration_status: details.rera_registration_status ,
       additional_parking_status: details.additional_parking_status ,
+      buildyear: details.buildyear ,
+      availability_condition: details.availability_condition ,
+      possession_by: details.possession_by ,
+      amenities: amenityArray ,
       parking_covered_count: details.parking_covered_count ,
       parking_open_count: details.parking_open_count ,
-      rent_availability: 1,
-      available_for: details.available_for ,
-      buildyear: details.buildyear ,
-      age_of_property: details.age_of_property ,
-      possession_by: details.possession_by ,
-      duration_of_rent_aggreement: details.duration_of_rent_aggreement ,
-      security_deposit: details.security_deposit ,
-      maintenance_charge: details.maintenance_charge ,
-      maintenance_charge_status: details.maintenance_charge_status ,
-      maintenance_charge_condition: details.maintenance_charge_condition ,
+      furnishings: furnishingArray ,
       ownership: details.ownership ,
-      rent_cond: details.rent_cond ,
       expected_pricing: details.expected_pricing ,
+      deposit: details.deposit ,
       inclusive_pricing_details: details.inclusive_pricing_details ,
       tax_govt_charge: details.tax_govt_charge ,
       price_negotiable: details.price_negotiable ,
-      deposit: details.deposit ,
+      maintenance_charge_status: details.maintenance_charge_status ,
       brokerage_charges: details.brokerage_charges ,
-      amenities: amenityArray ,
-      facing_towards: details.facing_towards ,
-      availability_condition: details.availability_condition ,
+      maintenance_charge: details.maintenance_charge ,
+      maintenance_charge_condition: details.maintenance_charge_condition ,
+      product_image1: imageName1,
+      product_image2: imageName2,
+      product_image3: imageName3,
+      product_image4: imageName4,
+      product_image5: imageName5,
+      rent_availability: 1,
+      description: details.description ,
+      willing_to_rent_out_to: details.willing_to_rent_out_to ,
+      agreement_type: details.agreement_type ,
+      available_for: details.available_for ,
+      rent_cond: details.rent_cond ,
+      duration_of_rent_aggreement: details.duration_of_rent_aggreement ,
       expected_rent: details.expected_rent ,
+      security_deposit: details.security_deposit ,
+
       inc_electricity_and_water_bill: details.inc_electricity_and_water_bill ,
       month_of_notice: details.month_of_notice ,
-      equipment: details.equipment ,
-      features: details.features ,
-      description: details.description ,
     }), httpOptions);
   }
 
@@ -258,10 +259,27 @@ export class AuthService {
     }), httpOptions);
   }
 
-  getSearch(id): Observable<any> {
-    return this.http.post(AUTH_API + 'product/get_search', JSON.stringify({
-      user_id: id,
+
+
+  property_delete(id): Observable<any> {
+    console.log(id)
+    return this.http.post(AUTH_API + 'product/delete_product', JSON.stringify({
+      product_id: id,
     }), httpOptions);
   }
+
+
+
+  // adminEndpoints
+
+  admin_login(credentials): Observable<any> {
+    return this.http.post(AUTH_API + 'admin/admin_login', JSON.stringify({
+      email: credentials.email,
+      password: credentials.password,
+    }), httpOptions);
+  }
+
+
+
 
 }

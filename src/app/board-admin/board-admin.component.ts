@@ -1,3 +1,4 @@
+import { TokenStorageService } from './../_services/token-storage.service';
 import { UserService } from './../_services/user.service';
 import { ProductService } from './../_services/product.service';
 import { AuthService } from './../_services/auth.service';
@@ -13,63 +14,58 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class BoardAdminComponent implements OnInit {
 
-  comp_display: boolean = true;
-  prod_id: any ;
-  content: [];
-  user_data: [];
-  product_data: [];
-  ftpstring: string = GlobalConstants.ftpURL;
-  search_results: string;
-  strlen: number;
+  form: any = {};
+  isLoggedIn: boolean = true;
+  isLoginFailed;
+  errorMessage;
+  usertype
+  roles;
+  productEntry
+  content
 
   constructor(
     private titleService: Title,
     private userService: UserService,
     private authService: AuthService,
+    private tokenStorage: TokenStorageService,
     private activeRoute: ActivatedRoute,
-    private prodservice: ProductService,
   ) {
 
   }
 
   ngOnInit(): void {
-    this.titleService.setTitle('Listing');
-    this.userService.getproductlisting().pipe().subscribe(
-      (data: any) => {
+    this.titleService.setTitle('Admin Login');
+    console.log(this.tokenStorage.getToken())
+    if (this.tokenStorage.getToken()){
+      this.isLoggedIn = true;
+      this.roles = this.tokenStorage.getUser().username;
+    }
 
-        this.content = data.data.data;
-        //console.log(this.content);
+  }
+
+  onSubmit(): void{
+    this.authService.admin_login(this.form).subscribe(
+      data => {
+        this.tokenStorage.saveToken(data.access_token);
+        console.log(this.tokenStorage.getToken());
+        this.tokenStorage.saveUser(data);
+        this.isLoginFailed = false;
+        this.isLoggedIn = true;
+        this.roles = this.tokenStorage.getUser().name;
+        this.redirect_to_admin();
       },
       err => {
-        this.content = JSON.parse(err.error).message;
+        this.errorMessage = err.error.message;
+        this.isLoginFailed = true;
+        console.log(err)
       }
     );
-    this.search_results = this.content[this.content.length - 1];
+
   }
 
-  prod_func(data){
-    this.prod_id = data;
-    this.toggle();
-    // this.router.navigate(["/productpage"])
+  redirect_to_admin(){
+    window.location.href=GlobalConstants.siteURL+"adminpanel"
   }
 
-  toggle(){
-    this.comp_display = !this.comp_display;
-
-    {this.authService.product_see(this.prod_id).subscribe(
-
-      data => {
-        this.user_data = data["user_data"];
-        this.product_data = data["product"];
-        console.log(this.product_data);
-        console.log(this.user_data);
-
-      },
-        err => {
-          console.log(err);
-        }
-      );
-    }
-  }
 
 }

@@ -35,15 +35,6 @@ export class TokenStorageService {
     return JSON.parse(sessionStorage.getItem(USER_KEY));
   }
 
-  public saveProdId(id: string): void {
-    window.sessionStorage.removeItem(ID_KEY);
-    window.sessionStorage.setItem(ID_KEY, id);
-  }
-
-  public getProdId(): any {
-    return(sessionStorage.getItem(ID_KEY));
-  }
-
   public searchData(data: any): void{
     window.sessionStorage.removeItem(SEARCH_DATA);
     window.sessionStorage.setItem(SEARCH_DATA, JSON.stringify(data));
@@ -53,12 +44,19 @@ export class TokenStorageService {
     return JSON.parse(sessionStorage.getItem(SEARCH_DATA));
   }
 
+  public saveProdId(id: string): void {
+    window.sessionStorage.removeItem(ID_KEY);
+    window.sessionStorage.setItem(ID_KEY, id);
+  }
+
+  public getProdId(): any {
+    return(sessionStorage.getItem(ID_KEY));
+  }
+
   public saveCdata(id: string): void {
     window.sessionStorage.removeItem(COMPARE);
     window.sessionStorage.setItem(COMPARE, id);
   }
-
-
 
   public getCdata(): any{
     return(sessionStorage.getItem(COMPARE));

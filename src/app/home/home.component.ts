@@ -1,3 +1,4 @@
+import { UserService } from './../_services/user.service';
 import { Router } from '@angular/router';
 import { AuthService } from './../_services/auth.service';
 import { TokenStorageService } from './../_services/token-storage.service';
@@ -15,13 +16,16 @@ export class HomeComponent implements OnInit {
   currentUser: any;
   form: any = {};
   data: any = {};
+  content
+  login
 
 
 
   public constructor(
     private titleService: Title,
-    private dataService: TokenStorageService,
-    private searchService: AuthService,
+    private tokenService: TokenStorageService,
+    private authService: AuthService,
+    private userService: UserService,
     private router: Router
   ){
   }
@@ -32,21 +36,37 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleService.setTitle('Housing Street');
+    this.currentUser = this.tokenService.getUser().username;
 
-    this.currentUser = this.dataService.getUser().username;
+    this.login = this.tokenService.getToken();
+
+    console.log(this.login)
+
+
+    this.userService.getproductlisting().pipe().subscribe(
+      (data: any) => {
+
+        this.content = data.data.data;
+        console.log(this.content);
+        //console.log(this.content);
+      },
+      err => {
+        this.content = JSON.parse(err.error).message;
+      }
+    );
 
   }
 
   onSearch(): void{
-    this.searchService.search(this.form).subscribe(
+    this.authService.search(this.form).subscribe(
       data => {
-        this.dataService.searchData(data);
+        this.tokenService.searchData(data);
       },
       err => {
         console.log(err.error.message);
       }
     );
-    console.log(this.dataService.returnSearch().product.data);
+    console.log(this.tokenService.returnSearch().product.data);
     this.router.navigate(["/search"])
 
   }

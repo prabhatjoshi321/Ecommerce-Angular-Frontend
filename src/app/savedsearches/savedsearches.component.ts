@@ -21,22 +21,24 @@ export class SavedsearchesComponent implements OnInit {
     private tokenService: TokenStorageService,
     private authService : AuthService,
     private router: Router,
+    private userService: UserService
 
   ) { }
 
   ngOnInit(): void {
-    this.titleService.setTitle('SaeSearch');
+    this.titleService.setTitle('SavedSearch');
     if(this.tokenService.getUser() != null)
     {
-      this.authService.getSearch(this.tokenService.getUser().id). subscribe(
-        data => {
-          console.log(data)
-          this.content = data.data;
-        },
-        err => {
-          console.log(err)
-        }
-      )
+      {this.userService.getSearch().pipe().subscribe(
+          data => {
+              console.log(data.data)
+              this.content = data.data;
+            },
+          err => {
+              console.log(err)
+            }
+        )
+      }
     }
     else{
       this.router.navigate([`/login`]);

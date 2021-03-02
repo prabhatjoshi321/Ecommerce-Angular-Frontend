@@ -23,9 +23,13 @@ export class UserlogoutComponent implements OnInit {
     this.userService.getLogout().subscribe(
       data => {
         console.log(data);
+        this.tokenStorage.saveToken(null);
+
       },
       err => {
         console.log(err);
+        this.tokenStorage.saveToken(null);
+
       }
     );
     this.tokenStorage.signout();

@@ -14,6 +14,9 @@ export class DashboardComponent implements OnInit {
   name: string[] = [] ;
   id: number;
   content: [] ;
+  data: [] ;
+  view_count;
+  property_count
 
   constructor(
     private titleService: Title,
@@ -25,15 +28,21 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.titleService.setTitle('Dashboard');
     this.name = this.tokenStorage.getUser().username;
-    this.userService.getUserBoard().pipe().subscribe(
+
+    this.userService.getdashboard().pipe().subscribe(
       (data: any) => {
-        this.content = data;
-        console.log(this.content['id']);
+
+        this.data = data;
+        this.view_count = data['view_count'];
+        this.property_count = data['property_count'];
+        console.log(data);
+
       },
       err => {
-        this.content = JSON.parse(err.error).message;
+        console.log(err)
       }
-    );
+    )
+
 
 
   }

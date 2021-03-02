@@ -36,10 +36,10 @@
               </li>
                 <li class="user_setting">
           <div class="dropdown">
-                    <a class="btn dropdown-toggle" href="#" data-toggle="dropdown"><img class="rounded-circle" src="./assets/css/images/team/e1.png" alt="e1.png"> <span class="dn-1199">{{ currentUser }}</span></a>
+                    <a class="btn dropdown-toggle" href="#" data-toggle="dropdown"><span class="flaticon-user"></span><span class="dn-1199">  {{ currentUser }}</span></a>
               <div class="dropdown-menu">
                 <div class="user_set_header">
-                  <img class="float-left" src="./assets/css/images/team/e1.png" alt="e1.png">
+                  <span class="flaticon-user"></span>
                   <p>{{ currentUser }} <br><span class="address"><a href="https://grandetest.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="32535e5b464754535c72555f535b5e1c515d5f">[email&#160;protected]</a></span></p>
                 </div>
                 <div class="user_setting_content">
@@ -52,7 +52,7 @@
               </div>
           </div>
             </li>
-                <li class="list-inline-item add_listing"><a href="page-add-new-property.html"><span class="flaticon-plus"></span><span class="dn-lg"> Create Listing</span></a></li>
+                <li class="list-inline-item add_listing"><a href="insertproduct"><span class="flaticon-plus"></span><span class="dn-lg"> Create Listing</span></a></li>
           </ul>
       </nav>
   </div>
@@ -104,13 +104,14 @@
           </ul>
         </li>
         <li><a href="/savedsearches"><i class="flaticon-magnifying-glass"></i> <span>Saved Search</span></a></li>
+        <li><a href="/reviews"><i class="flaticon-logout`"></i> <span>Reviews</span></a></li>
         <li *ngIf="usertype == 1 "><a href="/requirement"><i class="flaticon-magnifying-glass"></i> <span>Requirements</span></a></li>
-        <li class="treeview">
+        <!-- <li class="treeview">
           <ul class="treeview-menu">
             <li><a href="#"><i class="fa fa-circle"></i> My Reviews</a></li>
             <li><a href="#"><i class="fa fa-circle"></i> Visitor Reviews</a></li>
           </ul>
-        </li>
+        </li> -->
        <li class="title"><span>Manage Account</span></li>
       <li><a href="/profile"><i class="flaticon-user"></i> <span>My Profile</span></a></li>
       <li><a href="/logout"><i class="flaticon-logout"></i> <span>Logout</span></a></li>

@@ -1,3 +1,4 @@
+import { GlobalConstants } from './../global-constants';
 import { FormGroup, FormControl } from '@angular/forms';
 import { UserService } from './../_services/user.service';
 import { TokenStorageService } from './../_services/token-storage.service';
@@ -34,78 +35,10 @@ export class PostproductrentComponent implements OnInit {
   furnishingArray = [];
   varfurnishing: string;
 
-
-
   text : string;
 
+  err_caused: boolean = false;
 
-
-
-  listing_rent = new FormGroup({
-
-    user_id: new FormControl('') ,
-    build_name: new FormControl('') ,
-    type: new FormControl('') ,
-    willing_to_rent_out_to: new FormControl('') ,
-    agreement_type: new FormControl('') ,
-    address: new FormControl('') ,
-    display_address: new FormControl('') ,
-    city: new FormControl('') ,
-    locality: new FormControl('') ,
-    property_detail: new FormControl('') ,
-    nearest_landmark: new FormControl('') ,
-    map_latitude: new FormControl('') ,
-    map_longitude: new FormControl('') ,
-    product_image1: new FormControl(''),
-    product_image2: new FormControl(''),
-    product_image3: new FormControl(''),
-    product_image4: new FormControl(''),
-    product_image5: new FormControl(''),
-    nearby_places: new FormControl('') ,
-    area: new FormControl('') ,
-    area_unit: new FormControl('') ,
-    carpet_area: new FormControl('') ,
-    bedroom: new FormControl('') ,
-    bathroom: new FormControl('') ,
-    balconies: new FormControl('') ,
-    additional_rooms: new FormControl('') ,
-    furnishing_status: new FormControl('none') ,
-    furnishings: new FormControl('') ,
-    total_floors: new FormControl('') ,
-    property_on_floor: new FormControl('') ,
-    rera_registration_status: new FormControl('') ,
-    additional_parking_status: new FormControl('') ,
-    parking_covered_count: new FormControl('') ,
-    parking_open_count: new FormControl('') ,
-    rent_availability: new FormControl('') ,
-    available_for: new FormControl('') ,
-    buildyear: new FormControl('') ,
-    age_of_property: new FormControl('') ,
-    possession_by: new FormControl('') ,
-    duration_of_rent_aggreement: new FormControl('') ,
-    security_deposit: new FormControl('') ,
-    maintenance_charge: new FormControl('') ,
-    maintenance_charge_status: new FormControl('') ,
-    maintenance_charge_condition: new FormControl('Monthly') ,
-    ownership: new FormControl('') ,
-    rent_cond: new FormControl('') ,
-    expected_pricing: new FormControl('') ,
-    inclusive_pricing_details: new FormControl('') ,
-    tax_govt_charge: new FormControl('') ,
-    price_negotiable: new FormControl('') ,
-    deposit: new FormControl('') ,
-    brokerage_charges: new FormControl('') ,
-    amenities: new FormControl('') ,
-    facing_towards: new FormControl('') ,
-    availability_condition: new FormControl('') ,
-    expected_rent: new FormControl('') ,
-    inc_electricity_and_water_bill: new FormControl('') ,
-    month_of_notice: new FormControl('') ,
-    equipment: new FormControl('') ,
-    features: new FormControl('') ,
-    description: new FormControl('') ,
-
-})
   content: any = {};
 
   image1;
@@ -129,8 +62,18 @@ export class PostproductrentComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleService.setTitle('Create Listing');
-    console.log(this.form);
+
+    // Login check
+    if(this.tokenStorage.getUser() != null){
+      this.isLoggedIn = true
+      console.log(this.isLoggedIn)
+    }
+    else{
+      this.redirect_to_home();
+    }
+
     this.content = this.tokenStorage.getUser().id;
+    console.log(this.content);
     this.maintenance = true;
     this.parking = false;
     if (this.tokenStorage.getToken()){
@@ -140,6 +83,10 @@ export class PostproductrentComponent implements OnInit {
     else{
       this.isLoggedIn = false ;
     }
+  }
+
+  redirect_to_home(): void {
+    window.location.href=GlobalConstants.siteURL="login"
   }
 
 
@@ -292,40 +239,15 @@ z
     }
   }
 
-  onSubmitSale(): void {
-
-    // this.listing_sale.patchValue({
-    //   user_id: this.content.id,
-    //   amenities: this.amenityArray,
-    //   furnishings: this.furnishingArray,
-    //   product_image1: this.image1,
-    //   product_image2: this.image2,
-    //   product_image3: this.image3,
-    //   product_image4: this.image4,
-    //   product_image5: this.image5,
-
-    // })
-
-    console.log(this.form)
-    this.authService.product_insert_sale(this.form, this.content.id, this.amenityArray, this.furnishingArray, this.image1, this.image2, this.image3, this.image4, this.image5).subscribe(
-      data => {
-        console.log("successful" + data)
-      },
-      err => {
-        this.errorMessage = err.error.message;
-        console.log(err);
-      }
-    );
-  }
-
-
   onSubmitRent(): void {
-    this.authService.product_insert_rent(this.form, this.content.id, this.amenityArray, this.furnishingArray, this.image1, this.image2, this.image3, this.image4, this.image5).subscribe(
+    this.authService.product_insert_rent(this.form, this.content, this.amenityArray, this.furnishingArray, this.image1, this.image2, this.image3, this.image4, this.image5).subscribe(
       data => {
         console.log("successful" + data)
+        window.location.href=GlobalConstants.siteURL+"myproperties"
       },
       err => {
-        this.errorMessage = err.error.message;
+        this.err_caused = true;
+        this.errorMessage = err.error.errors;
         console.log(err)
       }
     );

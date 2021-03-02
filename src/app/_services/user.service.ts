@@ -40,4 +40,38 @@ export class UserService {
     return this.http.get(GlobalConstants.apiURL + 'product/get_requ', { responseType: 'json' });
   }
 
+  getdashboard(): Observable<any> {
+    return this.http.get(GlobalConstants.apiURL + 'product/views', { responseType: 'json' });
+  }
+
+  getproperties(): Observable<any> {
+    return this.http.get(GlobalConstants.apiURL + 'product/agent_properties', { responseType: 'json' });
+  }
+
+  getSearch(): Observable<any> {
+    return this.http.get(GlobalConstants.apiURL + 'product/get_search', { responseType: 'json' });
+  }
+
+  // ADMIN PANEL GET REQUESTS
+
+  getAdmin_users(): Observable<any> {
+    return this.http.get(GlobalConstants.apiURL + 'admin/user_index', { responseType: 'json' });
+  }
+
+  getAdmin_product(): Observable<any> {
+    return this.http.get(GlobalConstants.apiURL + 'admin/product_index', { responseType: 'json' });
+  }
+
+  getAdmin_productviews(): Observable<any> {
+    return this.http.get(GlobalConstants.apiURL + 'admin/product_views', { responseType: 'json' });
+  }
+
+  getAdmin_reviewcount(): Observable<any> {
+    return this.http.get(GlobalConstants.apiURL + 'admin/review_count', { responseType: 'json' });
+  }
+
+  get_review(): Observable<any> {
+    return this.http.get(GlobalConstants.apiURL + 'product/review_index', { responseType: 'json' });
+  }
+
 }

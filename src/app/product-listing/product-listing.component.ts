@@ -17,6 +17,9 @@ export class ProductListingComponent implements OnInit {
   prod_if
 
 
+  first_prod = null
+  second_prod = null
+
   constructor(
     private titleService: Title,
     private userService: UserService,
@@ -56,26 +59,59 @@ export class ProductListingComponent implements OnInit {
   onComp(data){
 
 
-    console.log(this.idservice.getCdata());
+    // Old code
+
+    // console.log(this.idservice.getCdata());
+    // console.log(this.idservice.getProdId());
+
+
+    // if(this.idservice.getCdata() != null){
+    //   this.idservice.saveProdId(data);
+    //   console.log(this.idservice.getCdata());
+    //   console.log(this.idservice.getProdId());
+    //   console.log("1rd");
+    // }
+
+    // if(this.idservice.getCdata()){
+
+    //   this.prod_if = this.idservice.getCdata;
+    //   this.idservice.saveProdId(this.prod_if);
+    //   this.idservice.saveCdata(data);
+    //   console.log(this.idservice.getCdata());
+    //   console.log(this.idservice.getProdId());
+    //   console.log("3rd");
+    // }
+
+
+    if(this.first_prod == null){
+      this.first_prod = data
+    }
+    else if(this.first_prod != null){
+      if (this.second_prod != null){
+        this.second_prod = this.first_prod
+        this.first_prod = data
+      }
+      else{
+      this.second_prod = data
+      }
+    }
+
+    console.log(this.first_prod+"|"+this.second_prod)
+
+    if (this.first_prod != null && this.second_prod != null){
+
+      // alert("Added two property to compare list. (Only two properties can be compared at a time)")
+
+      this.idservice.saveProdId(this.first_prod);
+      this.idservice.saveCdata(this.second_prod)
+      window.location.href=GlobalConstants.siteURL+"compare"
+    }
+
     console.log(this.idservice.getProdId());
+    console.log(this.idservice.getCdata());
 
 
-    if(this.idservice.getCdata() != null){
-      this.idservice.saveProdId(data);
-      console.log(this.idservice.getCdata());
-      console.log(this.idservice.getProdId());
-      console.log("1rd");
-    }
 
-    if(this.idservice.getCdata()){
-
-      this.prod_if = this.idservice.getCdata;
-      this.idservice.saveProdId(this.prod_if);
-      this.idservice.saveCdata(data);
-      console.log(this.idservice.getCdata());
-      console.log(this.idservice.getProdId());
-      console.log("3rd");
-    }
   }
 
 

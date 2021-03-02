@@ -32,10 +32,10 @@
               <li class="last">
                   <a href="/contact"><span class="title">Contact</span></a>
               </li>
-                <li class="list-inline-item list_s"><a href="/login" class="btn flaticon-user" data-toggle="" data-target=".bd-example-modal-lg"> <span class="dn-lg">Login/Register</span></a></li>
-                <li class="user_setting" >
-                  <div class="dropdown" *ngIf="isLoggedIn">
-                            <a class="btn dropdown-toggle" href="#" data-toggle="dropdown"><img class="rounded-circle" src="./../../assets/css/images/team/e1.png" alt="e1.png"> <span class="dn-1199">{{ roles }}</span></a>
+                <li class="list-inline-item list_s"><a href="/login" class="btn flaticon-user" data-toggle="" data-target=".bd-example-modal-lg"> <span class="dn-lg"> Login/Register</span></a></li>
+                <li class="user_setting" *ngIf="isLoggedIn" >
+                  <div class="dropdown">
+                            <a class="btn dropdown-toggle" href="#" data-toggle="dropdown"><span class="flaticon-user"></span><span class="dn-1199"> {{ roles }}</span></a>
                       <div class="dropdown-menu">
                         <div class="user_set_header">
                           <img class="float-left" src="./../../assets/css/images/team/e1.png" alt="e1.png">
@@ -67,7 +67,7 @@
               <div class="col-lg-12">
               <ul class="sign_up_tab nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Login</a>
+                  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"> Login</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Register</a>
@@ -79,7 +79,7 @@
             <div class="row mt25 tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
               <div class="col-lg-6 col-xl-6">
                 <div class="login_thumb">
-                  <img class="img-fluid w100" src="./../../assets/css/images/resource/login.jpg" alt="login.jpg">
+                  <span class="flaticon-user"></span>
                 </div>
               </div>
               <div class="col-lg-6 col-xl-6">

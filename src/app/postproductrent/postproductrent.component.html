@@ -44,7 +44,7 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="dashboard_navigationbar dn db-992">
-								<div class="dropdown">
+                <div class="dropdown">
 									<button onclick="myFunction()" class="dropbtn"><i class="fa fa-bars pr10"></i> Dashboard Navigation</button>
 									<ul id="myDropdown" class="dropdown-content">
 										<li><a href="page-dashboard.html"><span class="flaticon-layers"></span> Dashboard</a></li>
@@ -65,7 +65,6 @@
 							<div class="breadcrumb_content style2">
 								<h2 class="breadcrumb_title">Add New Property For Rent</h2>
                 <p>We are glad to see you again!</p>
-
 							</div>
             </div>
 
@@ -73,7 +72,7 @@
 
 
 
- <form class="col-lg-12" action="#" name="form" (ngSubmit)="onSubmitRent()" #f="ngForm">
+ <form *ngIf="isLoggedIn" class="col-lg-12" action="#" name="form" (ngSubmit)="onSubmitRent()" #f="ngForm">
   <div class="my_dashboard_review">
     <div class="row">
       <div class="col-lg-12">
@@ -700,6 +699,8 @@
             <textarea class="form-control" id="propertyDetail" name="description" #description="ngModel" [(ngModel)]="form.description" rows="7"></textarea>
         </div>
       </div>
+
+      <div class="text-center" *ngIf="err_caused"><p class="alert alert-danger">{{errorMessage | json}}</p></div>
 
       <div class="col-xl-12">
         <div class="my_profile_setting_input">

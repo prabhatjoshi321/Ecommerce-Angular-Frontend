@@ -17,6 +17,7 @@ export class TopbarComponent implements OnInit {
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = null;
+  data
 
 
   constructor(
@@ -28,8 +29,8 @@ export class TopbarComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.titleService.setTitle('Login');
-    if (this.tokenStorage.getToken()){
+    this.data = this.tokenStorage.getToken();
+    if (this.tokenStorage.getToken() != null){
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().username;
 
