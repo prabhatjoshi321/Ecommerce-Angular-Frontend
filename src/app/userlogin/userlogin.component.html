@@ -135,8 +135,8 @@
             <a href="/profile">
               <button class="btn btn-log btn-block btn-thm2" routerLink="/profile">Profile</button>
             </a>
-            <a href="/dashboard" *ngIf="!usertype">
-              <button class="btn btn-log btn-block btn-thm2" routerLink="/dashboard">Dashboard</button>
+            <a (click)="dashboard()" *ngIf="!usertype">
+              <button  class="btn btn-log btn-block btn-thm2" >Dashboard</button>
             </a>
 
 </div>

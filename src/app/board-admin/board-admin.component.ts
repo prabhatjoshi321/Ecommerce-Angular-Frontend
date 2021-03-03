@@ -15,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 export class BoardAdminComponent implements OnInit {
 
   form: any = {};
-  isLoggedIn: boolean = true;
+  isLoggedIn: boolean = false;
   isLoginFailed;
   errorMessage;
   usertype

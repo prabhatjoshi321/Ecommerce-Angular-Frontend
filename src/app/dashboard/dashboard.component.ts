@@ -1,3 +1,4 @@
+import { GlobalConstants } from './../global-constants';
 import { UserService } from './../_services/user.service';
 import { TokenStorageService } from './../_services/token-storage.service';
 import { Title } from '@angular/platform-browser';
@@ -28,6 +29,10 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.titleService.setTitle('Dashboard');
     this.name = this.tokenStorage.getUser().username;
+
+    if(this.tokenStorage.getUser().usertype > 6){
+      window.location.href=GlobalConstants.siteURL+"adminpanel"}
+
 
     this.userService.getdashboard().pipe().subscribe(
       (data: any) => {
