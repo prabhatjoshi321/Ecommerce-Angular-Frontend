@@ -101,6 +101,13 @@ export class UserloginComponent implements OnInit {
     window.location.href=GlobalConstants.siteURL+"profile"
   }
 
+  dashboard() :void {
+    if(this.tokenStorage.getUser().usertype > 6)
+      window.location.href=GlobalConstants.siteURL+"adminpanel"
+    else
+      window.location.href=GlobalConstants.siteURL+"dashboard"
+  }
+
   logout(): void{
     this.isLoggedIn = false;
     this.tokenStorage.signout();
