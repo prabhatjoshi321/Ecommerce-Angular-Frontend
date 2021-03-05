@@ -1,3 +1,7 @@
+import { AdminlawyerservicesComponent } from './adminlawyerservices/adminlawyerservices.component';
+import { LawyerprofileComponent } from './lawyerprofile/lawyerprofile.component';
+import { LawyerpageComponent } from './lawyerpage/lawyerpage.component';
+import { LawyerserviceComponent } from './lawyerservice/lawyerservice.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { AdmingetreviewsComponent } from './admingetreviews/admingetreviews.component';
 import { AdmingetrequirementsComponent } from './admingetrequirements/admingetrequirements.component';
@@ -56,6 +60,10 @@ const routes: Routes = [
   {path: 'adminproducts', component: AdmingetproductComponent},
   {path: 'adminrequirements', component: AdmingetrequirementsComponent},
   {path: 'adminpreviews', component: AdmingetreviewsComponent},
+  {path: 'lawyerservice', component: LawyerserviceComponent},
+  {path: 'lawyers', component: LawyerpageComponent},
+  {path: 'lawyerprofile', component: LawyerprofileComponent},
+  {path: 'adminlawyerservices', component: AdminlawyerservicesComponent},
   {path: '**', component: NotfoundComponent},
 
 ];

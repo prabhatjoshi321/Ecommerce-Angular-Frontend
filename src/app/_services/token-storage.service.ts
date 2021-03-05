@@ -5,6 +5,7 @@ const USER_KEY = 'auth_user';
 const ID_KEY = 'id_key';
 const COMPARE = '';
 const SEARCH_DATA = 'data';
+const LAWYER_ID = 'data';
 
 @Injectable({
   providedIn: 'root'
@@ -60,6 +61,15 @@ export class TokenStorageService {
 
   public getCdata(): any{
     return(sessionStorage.getItem(COMPARE));
+  }
+
+  public setLawyer(id: string): void {
+      window.sessionStorage.removeItem(LAWYER_ID);
+      window.sessionStorage.setItem(LAWYER_ID, id);
+  }
+
+  public getLawyer(): any{
+    return(sessionStorage.getItem(LAWYER_ID));
   }
 
 

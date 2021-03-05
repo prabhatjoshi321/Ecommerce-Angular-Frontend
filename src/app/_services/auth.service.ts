@@ -262,9 +262,28 @@ export class AuthService {
 
 
   property_delete(id): Observable<any> {
-    console.log(id)
     return this.http.post(AUTH_API + 'product/delete_product', JSON.stringify({
       product_id: id,
+    }), httpOptions);
+  }
+
+  lawyer_service_delete(id): Observable<any> {
+    return this.http.post(AUTH_API + 'product/lawyer_service_delete', JSON.stringify({
+      id: id,
+    }), httpOptions);
+  }
+
+  lawyer_create_service(data): Observable<any> {
+    return this.http.post(AUTH_API + 'product/lawyer_create_service', JSON.stringify({
+      service_name: data.service_name,
+      service_details: data.service_details,
+      price: data.price,
+    }), httpOptions);
+  }
+
+  lawyer_get(data): Observable<any> {
+    return this.http.post(AUTH_API + 'product/lawyer_page', JSON.stringify({
+      id: data
     }), httpOptions);
   }
 

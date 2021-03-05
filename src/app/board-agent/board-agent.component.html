@@ -247,7 +247,7 @@
             <form action="#"
             *ngIf="!isSuccessful"
     name="form"
-    (ngSubmit)="f.form.valid && onSubmitOwner()"
+    (ngSubmit)="f.form.valid && onSubmitDealer()"
     #f="ngForm"
     novalidate>
               <div class="form-group">
@@ -495,7 +495,7 @@ Aadhar Number must be at most 12 digits
           <form action="#"
           *ngIf="!isSuccessful"
   name="form"
-  (ngSubmit)="f.form.valid && onSubmitOwner()"
+  (ngSubmit)="f.form.valid && onSubmitLawyer()"
   #f="ngForm"
   novalidate>
             <div class="form-group">

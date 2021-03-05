@@ -43,6 +43,10 @@ import { AdmindashtopbarComponent } from './admindashtopbar/admindashtopbar.comp
 import { AdmingetreviewsComponent } from './admingetreviews/admingetreviews.component';
 import { AdmingetrequirementsComponent } from './admingetrequirements/admingetrequirements.component';
 import { ReviewsComponent } from './reviews/reviews.component';
+import { LawyerserviceComponent } from './lawyerservice/lawyerservice.component';
+import { LawyerpageComponent } from './lawyerpage/lawyerpage.component';
+import { LawyerprofileComponent } from './lawyerprofile/lawyerprofile.component';
+import { AdminlawyerservicesComponent } from './adminlawyerservices/adminlawyerservices.component';
 //import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
@@ -84,6 +88,10 @@ import { ReviewsComponent } from './reviews/reviews.component';
     AdmingetreviewsComponent,
     AdmingetrequirementsComponent,
     ReviewsComponent,
+    LawyerserviceComponent,
+    LawyerpageComponent,
+    LawyerprofileComponent,
+    AdminlawyerservicesComponent,
   ],
   imports: [
     BrowserModule,

@@ -58,8 +58,8 @@
             </div>
           </div>
           <div class="col-lg-4 col-xl-4 mb10">
-            <div class="breadcrumb_content style2 mb30-991"  style="margin-left: 30px;">
-              <h2 class="breadcrumb_title">My Reviews</h2>
+            <div class="breadcrumb_content style2 mb30-991" style="margin-left: 30px;">
+              <h2 class="breadcrumb_title"><span>  </span>My Services</h2>
               <p>We are glad to see you again!</p>
             </div>
           </div>
@@ -78,7 +78,8 @@
                   <table class="table">
                     <thead class="thead-light">
                         <tr>
-                          <th scope="col">Review</th>
+                          <th scope="col">Services</th>
+                          <th scope="col">Date published</th>
                           <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -89,14 +90,18 @@
 
                             <div class="details">
                               <div class="tc_content">
-                                <h4>{{ number.rev_subject }}</h4>
+                                <h4>{{ number.service_name }}</h4>
+                                <p><span class="flaticon-college-graduation"></span>     {{ number.service_details }}</p>
+                                <a class="fp_price text-thm" href="#">₹ {{ number.price }}<small></small></a>
                               </div>
                             </div>
                           </div>
                           </th>
+                          <!-- <td>{{ number.updated_at }}</td> -->
+                          <td>{{ number.created_at | date: 'MMM d, y, h:mm:ss a' }}</td>
+                          <!-- <td><span class="status_tag badge">Pending</span></td> -->
                           <td>
                             <ul class="view_edit_delete_list mb0">
-                              <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Edit"><a href="#"><span class="flaticon-edit"></span></a></li>
                               <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Delete"><a (click)="del_func(number.id)"><span class="flaticon-garbage"></span></a></li>
                             </ul>
                           </td>
@@ -112,6 +117,44 @@
             </div>
           </div>
         </div>
+
+        <div class="col-lg-12 mb10">
+          <div class="breadcrumb_content style2" style="margin-left: 30px;">
+            <h2 class="breadcrumb_title">Add New Service</h2>
+            <div class="row mt40">
+
+              <form action="#" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
+                <div class="col-lg-6 col-xl-12">
+                  <div class="my_profile_setting_input form-group">
+                      <label for="service_name">Service name</label>
+                      <input type="text" class="form-control" name="service_name" #service_name="ngModel" [(ngModel)]="form.service_name" placeholder="">
+                  </div>
+                </div>
+
+                <div class="col-lg-6 col-xl-12">
+                  <div class="my_profile_setting_input form-group">
+                      <label for="price">Price</label>
+                      <input type="text" class="form-control" name="price" #price="ngModel" [(ngModel)]="form.price" placeholder="">
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="my_profile_setting_textarea form-group">
+                      <label for="service_details">Service Description</label>
+                      <textarea type="text" name="service_details" [(ngModel)]="form.service_details" #service_details="ngModel" class="form-control" id="exampleInputEmail3" rows="5" cols="100"></textarea>
+                  </div>
+                </div>
+                <div class="col-xl-12 form-group">
+                  <div class="my_profile_setting_input">
+                    <button type="submit" class="btn btn2 float-right">Submit</button>
+                  </div>
+                </div>
+            </form>
+
+
+            </div>
+          </div>
+        </div>
+
         <div class="row mt10">
           <div class="col-lg-12">
             <div class="copyright-widget text-center">

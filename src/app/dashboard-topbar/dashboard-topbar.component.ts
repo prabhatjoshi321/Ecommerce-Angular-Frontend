@@ -1,3 +1,4 @@
+import { GlobalConstants } from './../global-constants';
 import { TokenStorageService } from './../_services/token-storage.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -23,5 +24,14 @@ export class DashboardTopbarComponent implements OnInit {
     console.log(this.usertype)
   }
 
+
+  redirect_control(): void {
+    if(this.usertype == 4){
+      window.location.href=GlobalConstants.siteURL+"lawyerservice"
+    }
+    else{
+      window.location.href=GlobalConstants.siteURL+"dashboard"
+    }
+  }
 
 }

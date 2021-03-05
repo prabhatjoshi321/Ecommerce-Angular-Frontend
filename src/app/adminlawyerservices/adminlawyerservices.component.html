@@ -25,13 +25,9 @@
 </head>
 <body>
 <div class="wrapper">
-  <!-- <div class="preloader"></div> -->
 
- <!-- Main Header Nav -->
-<!-- <app-topbardark></app-topbardark> -->
- <!-- Listing Grid View -->
- <app-dashboard-topbar></app-dashboard-topbar>
- <!-- Our Dashbord -->
+ <app-admindashtopbar></app-admindashtopbar>
+
  <section class="our-dashbord dashbord bgc-f7 pb50">
   <div class="container-fluid">
     <div class="row">
@@ -58,8 +54,8 @@
             </div>
           </div>
           <div class="col-lg-4 col-xl-4 mb10">
-            <div class="breadcrumb_content style2 mb30-991"  style="margin-left: 30px;">
-              <h2 class="breadcrumb_title">My Reviews</h2>
+            <div class="breadcrumb_content style2 mb30-991" style="margin-left: 30px;">
+              <h2 class="breadcrumb_title"><span>  </span>Lawyer Services</h2>
               <p>We are glad to see you again!</p>
             </div>
           </div>
@@ -78,7 +74,9 @@
                   <table class="table">
                     <thead class="thead-light">
                         <tr>
-                          <th scope="col">Review</th>
+                          <th scope="col">Services</th>
+                          <th scope="col">Date published</th>
+                          <th scope="col">Delete status</th>
                           <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -89,14 +87,18 @@
 
                             <div class="details">
                               <div class="tc_content">
-                                <h4>{{ number.rev_subject }}</h4>
+                                <h4>{{ number.service_name }}</h4>
+                                <p><span class="flaticon-college-graduation"></span>     {{ number.service_details }}</p>
+                                <a class="fp_price text-thm" href="#">₹ {{ number.price }}<small></small></a>
                               </div>
                             </div>
                           </div>
                           </th>
+                          <!-- <td>{{ number.updated_at }}</td> -->
+                          <td>{{ number.created_at | date: 'MMM d, y, h:mm:ss a' }}</td>
+                          <td><span class="status_tag badge">{{ number.delete_flag}}</span></td>
                           <td>
                             <ul class="view_edit_delete_list mb0">
-                              <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Edit"><a href="#"><span class="flaticon-edit"></span></a></li>
                               <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Delete"><a (click)="del_func(number.id)"><span class="flaticon-garbage"></span></a></li>
                             </ul>
                           </td>
@@ -112,6 +114,7 @@
             </div>
           </div>
         </div>
+
         <div class="row mt10">
           <div class="col-lg-12">
             <div class="copyright-widget text-center">

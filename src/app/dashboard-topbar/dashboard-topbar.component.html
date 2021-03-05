@@ -92,20 +92,15 @@
       <li class="header"><img src="./assets/css/images/header-logo2.png" alt="header-logo2.png"> FindHouse</li>
       <div *ngIf="usertype != 1 ">
       <li class="title"><span>Main</span></li>
-      <li class="treeview"><a href="/dashboard"><i class="flaticon-layers"></i><span> Dashboard</span></a></li>
+      <li class="treeview"><a (click)="redirect_control()"><i class="flaticon-layers"></i><span> Dashboard</span></a></li>
       </div>
       <li class="title"><span>Manage Listings</span></li>
-        <li class="treeview">
-          <a href="/myproperties"><i class="flaticon-home"></i> <span>My Properties</span><i class="fa fa-angle-down pull-right"></i></a>
-          <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle"></i> General Elements</a></li>
-            <li><a href="#"><i class="fa fa-circle"></i> Advanced Elements</a></li>
-            <li><a href="#"><i class="fa fa-circle"></i> Editors</a></li>
-          </ul>
-        </li>
-        <li><a href="/savedsearches"><i class="flaticon-magnifying-glass"></i> <span>Saved Search</span></a></li>
-        <li><a href="/reviews"><i class="flaticon-logout`"></i> <span>Reviews</span></a></li>
-        <li *ngIf="usertype == 1 "><a href="/requirement"><i class="flaticon-magnifying-glass"></i> <span>Requirements</span></a></li>
+        <li *ngIf="usertype != 4 "><a href="/myproperties"><i class="flaticon-home"></i> <span>My Properties</span></a> </li>
+        <li *ngIf="usertype != 4 "><a href="/savedsearches"><i class="flaticon-magnifying-glass"></i> <span>Saved Search</span></a></li>
+        <li *ngIf="usertype != 4 "><a href="/reviews"><i class="flaticon-layers"></i> <span>Reviews</span></a></li>
+        <li *ngIf="usertype != 4 "><a href="/requirement"><i class="flaticon-box"></i> <span>Requirements</span></a></li>
+        <li *ngIf="usertype != 4 "><a href="/lawyers"><i class="flaticon-college-graduation"></i> <span>Lawyer Services</span></a></li>
+        <li *ngIf="usertype == 4 "><a href="/lawyerservice"><i class="flaticon-magnifying-glass"></i> <span>Services Offered</span></a></li>
         <!-- <li class="treeview">
           <ul class="treeview-menu">
             <li><a href="#"><i class="fa fa-circle"></i> My Reviews</a></li>

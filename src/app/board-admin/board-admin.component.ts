@@ -64,7 +64,13 @@ export class BoardAdminComponent implements OnInit {
   }
 
   redirect_to_admin(){
-    window.location.href=GlobalConstants.siteURL+"adminpanel"
+
+    if(this.tokenStorage.getUser().usertype > 6){
+      window.location.href=GlobalConstants.siteURL+"adminpanel"}
+    else{
+      window.location.href=GlobalConstants.siteURL+"dashboard"}
+
+    // window.location.href=GlobalConstants.siteURL+"adminpanel"
   }
 
 

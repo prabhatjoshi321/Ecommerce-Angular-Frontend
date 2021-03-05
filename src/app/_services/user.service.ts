@@ -52,6 +52,14 @@ export class UserService {
     return this.http.get(GlobalConstants.apiURL + 'product/get_search', { responseType: 'json' });
   }
 
+  getLawyerServices(): Observable<any> {
+    return this.http.get(GlobalConstants.apiURL + 'product/lawyer_service', { responseType: 'json' });
+  }
+
+  getLawyerServiceIndex(): Observable<any> {
+    return this.http.get(GlobalConstants.apiURL + 'product/lawyer_service_index', { responseType: 'json' });
+  }
+
   // ADMIN PANEL GET REQUESTS
 
   getAdmin_users(): Observable<any> {
@@ -73,5 +81,10 @@ export class UserService {
   get_review(): Observable<any> {
     return this.http.get(GlobalConstants.apiURL + 'product/review_index', { responseType: 'json' });
   }
+
+  adminGetLawyerServices(): Observable<any> {
+    return this.http.get(GlobalConstants.apiURL + 'admin/admin_lawyer_service', { responseType: 'json' });
+  }
+
 
 }

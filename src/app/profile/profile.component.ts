@@ -70,13 +70,13 @@ export class ProfileComponent implements OnInit {
         if(this.usertype == 1){
           this.usercat = "Customer";
         }
-        else if(this.usertype == 2){
+        if(this.usertype == 2){
           this.usercat = "Owner";
         }
-        else if(this.usertype == 3){
+        if(this.usertype == 3){
           this.usercat = "Dealer/Company";
         }
-        else if(this.usertype == 4){
+        if(this.usertype == 4){
           this.usercat = "Lawyer";
         }
         this.email_verifyd = data.email_verified_at;
