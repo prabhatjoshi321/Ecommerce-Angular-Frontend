@@ -23,6 +23,8 @@ export class ProductpageComponent implements OnInit {
   p_img3;
   p_img4;
   p_img5;
+  form: any = {};
+  Review;
 
 
   constructor(
@@ -60,6 +62,7 @@ export class ProductpageComponent implements OnInit {
       )
     }
 
+    this.get_review();
 
     {this.authService.product_see(this.prod_id).subscribe(
 
@@ -83,6 +86,33 @@ export class ProductpageComponent implements OnInit {
       );
     }
   }
+
+  onSubmit(): void {
+    console.log(this.form)
+    this.authService.create_review(this.form, this.prod_id).subscribe(
+      data => {
+        console.log(data)
+        window.location.reload();
+      },
+      err => {
+        console.log(err.error);
+      }
+    );
+}
+
+  get_review(): void {
+    console.log(this.form)
+    this.authService.product_review(this.prod_id).subscribe(
+      data => {
+        console.log('sfesf')
+        console.log(data)
+        this.Review = data.data
+      },
+      err => {
+        console.log(err.error);
+      }
+    );
+}
 
   onShare(){
     alert("Your Shareable Link is \n" + this.sitestring + this.router.url + "?id=" + this.prod_id);

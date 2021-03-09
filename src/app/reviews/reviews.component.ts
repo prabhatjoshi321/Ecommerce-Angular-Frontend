@@ -32,7 +32,7 @@ export class ReviewsComponent implements OnInit {
     this.userService.get_review().pipe().subscribe(
       (data: any) => {
 
-        this.content = data.data.data;
+        this.content = data.data;
         console.log(data);
 
       },

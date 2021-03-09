@@ -78,8 +78,8 @@
                   <table class="table">
                     <thead class="thead-light">
                         <tr>
-                          <th scope="col">Review</th>
-                          <th scope="col">Action</th>
+                          <th scope="col">Reviews</th>
+                          <!-- <th scope="col">Action</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -89,17 +89,20 @@
 
                             <div class="details">
                               <div class="tc_content">
-                                <h4>{{ number.rev_subject }}</h4>
+                                <h4>{{ number.stars }}-Stars</h4>
+                                <span>Subject - {{number.rev_subject}}</span>
+                                <br>
+                                <span>Content - {{number.rev_content}}</span>
                               </div>
                             </div>
                           </div>
                           </th>
-                          <td>
+                          <!-- <td>
                             <ul class="view_edit_delete_list mb0">
                               <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Edit"><a href="#"><span class="flaticon-edit"></span></a></li>
                               <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Delete"><a (click)="del_func(number.id)"><span class="flaticon-garbage"></span></a></li>
                             </ul>
-                          </td>
+                          </td> -->
                         </tr>
 
 

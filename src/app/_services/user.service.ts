@@ -82,8 +82,16 @@ export class UserService {
     return this.http.get(GlobalConstants.apiURL + 'product/review_index', { responseType: 'json' });
   }
 
+  admin_get_review(): Observable<any> {
+    return this.http.get(GlobalConstants.apiURL + 'admin/admin_review_index', { responseType: 'json' });
+  }
+
   adminGetLawyerServices(): Observable<any> {
     return this.http.get(GlobalConstants.apiURL + 'admin/admin_lawyer_service', { responseType: 'json' });
+  }
+
+  adminGetAdminReview(): Observable<any> {
+    return this.http.get(GlobalConstants.apiURL + 'product/get_requ', { responseType: 'json' });
   }
 
 

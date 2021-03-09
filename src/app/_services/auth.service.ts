@@ -273,6 +273,27 @@ export class AuthService {
     }), httpOptions);
   }
 
+  requirement_delete(id): Observable<any> {
+    return this.http.post(AUTH_API + 'product/requirement_delete', JSON.stringify({
+      id: id,
+    }), httpOptions);
+  }
+
+  create_review(form, id): Observable<any> {
+    return this.http.post(AUTH_API + 'product/post_review', JSON.stringify({
+      product_id: id,
+      stars: form.stars,
+      rev_subject: form.rev_subject,
+      rev_content:  form.rev_content,
+
+    }), httpOptions);
+  }
+  product_review(id): Observable<any> {
+    return this.http.post(AUTH_API + 'product/product_review', JSON.stringify({
+      id: id,
+    }), httpOptions);
+  }
+
   lawyer_create_service(data): Observable<any> {
     return this.http.post(AUTH_API + 'product/lawyer_create_service', JSON.stringify({
       service_name: data.service_name,

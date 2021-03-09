@@ -766,6 +766,17 @@
 								</div> -->
 							</div>
 						</div>
+            <div class="col-lg-12">
+							<div class="whats_nearby mt30">
+								<h4 class="mb10">Reviews</h4>
+								<div class="education_distance mb15" *ngFor="let data of Review">
+									<h5><span class=""></span>{{data.rev_subject}}</h5>
+									<div><span class="text-black-50"></span>{{data.stars}}-Stars</div>
+									<div><span class=""></span>{{data.rev_content}}</div>
+                  <br>
+								</div>
+							</div>
+						</div>
 						<!-- <div class="col-lg-12">
 							<div class="application_statics">
 								<div class="row">
@@ -1500,6 +1511,33 @@
 							</div>
 						</div>
 					</div> -->
+          <label>Post Review</label>
+          <form action="#" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
+            <div class="col-lg-6 col-xl-12">
+              <div class="my_profile_setting_input form-group">
+                  <label for="stars">Stars</label>
+                  <input type="text" class="form-control" name="stars" #stars="ngModel" [(ngModel)]="form.stars" placeholder="">
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-xl-12">
+              <div class="my_profile_setting_input form-group">
+                  <label for="price">Review Subject</label>
+                  <input type="text" class="form-control" name="rev_subject" #rev_subject="ngModel" [(ngModel)]="form.rev_subject" placeholder="">
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="my_profile_setting_textarea form-group">
+                  <label for="service_details">Review Content</label>
+                  <textarea type="text" name="rev_content" [(ngModel)]="form.rev_content" #rev_content="ngModel" class="form-control" id="exampleInputEmail3" rows="5" cols="100"></textarea>
+              </div>
+            </div>
+            <div class="col-xl-12 form-group">
+              <div class="my_profile_setting_input">
+                <button type="submit" class="btn btn2 float-right">Submit</button>
+              </div>
+            </div>
+        </form>
 				</div>
 			</div>
 		</div>

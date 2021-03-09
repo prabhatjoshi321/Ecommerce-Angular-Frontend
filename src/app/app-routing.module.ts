@@ -59,7 +59,7 @@ const routes: Routes = [
   {path: 'adminusers', component: AdmingetusersComponent},
   {path: 'adminproducts', component: AdmingetproductComponent},
   {path: 'adminrequirements', component: AdmingetrequirementsComponent},
-  {path: 'adminpreviews', component: AdmingetreviewsComponent},
+  {path: 'adminreviews', component: AdmingetreviewsComponent},
   {path: 'lawyerservice', component: LawyerserviceComponent},
   {path: 'lawyers', component: LawyerpageComponent},
   {path: 'lawyerprofile', component: LawyerprofileComponent},

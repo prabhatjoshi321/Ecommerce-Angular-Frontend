@@ -54,6 +54,7 @@ export class RequirementComponent implements OnInit {
           (data: any) => {
             this.content =data.data.data;
             console.log(this.content)
+            window.location.reload();
           }
         );
       },
