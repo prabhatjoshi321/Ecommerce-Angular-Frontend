@@ -47,6 +47,7 @@ import { LawyerserviceComponent } from './lawyerservice/lawyerservice.component'
 import { LawyerpageComponent } from './lawyerpage/lawyerpage.component';
 import { LawyerprofileComponent } from './lawyerprofile/lawyerprofile.component';
 import { AdminlawyerservicesComponent } from './adminlawyerservices/adminlawyerservices.component';
+import { VerifyComponent } from './verify/verify.component';
 //import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
@@ -92,6 +93,7 @@ import { AdminlawyerservicesComponent } from './adminlawyerservices/adminlawyers
     LawyerpageComponent,
     LawyerprofileComponent,
     AdminlawyerservicesComponent,
+    VerifyComponent,
   ],
   imports: [
     BrowserModule,

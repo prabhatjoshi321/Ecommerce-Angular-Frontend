@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class BoardAgentComponent implements OnInit {
 
   form: any = {};
+  otp: any = {};
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
@@ -19,6 +20,10 @@ export class BoardAgentComponent implements OnInit {
   imgLink         : any
   imgData         : any
   image;
+  number:string
+  verify = false;
+  isFailedVerify = false;
+  isVerified = false;
 
   ownerVisible: boolean = true;
   dealerVisible: boolean = false;
@@ -48,6 +53,9 @@ export class BoardAgentComponent implements OnInit {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
+        this.number = this.form.other_mobile_number;
+        this.verify = true;
+        console.log(this.number)
       },
         err => {
           this.errorMessage = err.error.message;
@@ -66,6 +74,9 @@ export class BoardAgentComponent implements OnInit {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
+        this.number = this.form.other_mobile_number;
+        this.verify = true;
+        console.log(this.number)
       },
         err => {
           this.errorMessage = err.error.message;
@@ -84,6 +95,9 @@ export class BoardAgentComponent implements OnInit {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
+        this.number = this.form.other_mobile_number;
+        this.verify = true;
+        console.log(this.number)
       },
         err => {
           this.errorMessage = err.error.message;
@@ -113,6 +127,25 @@ export class BoardAgentComponent implements OnInit {
     this.dealerVisible = false;
     this.lawyerVisible = true;
   }
+
+  onSubmitotp(): void {
+    {this.authService.verify(this.number, this.otp.password ).subscribe(
+
+      data => {
+        console.log(data);
+        this.isVerified = true;
+        this.verify = false;
+      },
+        err => {
+          this.errorMessage = err.error.message;
+          this.verify = true;
+          this.isFailedVerify = true;
+          console.log(err);
+        }
+      );
+    }
+  }
+
 
 
   onFileChanged(event){

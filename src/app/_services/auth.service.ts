@@ -1,3 +1,4 @@
+import { stringify } from '@angular/compiler/src/util';
 import { TokenStorageService } from './token-storage.service';
 import { GlobalConstants } from './../global-constants';
 import { HttpClient } from '@angular/common/http';
@@ -305,6 +306,21 @@ export class AuthService {
   lawyer_get(data): Observable<any> {
     return this.http.post(AUTH_API + 'product/lawyer_page', JSON.stringify({
       id: data
+    }), httpOptions);
+  }
+
+  verify(number, otp:string): Observable<any> {
+    let name = ""+number
+    console.log(typeof(name), typeof(otp))
+    return this.http.post(AUTH_API + 'auth/verify', JSON.stringify({
+      phone_number: name,
+      verification_code: otp
+    }), httpOptions);
+  }
+
+  reverify(otp): Observable<any> {
+    return this.http.post(AUTH_API + 'auth/reverify', JSON.stringify({
+      verification_code: otp
     }), httpOptions);
   }
 

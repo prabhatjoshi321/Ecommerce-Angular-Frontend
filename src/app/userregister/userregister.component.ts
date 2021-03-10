@@ -9,8 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class UserregisterComponent implements OnInit {
 
   form: any = {};
+  otp: any = {};
   isSuccessful = false;
+  isVerified = false;
   isSignUpFailed = false;
+  isFailedVerify = false;
+  verify = false;
   errorMessage = '';
   theFile: any = null;
   fileToUpload: File = null;
@@ -18,6 +22,7 @@ export class UserregisterComponent implements OnInit {
   imgLink         : any
   imgData         : any
   image;
+  number:string
 
 
   public constructor(
@@ -42,11 +47,32 @@ export class UserregisterComponent implements OnInit {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
+        this.number = this.form.other_mobile_number;
+        this.verify = true;
+        console.log(this.number)
       },
         err => {
           this.errorMessage = err.error.message;
           this.isSignUpFailed = true;
           console.log(this.form,this.fileToUpload);
+          console.log(err);
+        }
+      );
+    }
+  }
+
+  onSubmitotp(): void {
+    {this.authService.verify(this.number, this.otp.password ).subscribe(
+
+      data => {
+        console.log(data);
+        this.isVerified = true;
+        this.verify = false;
+      },
+        err => {
+          this.errorMessage = err.error.message;
+          this.verify = true;
+          this.isFailedVerify = true;
           console.log(err);
         }
       );
