@@ -126,12 +126,13 @@
 
               </div>
                 <div class="form-group">
-                  <input type="file" class="form-control" name="profile_pic"
+
+                 <label>Upload your profile picture.</label><label class="btn btn-thm2 right-align" for="files">Upload</label>
+                  <input type="file" class="form-control" style="display: none;" name="profile_pic"
                   ngModel
                   #profile_pic="ngModel"
                   (change)= "onFileChanged($event)"
-                   id="exampleInputPassword5" >
-
+                   id="files" >
               </div>
 								<!-- <div class="form-group custom-control custom-checkbox">
 									<input type="checkbox" class="custom-control-input" id="exampleCheck3">
