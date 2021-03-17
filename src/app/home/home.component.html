@@ -586,7 +586,7 @@
 					<div class="main-title text-center mb40">
 						<h2>Featured Properties</h2>
 						<p>Handpicked properties by our team.</p>
-          <h4 class="italic" *ngIf="content">No Properties</h4>
+          <h4 class="italic" *ngIf="!content">No Properties</h4>
 
 					</div>
         </div>
@@ -636,7 +636,7 @@
                     <!-- <li class="list-inline-item"> <h2 class="fp_pdate float-right">Available For: {{number.available_for}}</h2> </li> -->
                       <!-- <li class="list-inline-item"><a >{{ number.username+1 }}</a></li> -->
                     </ul>
-                    <div class="fp_pdate float-right"><a><button type="button" (click)="onComp(number.id)" class="btn btn-log btn-block btn-thm bg-white text-black-50">Add to compare</button></a></div>
+                    <!-- <div class="fp_pdate float-right"><a><button type="button" (click)="onComp(number.id)" class="btn btn-log btn-block btn-thm bg-white text-black-50">Add to compare</button></a></div> -->
                     <div class="fp_pdate float-left"><a href="/productpage"><button type="button" (click)="prod_func(number.id)" class="btn btn-log btn-block btn-thm">Show Property</button></a></div>
 
                   </div>

@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   data: any = {};
   content
   login
+  ftpstring = GlobalConstants.ftpURL
 
 
 

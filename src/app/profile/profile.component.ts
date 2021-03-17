@@ -79,8 +79,8 @@ export class ProfileComponent implements OnInit {
         if(this.usertype == 4){
           this.usercat = "Lawyer";
         }
-        this.email_verifyd = data.email_verified_at;
-        if(this.email_verifyd != null){
+        this.email_verifyd = data.phone_number_verification_status;
+        if(this.email_verifyd != 0){
           this.email_verify = true;
         }
         this.id_created_at = data.created_at;
