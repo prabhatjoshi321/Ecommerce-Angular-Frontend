@@ -16,7 +16,8 @@ export class HomeComponent implements OnInit {
   currentUser: any;
   form: any = {};
   data: any = {};
-  content
+  content: any = {};
+  number: any = {};
   login
   ftpstring = GlobalConstants.ftpURL
 
@@ -36,26 +37,26 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.home_call();
     this.titleService.setTitle('Housing Street');
     this.currentUser = this.tokenService.getUser().username;
-
     this.login = this.tokenService.getToken();
 
-    console.log(this.login)
+  }
 
-
-    this.userService.getproductlisting().pipe().subscribe(
+  home_call(): void{
+    this.userService.getproductlistingfeatured().pipe().subscribe(
       (data: any) => {
 
         this.content = data.data.data;
-        console.log(this.content);
+        this.number = this.content
+        console.log(this.number);
         //console.log(this.content);
       },
       err => {
         this.content = JSON.parse(err.error).message;
       }
     );
-
   }
 
   onSearch(): void{
