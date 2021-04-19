@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   number: any = {};
   login
   ftpstring = GlobalConstants.ftpURL
-
+  city
 
 
   public constructor(
@@ -61,6 +61,20 @@ export class HomeComponent implements OnInit {
 
   onSearch(): void{
     this.authService.search(this.form).subscribe(
+      data => {
+        this.tokenService.searchData(data);
+      },
+      err => {
+        console.log(err.error.message);
+      }
+    );
+    console.log(this.tokenService.returnSearch().product.data);
+    this.router.navigate(["/search"])
+
+  }
+
+  property_search(event): void{
+    this.authService.city_search(event).subscribe(
       data => {
         this.tokenService.searchData(data);
       },

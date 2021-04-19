@@ -385,8 +385,8 @@
 				<div class="col-lg-5 col-xl-4">
 					<div class="single_property_social_share">
 						<div class="price float-left fn-400">
-              <h2 *ngIf="pdata.expected_pricing != null">Rs. {{pdata.expected_pricing}}</h2>
-							<h2 *ngIf="pdata.expected_rent != null">Rs. {{pdata.expected_rent}}<small>/{{pdata.duration_of_rent_aggreement}}</small></h2>
+              <h2 *ngIf="pdata.expected_pricing != 0">Rs. {{pdata.expected_pricing}}</h2>
+							<h2 *ngIf="pdata.expected_rent != 0">Rs. {{pdata.expected_rent}}<small>/{{pdata.duration_of_rent_aggreement}}</small></h2>
 						</div>
 						<!-- <div class="spss mt20 text-right tal-400">
 							<ul class="mb0">

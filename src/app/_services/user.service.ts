@@ -36,6 +36,10 @@ export class UserService {
     return this.http.get(GlobalConstants.apiURL + 'product/get_product', { responseType: 'json' });
   }
 
+  getadminevents(): Observable<any> {
+    return this.http.get(GlobalConstants.apiURL + 'admin/event_index', { responseType: 'json' });
+  }
+
   getproductlistingfeatured(): Observable<any> {
     return this.http.get(GlobalConstants.apiURL + 'product/get_product_featured', { responseType: 'json' });
   }

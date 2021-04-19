@@ -1,537 +1,149 @@
 <app-topbardark-loader></app-topbardark-loader>
-<div class="container">
-  <div class="row">
-<div class="col-6">
+	<!-- Our Pricing Table -->
 
-  <div class="wrapper">
 
-	<!-- Main Header Nav -->
-  <!-- <app-topbardark-loader></app-topbardark-loader> -->
-
-	<!-- Main Header Nav For Mobile -->
-	<div class="single_page_listing_tab">
+  <section class="inner_page_breadcrumb">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-12">
-					<ul class="nav nav-tabs" id="myTab" role="tablist">
-						<li class="nav-item">
-							<a class="nav-link active" id="slider-tab" data-toggle="tab" href="#slider_tabs" role="tab" aria-controls="slider_tabs" aria-selected="true"><span class="flaticon-photo-camera color-white"></span></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" id="map-tab" data-toggle="tab" href="#map_tabs" role="tab" aria-controls="map_tabs" aria-selected="false"><span class="flaticon-pin color-white"></span></a>
-						</li>
-						<li class="nav-item">
-					    	<a class="nav-link" id="street-view-tab" data-toggle="tab" href="#street_view" role="tab" aria-controls="street_view" aria-selected="false"><span class="flaticon-street-view color-white"></span></a>
-            </li>
-            <li class="nav-item">
-              <a (click)="onShare1()" class="nav-link" id="share-tab" data-toggle="tab" href="#share_tab" role="tab" aria-controls="share_tab" aria-selected="false"><span class="flaticon-share color-white"></span></a>
-          </li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="tab-content" id="myTabContent" >
-			<div class="tab-pane fade show active" id="slider_tabs" role="tabpanel" aria-labelledby="slider-tab" >
-			  	<!-- 10th Home Slider -->
-				<div class="home10-mainslider" *ngFor="let pdata of product_data1">
-					<div class="container-fluid p0">
-						<div class="row">
-							<div class="col-lg-12">
-								<div class="main-banner-wrapper home10">
-								    <div class="banner-style-one owl-theme owl-carousel">
-								        <div class="slide slide-one" style="background-image: url({{ftpstring}}{{pdata.product_image}});height: 600px;"></div>
-								        <!-- <div class="slide slide-one" style="background-image: url(./assets/css/images/home/2.jpg);height: 600px;"></div>
-								        <div class="slide slide-one" style="background-image: url(./assets/css/images/home/1.jpg);height: 600px;"></div> -->
-								    </div>
-								    <div class="carousel-btn-block banner-carousel-btn">
-								        <span class="carousel-btn left-btn"><i class="flaticon-left-arrow-1 left"></i></span>
-								        <span class="carousel-btn right-btn"><i class="flaticon-right-arrow right"></i></span>
-								    </div><!-- /.carousel-btn-block banner-carousel-btn -->
-								</div><!-- /.main-banner-wrapper -->
-							</div>
-						</div>
+				<div class="col-xl-6">
+					<div class="breadcrumb_content">
+						<h4 class="breadcrumb_title">Compare</h4>
+						<ol class="breadcrumb">
+						    <li class="breadcrumb-item"><a href="#">Home</a></li>
+						    <li class="breadcrumb-item active" aria-current="page">Compare</li>
+						</ol>
 					</div>
-				</div>
-			</div>
-			<div class="tab-pane fade" id="map_tabs" role="tabpanel" aria-labelledby="map-tab">
-			  	<div class="h600" id="map-canvas"></div>
-		  	</div>
-		  	<div class="tab-pane fade" id="street_view" role="tabpanel" aria-labelledby="street-view-tab">
-		  		<iframe class="h600 w100" src="https://www.google.com/maps/embed?pb=!4v1553797194458!6m8!1m7!1sR4K_5Z2wRHTk9el8KLTh9Q!2m2!1d36.82551718071267!2d-76.34864590837246!3f305.15097!4f0!5f0.7820865974627469" frameborder="0" allowfullscreen></iframe>
-		  	</div>
-		</div>
-	</div>
-
-	<!-- Agent Single Grid View -->
-	<section class="our-agent-single bgc-f7 pb30-991">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="listing_sidebar dn db-991">
-						<div class="sidebar_content_details style3">
-							<!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row"  *ngFor = "let pdata of product_data1">
-				<div class="col-lg-7 col-xl-8" >
-					<div class="dn db-991 mt30 mb0">
-						<div id="main2">
-							<span id="open2" class="flaticon-filter-results-button filter_open_btn style3"> Show Filter</span>
-						</div>
-					</div>
-					<div class="single_property_title mt30-767 mb30-767">
-						<h2>{{pdata.build_name}}</h2>
-						<p>{{pdata.address}}</p>
-					</div>
-				</div>
-				<div class="col-lg-5 col-xl-4">
-					<div class="single_property_social_share">
-						<div class="price float-left fn-400">
-							<h2>${{pdata.price}}<small></small></h2>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-12 col-lg-8 mt50">
-					<div class="row">
-						<div class="col-lg-12">
-							<div class="listing_single_description">
-								<div class="lsd_list">
-									<ul class="mb0">
-										<li class="list-inline-item"><a href="#">{{pdata.type}}</a></li>
-										<li class="list-inline-item"><a href="#">Beds: {{pdata.bedc_ount}}</a></li>
-										<li class="list-inline-item"><a href="#">Baths: {{pdata.bathroom}}</a></li>
-										<li class="list-inline-item"><a href="#">Sq Ft: {{pdata.area}}</a></li>
-									</ul>
-								</div>
-								<h4 class="mb30">Description</h4>
-						    	<p class="mb25">{{pdata.description}}</p>
-							</div>
-						</div>
-						<div class="col-lg-12">
-							<div class="additional_details">
-								<div class="row">
-									<div class="col-lg-12">
-										<h4 class="mb15">Property Details</h4>
-									</div>
-									<div class="col-md-6 col-lg-6 col-xl-4">
-										<ul class="list-inline-item">
-											<li><p>Property ID :</p></li>
-											<li><p>Price :</p></li>
-											<li><p>Property Size :</p></li>
-											<li><p>Year Built :</p></li>
-										</ul>
-										<ul class="list-inline-item">
-											<li><p><span>{{pdata.id}}</span></p></li>
-											<li><p><span>{{pdata.price}}</span></p></li>
-											<li><p><span>{{pdata.area}} Sq Ft</span></p></li>
-											<li><p><span>{{pdata.buildyear}}</span></p></li>
-										</ul>
-									</div>
-									<div class="col-md-6 col-lg-6 col-xl-4">
-										<ul class="list-inline-item">
-											<li><p>Bedrooms :</p></li>
-											<li><p>Bathrooms :</p></li>
-											<li><p>Garage :</p></li>
-											<li><p>Garage Size :</p></li>
-										</ul>
-										<ul class="list-inline-item">
-											<li><p><span>{{pdata.bedc_ount}}</span></p></li>
-											<li><p><span>{{pdata.bathroom}}</span></p></li>
-											<li><p><span>{{pdata.garage}}</span></p></li>
-											<li><p><span>{{pdata.garage_area}} Sq Ft</span></p></li>
-										</ul>
-									</div>
-									<div class="col-md-6 col-lg-6 col-xl-4">
-										<ul class="list-inline-item">
-											<li><p>Property Type :</p></li>
-											<!-- <li><p>Property Status :</p></li> -->
-										</ul>
-										<ul class="list-inline-item">
-											<li><p><span>{{pdata.type}}</span></p></li>
-											<!-- <li><p><span>For Sale</span></p></li> -->
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-12">
-							<div class="additional_details">
-								<div class="row">
-									<div class="col-lg-12">
-										<h4 class="mb15">Additional details</h4>
-									</div>
-                  <div class="col-md-12 col-lg-12">
-										<ul class="list-inline-item">
-                      <li><p>Addons :</p></li>
-											<li><p>Equipment :</p></li>
-										</ul>
-										<ul class="list-inline-item">
-                      <li><p><span>{{pdata.addons}}</span></p></li>
-											<li><p><span>{{pdata.equipment}}</span></p></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-12">
-							<div class="property_attachment_area">
-								<h4 class="mb30">Property Attachments</h4>
-								<div class="iba_container style2">
-									<div class="icon_box_area style2">
-										<div class="score"><span class="flaticon-document text-thm fz30"></span></div>
-										<div class="details">
-											<h5><span class="flaticon-download text-thm pr10"></span> Demo Word Document</h5>
-										</div>
-									</div>
-									<div class="icon_box_area style2">
-										<div class="score"><span class="flaticon-pdf text-thm fz30"></span></div>
-										<div class="details">
-											<h5><span class="flaticon-download text-thm pr10"></span> Demo pdf Document</h5>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-12">
-							<div class="application_statics mt30">
-								<div class="row">
-									<div class="col-lg-12">
-										<h4 class="mb10">Amenities</h4>
-									</div>
-									<div class="col-sm-6 col-md-6 col-lg-4">
-										<ul class="order_list list-inline-item">
-											<li><a href="#"><span class="flaticon-tick"></span>{{pdata.amenities}}</a></li>
-
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-12">
-							<div class="application_statics mt30">
-								<h4 class="mb30">Location <small class="float-right">{{pdata.address}}</small></h4>
-								<div class="property_video p0">
-									<div class="thumb">
-										<div class="h400" id="map-canvas2"></div>
-										<div class="overlay_icon">
-											<a href="#"><img class="map_img_icon" src="./../../assets/css/images/header-logo.png" alt="header-logo.png"></a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-
-
-						<div class="col-lg-12">
-							<div class="whats_nearby mt30">
-								<h4 class="mb10">What's Nearby</h4>
-								<div class="education_distance mb15">
-									<h5><span class="flaticon-placeholder"></span>{{pdata.nearby_places}}</h5>
-
-								</div>
-
-							</div>
-						</div>
-
-					</div>
-				</div>
-				<div class="col-lg-4 col-xl-4 mt50" *ngFor="let udata of user_data1">
-					<div class="sidebar_listing_list">
-						<div class="sidebar_advanced_search_widget">
-							<div class="sl_creator">
-								<h4 class="mb25">Listed By</h4>
-								<div class="media">
-									<img class="mr-3" src="./../../assets/css/images/team/lc1.png" alt="lc1.png">
-									<div class="media-body">
-								    	<h5 class="mt-0 mb0">{{udata.name}}</h5>
-								    	<p class="mb0">{{udata.phone_number}}</p>
-								    	<p class="mb0">{{udata.email}}</p>
-								  	</div>
-								</div>
-							</div>
-
-						</div>
-					</div>
-
 				</div>
 			</div>
 		</div>
 	</section>
 
 
-</div>
-
-</div>
 
 
+	<section class="our-pricing bgc-fa">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 offset-lg-3">
+					<div class="main-title text-center">
+						<h2>Compare Listings</h2>
+						<p>We provide full service at every step</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="membership_container">
+						<ul class="mc_parent_list">
+							<li class="list-inline-item">
+								<ul class="mc_child_list one">
+									<li><div class="membership_header dn"></div></li>
+									<li>City</li>
+									<li>Beds</li>
+									<li>Baths</li>
+									<li>Area</li>
+									<li>Year of build</li>
+									<li>Carpet Area</li>
+								</ul>
+							</li>
 
-<div class="col-6">
+							<li class="list-inline-item col-xl-3" *ngFor="let item of product_data1">
+								<ul class="mc_child_list three text-center">
+									<li>
+										<div class="membership_header ">
+											<div class="thumb">
+												<a href="#"><span class="flaticon-close"></span></a>
+												<img class="img-fluid w100" src="{{ ftpstring }}{{ item.product_image1 }}" alt="2.jpg">
+												<div *ngIf="item.expected_pricing != '0'" class="price">rs. {{ item.expected_pricing }}<span class="mnth"></span></div>
+												<div *ngIf="item.expected_rent != '0'" class="price">rs. {{ item.expected_rent }}<span class="mnth">/mo</span></div>
+											</div>
+											<div class="details">
+												<h4>{{item.build_name}}</h4>
+												<p>{{ item.type }}</p>
+											</div>
+										</div>
+									</li>
+									<li><a href="#">{{ item.city }}</a></li>
+									<li><a href="#">{{ item.bedroom }}</a></li>
+									<li><a href="#">{{ item.bathroom }}</a></li>
+									<li><a href="#">{{ item.area }}/{{ item.area_unit }}</a></li>
+									<li><a href="#">{{ item.buildyear }}</a></li>
+									<li><a href="#">{{ item.carpet_area }}</a></li>
+								</ul>
+							</li>
+							<li class="list-inline-item col-xl-3" *ngFor="let item2 of product_data2">
+								<ul class="mc_child_list three text-center">
+									<li>
+										<div class="membership_header ">
+											<div class="thumb">
+												<a href="#"><span class="flaticon-close"></span></a>
+												<img class="img-fluid w100" src="{{ ftpstring }}{{ item2.product_image1 }}" alt="2.jpg">
+												<div *ngIf="item2.expected_pricing != '0'" class="price">rs. {{ item2.expected_pricing }}<span class="mnth"></span></div>
+												<div *ngIf="item2.expected_rent != '0'" class="price">rs. {{ item2.expected_rent }}<span class="mnth">/mo</span></div>
+											</div>
+											<div class="details">
+												<h4>{{item2.build_name}}</h4>
+												<p>{{ item2.type }}</p>
+											</div>
+										</div>
+									</li>
+									<li><a href="#">{{ item2.city }}</a></li>
+									<li><a href="#">{{ item2.bedroom }}</a></li>
+									<li><a href="#">{{ item2.bathroom }}</a></li>
+									<li><a href="#">{{ item2.area }}/{{ item2.area_unit }}</a></li>
+									<li><a href="#">{{ item2.buildyear }}</a></li>
+									<li><a href="#">{{ item2.carpet_area }}</a></li>
+								</ul>
+							</li>
+							<li class="list-inline-item col-xl-3" *ngFor="let item3 of product_data3">
+								<ul class="mc_child_list three text-center">
+									<li>
+										<div class="membership_header ">
+											<div class="thumb">
+												<a href="#"><span class="flaticon-close"></span></a>
+												<img class="img-fluid w100" src="{{ ftpstring }}{{ item3.product_image1 }}" alt="2.jpg">
+												<div *ngIf="item3.expected_pricing != '0'" class="price">rs. {{ item3.expected_pricing }}<span class="mnth"></span></div>
+												<div *ngIf="item3.expected_rent != '0'" class="price">rs. {{ item3.expected_rent }}<span class="mnth">/mo</span></div>
+											</div>
+											<div class="details">
+												<h4>{{item3.build_name}}</h4>
+												<p>{{ item3.type }}</p>
+											</div>
+										</div>
+									</li>
+									<li><a href="#">{{ item3.city }}</a></li>
+									<li><a href="#">{{ item3.bedroom }}</a></li>
+									<li><a href="#">{{ item3.bathroom }}</a></li>
+									<li><a href="#">{{ item3.area }}/{{ item3.area_unit }}</a></li>
+									<li><a href="#">{{ item3.buildyear }}</a></li>
+									<li><a href="#">{{ item3.carpet_area }}</a></li>
+								</ul>
+							</li>
 
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
+	<!-- Start Partners -->
+	<section class="start-partners bgc-thm pt50 pb50">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<div class="start_partner tac-smd">
+						<h2>Become a Real Estate Agent</h2>
+						<p>We only work with the best companies around the globe</p>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="parner_reg_btn text-right tac-smd">
+						<a class="btn btn-thm2" href="/agentregister">Register Now</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-  <div class="wrapper">
-
-    <!-- Main Header Nav -->
-    <!-- <app-topbardark-loader></app-topbardark-loader> -->
-
-    <!-- Main Header Nav For Mobile -->
-    <div class="single_page_listing_tab">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-              <li class="nav-item">
-                <a class="nav-link active" id="slider-tab" data-toggle="tab" href="#slider_tabs" role="tab" aria-controls="slider_tabs" aria-selected="true"><span class="flaticon-photo-camera color-white"></span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="map-tab" data-toggle="tab" href="#map_tabs" role="tab" aria-controls="map_tabs" aria-selected="false"><span class="flaticon-pin color-white"></span></a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" id="street-view-tab" data-toggle="tab" href="#street_view" role="tab" aria-controls="street_view" aria-selected="false"><span class="flaticon-street-view color-white"></span></a>
-              </li>
-              <li class="nav-item">
-                <a (click)="onShare2()" class="nav-link" id="share-tab" data-toggle="tab" href="#share_tab" role="tab" aria-controls="share_tab" aria-selected="false"><span class="flaticon-share color-white"></span></a>
-            </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="tab-content" id="myTabContent" >
-        <div class="tab-pane fade show active" id="slider_tabs" role="tabpanel" aria-labelledby="slider-tab" >
-            <!-- 10th Home Slider -->
-          <div class="home10-mainslider" *ngFor="let pdata of product_data2">
-            <div class="container-fluid p0">
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="main-banner-wrapper home10">
-                      <div class="banner-style-one owl-theme owl-carousel">
-                          <div class="slide slide-one" style="background-image: url({{ftpstring}}{{pdata.product_image}});height: 600px;"></div>
-                          <!-- <div class="slide slide-one" style="background-image: url(./assets/css/images/home/2.jpg);height: 600px;"></div>
-                          <div class="slide slide-one" style="background-image: url(./assets/css/images/home/1.jpg);height: 600px;"></div> -->
-                      </div>
-                      <div class="carousel-btn-block banner-carousel-btn">
-                          <span class="carousel-btn left-btn"><i class="flaticon-left-arrow-1 left"></i></span>
-                          <span class="carousel-btn right-btn"><i class="flaticon-right-arrow right"></i></span>
-                      </div><!-- /.carousel-btn-block banner-carousel-btn -->
-                  </div><!-- /.main-banner-wrapper -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="tab-pane fade" id="map_tabs" role="tabpanel" aria-labelledby="map-tab">
-            <div class="h600" id="map-canvas"></div>
-          </div>
-          <div class="tab-pane fade" id="street_view" role="tabpanel" aria-labelledby="street-view-tab">
-            <iframe class="h600 w100" src="https://www.google.com/maps/embed?pb=!4v1553797194458!6m8!1m7!1sR4K_5Z2wRHTk9el8KLTh9Q!2m2!1d36.82551718071267!2d-76.34864590837246!3f305.15097!4f0!5f0.7820865974627469" frameborder="0" allowfullscreen></iframe>
-          </div>
-      </div>
-    </div>
-
-    <!-- Agent Single Grid View -->
-    <section class="our-agent-single bgc-f7 pb30-991">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="listing_sidebar dn db-991">
-              <div class="sidebar_content_details style3">
-                <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row"  *ngFor = "let pdata of product_data2">
-          <div class="col-lg-7 col-xl-8" >
-            <div class="dn db-991 mt30 mb0">
-              <div id="main2">
-                <span id="open2" class="flaticon-filter-results-button filter_open_btn style3"> Show Filter</span>
-              </div>
-            </div>
-            <div class="single_property_title mt30-767 mb30-767">
-              <h2>{{pdata.build_name}}</h2>
-              <p>{{pdata.address}}</p>
-            </div>
-          </div>
-          <div class="col-lg-5 col-xl-4">
-            <div class="single_property_social_share">
-              <div class="price float-left fn-400">
-                <h2>${{pdata.price}}<small></small></h2>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12 col-lg-8 mt50">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="listing_single_description">
-                  <div class="lsd_list">
-                    <ul class="mb0">
-                      <li class="list-inline-item"><a href="#">{{pdata.type}}</a></li>
-                      <li class="list-inline-item"><a href="#">Beds: {{pdata.bedc_ount}}</a></li>
-                      <li class="list-inline-item"><a href="#">Baths: {{pdata.bathroom}}</a></li>
-                      <li class="list-inline-item"><a href="#">Sq Ft: {{pdata.area}}</a></li>
-                    </ul>
-                  </div>
-                  <h4 class="mb30">Description</h4>
-                    <p class="mb25">{{pdata.description}}</p>
-                </div>
-              </div>
-              <div class="col-lg-12">
-                <div class="additional_details">
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <h4 class="mb15">Property Details</h4>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4">
-                      <ul class="list-inline-item">
-                        <li><p>Property ID :</p></li>
-                        <li><p>Price :</p></li>
-                        <li><p>Property Size :</p></li>
-                        <li><p>Year Built :</p></li>
-                      </ul>
-                      <ul class="list-inline-item">
-                        <li><p><span>{{pdata.id}}</span></p></li>
-                        <li><p><span>{{pdata.price}}</span></p></li>
-                        <li><p><span>{{pdata.area}} Sq Ft</span></p></li>
-                        <li><p><span>{{pdata.buildyear}}</span></p></li>
-                      </ul>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4">
-                      <ul class="list-inline-item">
-                        <li><p>Bedrooms :</p></li>
-                        <li><p>Bathrooms :</p></li>
-                        <li><p>Garage :</p></li>
-                        <li><p>Garage Size :</p></li>
-                      </ul>
-                      <ul class="list-inline-item">
-                        <li><p><span>{{pdata.bedc_ount}}</span></p></li>
-                        <li><p><span>{{pdata.bathroom}}</span></p></li>
-                        <li><p><span>{{pdata.garage}}</span></p></li>
-                        <li><p><span>{{pdata.garage_area}} Sq Ft</span></p></li>
-                      </ul>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4">
-                      <ul class="list-inline-item">
-                        <li><p>Property Type :</p></li>
-                        <!-- <li><p>Property Status :</p></li> -->
-                      </ul>
-                      <ul class="list-inline-item">
-                        <li><p><span>{{pdata.type}}</span></p></li>
-                        <!-- <li><p><span>For Sale</span></p></li> -->
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-12">
-                <div class="additional_details">
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <h4 class="mb15">Additional details</h4>
-                    </div>
-                    <div class="col-md-12 col-lg-12">
-                      <ul class="list-inline-item">
-                        <li><p>Addons :</p></li>
-                        <li><p>Equipment :</p></li>
-                      </ul>
-                      <ul class="list-inline-item">
-                        <li><p><span>{{pdata.addons}}</span></p></li>
-                        <li><p><span>{{pdata.equipment}}</span></p></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-12">
-                <div class="property_attachment_area">
-                  <h4 class="mb30">Property Attachments</h4>
-                  <div class="iba_container style2">
-                    <div class="icon_box_area style2">
-                      <div class="score"><span class="flaticon-document text-thm fz30"></span></div>
-                      <div class="details">
-                        <h5><span class="flaticon-download text-thm pr10"></span> Demo Word Document</h5>
-                      </div>
-                    </div>
-                    <div class="icon_box_area style2">
-                      <div class="score"><span class="flaticon-pdf text-thm fz30"></span></div>
-                      <div class="details">
-                        <h5><span class="flaticon-download text-thm pr10"></span> Demo pdf Document</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-12">
-                <div class="application_statics mt30">
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <h4 class="mb10">Amenities</h4>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-4">
-                      <ul class="order_list list-inline-item">
-                        <li><a href="#"><span class="flaticon-tick"></span>{{pdata.amenities}}</a></li>
-
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-12">
-                <div class="application_statics mt30">
-                  <h4 class="mb30">Location <small class="float-right">{{pdata.address}}</small></h4>
-                  <div class="property_video p0">
-                    <div class="thumb">
-                      <div class="h400" id="map-canvas2"></div>
-                      <div class="overlay_icon">
-                        <a href="#"><img class="map_img_icon" src="./../../assets/css/images/header-logo.png" alt="header-logo.png"></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-
-              <div class="col-lg-12">
-                <div class="whats_nearby mt30">
-                  <h4 class="mb10">What's Nearby</h4>
-                  <div class="education_distance mb15">
-                    <h5><span class="flaticon-placeholder"></span>{{pdata.nearby_places}}</h5>
-
-                  </div>
-
-                </div>
-              </div>
-
-            </div>
-          </div>
-          <div class="col-lg-4 col-xl-4 mt50" *ngFor="let udata of user_data2">
-            <div class="sidebar_listing_list">
-              <div class="sidebar_advanced_search_widget">
-                <div class="sl_creator">
-                  <h4 class="mb25">Listed By</h4>
-                  <div class="media">
-                    <img class="mr-3" src="./../../assets/css/images/team/lc1.png" alt="lc1.png">
-                    <div class="media-body">
-                        <h5 class="mt-0 mb0">{{udata.name}}</h5>
-                        <p class="mb0">{{udata.phone_number}}</p>
-                        <p class="mb0">{{udata.email}}</p>
-                      </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-  </div>
-</div>
-</div>
-</div>
+  <app-footer></app-footer>

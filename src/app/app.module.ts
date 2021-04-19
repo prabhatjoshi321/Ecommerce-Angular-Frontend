@@ -48,6 +48,10 @@ import { LawyerpageComponent } from './lawyerpage/lawyerpage.component';
 import { LawyerprofileComponent } from './lawyerprofile/lawyerprofile.component';
 import { AdminlawyerservicesComponent } from './adminlawyerservices/adminlawyerservices.component';
 import { VerifyComponent } from './verify/verify.component';
+import { EditproductComponent } from './editproduct/editproduct.component';
+import { EditproductrentComponent } from './editproductrent/editproductrent.component';
+import { UsercreatorComponent } from './usercreator/usercreator.component';
+import { AllusersComponent } from './allusers/allusers.component';
 //import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
@@ -94,6 +98,10 @@ import { VerifyComponent } from './verify/verify.component';
     LawyerprofileComponent,
     AdminlawyerservicesComponent,
     VerifyComponent,
+    EditproductComponent,
+    EditproductrentComponent,
+    UsercreatorComponent,
+    AllusersComponent,
   ],
   imports: [
     BrowserModule,

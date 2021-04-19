@@ -80,6 +80,8 @@
                     <thead class="thead-light">
                         <tr>
                           <th scope="col">Reviews</th>
+                          <th scope="col">Date Created</th>
+                          <th scope="col">Action</th>
                           <!-- <th scope="col">Action</th> -->
                         </tr>
                     </thead>
@@ -90,7 +92,9 @@
 
                             <div class="details">
                               <div class="tc_content">
-                                <h4>{{ number.stars }}-Stars</h4>
+                                <h4>User Name: {{ number.user_name }}</h4>
+                                <h4>Property Name: {{ number.property_name }}</h4>
+                                <h5>{{ number.stars }}-Stars</h5>
                                 <span>Subject - {{number.rev_subject}}</span>
                                 <br>
                                 <span>Content - {{number.rev_content}}</span>
@@ -98,12 +102,15 @@
                             </div>
                           </div>
                           </th>
-                          <!-- <td>
+                          <td>{{ number.created_at | date: 'MMM d, y, h:mm:ss a' }}</td>
+
+                          <td>
                             <ul class="view_edit_delete_list mb0">
-                              <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Edit"><a href="#"><span class="flaticon-edit"></span></a></li>
+                              <!-- <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Edit"><a href="#"><span class="flaticon-edit"></span></a></li> -->
+                              <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="view"><a (click)="onShare(number.product_id)"><span class="flaticon-view"></span></a></li>
                               <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Delete"><a (click)="del_func(number.id)"><span class="flaticon-garbage"></span></a></li>
                             </ul>
-                          </td> -->
+                          </td>
                         </tr>
 
 
@@ -119,7 +126,7 @@
         <div class="row mt10">
           <div class="col-lg-12">
             <div class="copyright-widget text-center">
-              <p>© 2020 Find House. Made with love.</p>
+              <p>© 2021 Brandfabricator. Made with love.</p>
             </div>
           </div>
         </div>

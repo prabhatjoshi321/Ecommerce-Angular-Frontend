@@ -19,6 +19,8 @@ export class CompareComponent implements OnInit {
   user_data1: [];
   product_data2: [];
   user_data2: [];
+  product_data3: [];
+  user_data3: [];
   ftpstring: string = GlobalConstants.ftpURL;
 
 
@@ -54,6 +56,20 @@ export class CompareComponent implements OnInit {
         this.product_data2 = data["product"];
         console.log(this.product_data2);
         console.log(this.user_data2);
+
+      },
+        err => {
+          console.log(err);
+        }
+      );
+    }
+    {this.authService.product_see(this.idService.getProd2Id()).subscribe(
+
+      data => {
+        this.user_data3 = data["user_data"];
+        this.product_data3 = data["product"];
+        console.log(this.product_data3);
+        console.log(this.user_data3);
 
       },
         err => {

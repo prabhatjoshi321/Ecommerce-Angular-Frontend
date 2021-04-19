@@ -57,6 +57,11 @@ export class AdmingetreviewsComponent implements OnInit {
     }
   }
 
+  onShare(event){
+    window.location.href=GlobalConstants.siteURL+"productpage" + "?id=" + event
+    // alert("Your Shareable Link is \n" + this.sitestring + this.router.url + "?id=" + this.prod_id);
+  }
+
   prod_func(data){
     this.tokenStorage.saveProdId(data);
     // this.myservice.setData(data);

@@ -1,3 +1,7 @@
+import { AllusersComponent } from './allusers/allusers.component';
+import { UsercreatorComponent } from './usercreator/usercreator.component';
+import { EditproductrentComponent } from './editproductrent/editproductrent.component';
+import { EditproductComponent } from './editproduct/editproduct.component';
 import { AdminlawyerservicesComponent } from './adminlawyerservices/adminlawyerservices.component';
 import { LawyerprofileComponent } from './lawyerprofile/lawyerprofile.component';
 import { LawyerpageComponent } from './lawyerpage/lawyerpage.component';
@@ -56,14 +60,18 @@ const routes: Routes = [
   {path: 'reviews', component: ReviewsComponent},
   {path: 'admin', component: BoardAdminComponent},
   {path: 'adminpanel', component: AdminpanelComponent},
+  {path: 'editproduct', component: EditproductComponent},
+  {path: 'editproductrent', component: EditproductrentComponent},
   {path: 'adminusers', component: AdmingetusersComponent},
   {path: 'adminproducts', component: AdmingetproductComponent},
   {path: 'adminrequirements', component: AdmingetrequirementsComponent},
   {path: 'adminreviews', component: AdmingetreviewsComponent},
+  {path: 'usercreator', component: UsercreatorComponent},
   {path: 'lawyerservice', component: LawyerserviceComponent},
   {path: 'lawyers', component: LawyerpageComponent},
   {path: 'lawyerprofile', component: LawyerprofileComponent},
   {path: 'adminlawyerservices', component: AdminlawyerservicesComponent},
+  {path: 'allusers', component: AllusersComponent},
   {path: '**', component: NotfoundComponent},
 
 ];

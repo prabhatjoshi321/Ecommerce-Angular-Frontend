@@ -74,6 +74,18 @@ export class AuthService {
     }), httpOptions);
   }
 
+  register_company(user, profile_pic): Observable<any> {
+    return this.http.post(AUTH_API + 'admin/company_signup', ({
+      name: user.username,
+      email: user.email,
+      profile_pic: profile_pic,
+      usertype: user.usertype,
+      other_mobile_number: user.other_mobile_number,
+      password: user.password,
+      password_confirmation: user.cpassword,
+    }), httpOptions);
+  }
+
   register_lawyer(user, profile_pic): Observable<any> {
     return this.http.post(AUTH_API + 'auth/lawyer_signup', ({
       name: user.username,
@@ -235,6 +247,12 @@ export class AuthService {
     }), httpOptions);
   }
 
+  city_search(data): Observable<any> {
+    return this.http.post(AUTH_API + 'product/city_search', JSON.stringify({
+      city: data,
+    }), httpOptions);
+  }
+
   requirement_index(id): Observable<any> {
     return this.http.post(AUTH_API + 'product/req_index', JSON.stringify({
       user_id: id,
@@ -268,6 +286,12 @@ export class AuthService {
     }), httpOptions);
   }
 
+  property_delete_admin(id): Observable<any> {
+    return this.http.post(AUTH_API + 'admin/delete_product_admin', JSON.stringify({
+      product_id: id,
+    }), httpOptions);
+  }
+
   lawyer_service_delete(id): Observable<any> {
     return this.http.post(AUTH_API + 'product/lawyer_service_delete', JSON.stringify({
       id: id,
@@ -289,6 +313,17 @@ export class AuthService {
 
     }), httpOptions);
   }
+
+  password_update(form): Observable<any> {
+    console.log(form)
+    return this.http.post(AUTH_API + 'auth/change_password', JSON.stringify({
+      old_password: form.old_password,
+      new_password: form.new_password,
+      confirm_password: form.confirm_password,
+
+    }), httpOptions);
+  }
+
   product_review(id): Observable<any> {
     return this.http.post(AUTH_API + 'product/product_review', JSON.stringify({
       id: id,
@@ -309,6 +344,12 @@ export class AuthService {
     }), httpOptions);
   }
 
+  user_get(data): Observable<any> {
+    return this.http.post(AUTH_API + 'admin/user_page', JSON.stringify({
+      id: data
+    }), httpOptions);
+  }
+
   verify(number, otp:string): Observable<any> {
     let name = ""+number
     console.log(typeof(name), typeof(otp))
@@ -323,6 +364,181 @@ export class AuthService {
       verification_code: otp
     }), httpOptions);
   }
+
+
+
+
+
+
+
+  user_update(user, id): Observable<any> {
+    return this.http.post(AUTH_API + 'admin/user_update', ({
+      id: id,
+      email: user.email,
+      name: user.username,
+      profile_pic: user.profile_pic,
+      company_name: user.company_name,
+      company_url: user.company_url,
+      address: user.address,
+      city: user.city,
+      other_mobile_number: user.other_mobile_number,
+      landline_number: user.landline_number,
+      company_profile: user.company_profile,
+      pan_number: user.pan_number,
+      aadhar_number: user.aadhar_number,
+      provided_service: user.provided_service,
+      place_of_practice: user.place_of_practice,
+      price_for_service: user.price_for_service,
+      law_firm_number: user.law_firm_number,
+      practice_number: user.practice_number,
+      blocked: user.blocked,
+      phone_number_verification_status: user.phone_number_verification_status
+    }), httpOptions);
+  }
+
+  product_sale_update(id, details, furnishingArray, amenityArray): Observable<any> {
+    console.log(details);
+    return this.http.post(AUTH_API + 'admin/product_sale_update', JSON.stringify ({
+      id: id,
+      build_name: details.build_name,
+      type: details.type,
+      address: details.address,
+      display_address: details.display_address,
+      city: details.city,
+      locality: details.locality,
+      property_detail: details.property_detail,
+      nearest_landmark: details.nearest_landmark,
+      map_latitude: details.map_latitude,
+      map_longitude: details.map_longitude,
+      area: details.area,
+      carpet_area: details.carpet_area,
+      area_unit: details.area_unit,
+      bedroom: details.bedroom,
+      bathroom: details.bathroom,
+      balconies: details.balconies,
+      additional_rooms: details.additional_rooms,
+      equipment: details.equipment,
+      features: details.features,
+      nearby_places: details.nearby_places,
+      age_of_property: details.age_of_property,
+      furnishing_status: details.furnishing_status,
+      property_on_floor: details.property_on_floor,
+      total_floors: details.total_floors,
+      facing_towards: details.facing_towards,
+      rera_registration_status: details.rera_registration_status,
+      additional_parking_status: details.additional_parking_status,
+      buildyear: details.buildyear,
+      availability_condition: details.availability_condition,
+      possession_by: details.possession_by,
+      amenities: amenityArray,
+      parking_covered_count: details.parking_covered_count,
+      parking_open_count: details.parking_open_count,
+      furnishings: furnishingArray,
+      ownership: details.ownership,
+      expected_pricing: details.expected_pricing,
+      deposit: details.deposit,
+      inclusive_pricing_details: details.inclusive_pricing_details,
+      tax_govt_charge: details.tax_govt_charge,
+      price_negotiable: details.price_negotiable,
+      maintenance_charge_status: details.maintenance_charge_status,
+      brokerage_charges: details.brokerage_charges,
+      maintenance_charge: details.maintenance_charge,
+      maintenance_charge_condition: details.maintenance_charge_condition,
+      description: details.description,
+      rent_cond: details.rent_cond,
+      rent_availability: details.rent_availability,
+      sale_availability: details.sale_availability,
+      available_for: details.available_for,
+      product_image1: details.product_image1,
+      product_image2: details.product_image2,
+      product_image3: details.product_image3,
+      product_image4: details.product_image4,
+      product_image5: details.product_image5,
+      expected_rent: details.expected_rent,
+      inc_electricity_and_water_bill: details.inc_electricity_and_water_bill,
+      security_deposit: details.security_deposit,
+      duration_of_rent_aggreement: details.duration_of_rent_aggreement,
+      month_of_notice: details.month_of_notice,
+      willing_to_rent_out_to: details.willing_to_rent_out_to,
+      agreement_type: details.agreement_type,
+      delete_flag: details.delete_flag,
+      view_counter: details.view_counter
+    }), httpOptions);
+  }
+
+  product_rent_update(id, details, furnishingArray, amenityArray): Observable<any> {
+    console.log(details);
+    return this.http.post(AUTH_API + 'admin/product_sale_update', JSON.stringify ({
+      id: id,
+      build_name: details.build_name,
+      type: details.type,
+      address: details.address,
+      display_address: details.display_address,
+      city: details.city,
+      locality: details.locality,
+      property_detail: details.property_detail,
+      nearest_landmark: details.nearest_landmark,
+      map_latitude: details.map_latitude,
+      map_longitude: details.map_longitude,
+      area: details.area,
+      carpet_area: details.carpet_area,
+      area_unit: details.area_unit,
+      bedroom: details.bedroom,
+      bathroom: details.bathroom,
+      balconies: details.balconies,
+      additional_rooms: details.additional_rooms,
+      equipment: details.equipment,
+      features: details.features,
+      nearby_places: details.nearby_places,
+      age_of_property: details.age_of_property,
+      furnishing_status: details.furnishing_status,
+      property_on_floor: details.property_on_floor,
+      total_floors: details.total_floors,
+      facing_towards: details.facing_towards,
+      rera_registration_status: details.rera_registration_status,
+      additional_parking_status: details.additional_parking_status,
+      buildyear: details.buildyear,
+      availability_condition: details.availability_condition,
+      possession_by: details.possession_by,
+      amenities: amenityArray,
+      parking_covered_count: details.parking_covered_count,
+      parking_open_count: details.parking_open_count,
+      furnishings: furnishingArray,
+      ownership: details.ownership,
+      expected_pricing: details.expected_pricing,
+      deposit: details.deposit,
+      inclusive_pricing_details: details.inclusive_pricing_details,
+      tax_govt_charge: details.tax_govt_charge,
+      price_negotiable: details.price_negotiable,
+      maintenance_charge_status: details.maintenance_charge_status,
+      brokerage_charges: details.brokerage_charges,
+      maintenance_charge: details.maintenance_charge,
+      maintenance_charge_condition: details.maintenance_charge_condition,
+      description: details.description,
+      rent_cond: details.rent_cond,
+      rent_availability: details.rent_availability,
+      sale_availability: details.sale_availability,
+      available_for: details.available_for,
+      product_image1: details.product_image1,
+      product_image2: details.product_image2,
+      product_image3: details.product_image3,
+      product_image4: details.product_image4,
+      product_image5: details.product_image5,
+      expected_rent: details.expected_rent,
+      inc_electricity_and_water_bill: details.inc_electricity_and_water_bill,
+      security_deposit: details.security_deposit,
+      duration_of_rent_aggreement: details.duration_of_rent_aggreement,
+      month_of_notice: details.month_of_notice,
+      willing_to_rent_out_to: details.willing_to_rent_out_to,
+      agreement_type: details.agreement_type,
+      delete_flag: details.delete_flag,
+      view_counter: details.view_counter
+    }), httpOptions);
+  }
+
+
+
+
 
 
 

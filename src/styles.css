@@ -20,3 +20,16 @@
 @import       './assets/css/slider.css';
 @import       './assets/css/style.css';
 @import       './assets/css/timecounter.css'
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

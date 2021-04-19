@@ -18,6 +18,7 @@ export class AdminpanelComponent implements OnInit {
   property_count
   user
   product
+  events
 
 
   constructor(
@@ -75,6 +76,19 @@ export class AdminpanelComponent implements OnInit {
         console.log(err)
       }
     )
+
+    this.userService.getadminevents().pipe().subscribe(
+      (data: any) => {
+
+        this.events = data.data.data;
+        console.log(this.events);
+        //console.log(this.content);
+      },
+      err => {
+        this.events = JSON.parse(err.error).message;
+        console.log(err);
+      }
+    );
 
   }
 

@@ -41,6 +41,11 @@ export class AdminlawyerservicesComponent implements OnInit {
 
   }
 
+  view_func(id): void{
+    this.tokenService.setLawyer(id);
+    window.location.href=GlobalConstants.siteURL+"lawyerprofile"
+  }
+
   del_func(id): void{
     {this.authService.lawyer_service_delete(id).subscribe(
         data => {

@@ -6,6 +6,8 @@ const ID_KEY = 'id_key';
 const COMPARE = '';
 const SEARCH_DATA = 'data';
 const LAWYER_ID = 'data';
+const PROD_ID = 'data';
+const PROD2_ID = 'data';
 
 @Injectable({
   providedIn: 'root'
@@ -54,6 +56,15 @@ export class TokenStorageService {
     return(sessionStorage.getItem(ID_KEY));
   }
 
+  public saveProd2Id(id: string): void {
+    window.sessionStorage.removeItem(PROD2_ID);
+    window.sessionStorage.setItem(PROD2_ID, id);
+  }
+
+  public getProd2Id(): any {
+    return(sessionStorage.getItem(PROD2_ID));
+  }
+
   public saveCdata(id: string): void {
     window.sessionStorage.removeItem(COMPARE);
     window.sessionStorage.setItem(COMPARE, id);
@@ -70,6 +81,15 @@ export class TokenStorageService {
 
   public getLawyer(): any{
     return(sessionStorage.getItem(LAWYER_ID));
+  }
+
+  public setProduct(id: string): void {
+      window.sessionStorage.removeItem(PROD_ID);
+      window.sessionStorage.setItem(PROD_ID, id);
+  }
+
+  public getProduct(): any{
+    return(sessionStorage.getItem(PROD_ID));
   }
 
 
