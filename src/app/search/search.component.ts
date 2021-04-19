@@ -22,6 +22,7 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
     this.titleService.setTitle('Search Results');
     this.content = this.dataService.returnSearch().product.data;
+    console.log(this.dataService.returnSearch().product)
   }
   prod_func(data){
     this.dataService.saveProdId(data);

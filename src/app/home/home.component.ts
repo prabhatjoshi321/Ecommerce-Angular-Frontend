@@ -69,11 +69,13 @@ export class HomeComponent implements OnInit {
       }
     );
     console.log(this.tokenService.returnSearch().product.data);
-    this.router.navigate(["/search"])
+      window.location.href=GlobalConstants.siteURL+"search"
+      // this.router.navigate(["/search"])
 
   }
 
   property_search(event): void{
+    console.log(event)
     this.authService.city_search(event).subscribe(
       data => {
         this.tokenService.searchData(data);
@@ -83,7 +85,8 @@ export class HomeComponent implements OnInit {
       }
     );
     console.log(this.tokenService.returnSearch().product.data);
-    this.router.navigate(["/search"])
+      window.location.href=GlobalConstants.siteURL+"search"
+      // this.router.navigate(["/search"])
 
   }
 

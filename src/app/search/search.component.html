@@ -81,27 +81,29 @@
            </div>
          </div>
          <div class="row">
-           <div class="col-md-6 col-lg-6" *ngFor = "let number of content">
+           <div class="col-md-4 col-lg-4" *ngFor = "let number of content">
              <div class="feat_property home7 style4">
                <div class="thumb">
                  <div class="fp_single_item_slider">
                    <div class="item">
-                     <img class="img-whp" src= "{{ftpstring}}{{ number.product_image }}" alt="fp1.jpg">
+                     <img class="img-whp" src= "{{ftpstring}}{{ number.product_image1 }}" alt="fp1.jpg">
                    </div>
 
                  </div>
                  <div class="thmb_cntnt style2">
                    <ul class="tag mb0">
-                     <li class="list-inline-item" *ngIf=" number.rent_availability "><a >For Rent</a></li>
-                     <li class="list-inline-item" *ngIf=" !number.rent_availability "><a >Featured</a></li>
-                   </ul>
+
+                    <li class="list-inline-item" *ngIf=" number.rent_availability == 1"><a >For Rent</a></li>
+                    <li class="list-inline-item" *ngIf=" number.sale_availability == 1"><a >For Sale</a></li>
+                  </ul>
                  </div>
                  <div class="thmb_cntnt style3">
                    <ul class="icon mb0">
                      <li class="list-inline-item"><a ><span class="flaticon-transfer-1"></span></a></li>
                      <li class="list-inline-item"><a ><span class="flaticon-heart"></span></a></li>
                    </ul>
-                   <a class="fp_price" >${{ number.price }}<small></small></a>
+                   <a *ngIf="number.expected_pricing != 0" class="fp_price" >{{ number.expected_pricing }}<small></small></a>
+                   <a *ngIf="number.expected_rent != 0" class="fp_price" >{{ number.expected_rent }}<small></small></a>
                  </div>
                </div>
                <div class="details">
@@ -110,7 +112,7 @@
                    <h4>{{number.build_name}}</h4>
                    <p><span class="flaticon-placeholder"></span> {{ number.address }}</p>
                    <ul class="prop_details mb0">
-                     <li class="list-inline-item"><a >Beds: {{ number.bedc_ount }}</a></li>
+                     <li class="list-inline-item"><a >Beds: {{ number.bedroom }}</a></li>
                      <li class="list-inline-item"><a >Baths: {{ number.bathroom }}</a></li>
                      <li class="list-inline-item"><a >Sq Ft: {{ number.area }}</a></li>
                    </ul>
@@ -118,7 +120,7 @@
                  </div>
                  <div class="fp_footer">
                    <ul class="fp_meta float-left mb0">
-                   <li class="list-inline-item"> <h2 class="fp_pdate float-right">Available For: {{number.available_for}}</h2> </li>
+                   <!-- <li class="list-inline-item"> <h2 class="fp_pdate float-right">Available For: {{number.available_for}}</h2> </li> -->
                      <!-- <li class="list-inline-item"><a >{{ number.username+1 }}</a></li> -->
                    </ul>
                    <div class="fp_pdate float-right"><a href="/productpage"><button type="button" (click)="prod_func(number.id)" class="btn btn-log btn-block btn-thm">Show Property</button></a></div>
