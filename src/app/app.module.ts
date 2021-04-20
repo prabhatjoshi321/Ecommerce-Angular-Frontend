@@ -52,6 +52,8 @@ import { EditproductComponent } from './editproduct/editproduct.component';
 import { EditproductrentComponent } from './editproductrent/editproductrent.component';
 import { UsercreatorComponent } from './usercreator/usercreator.component';
 import { AllusersComponent } from './allusers/allusers.component';
+import { LoancalcComponent } from './loancalc/loancalc.component';
+import { AdminloanComponent } from './adminloan/adminloan.component';
 //import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
@@ -102,6 +104,8 @@ import { AllusersComponent } from './allusers/allusers.component';
     EditproductrentComponent,
     UsercreatorComponent,
     AllusersComponent,
+    LoancalcComponent,
+    AdminloanComponent,
   ],
   imports: [
     BrowserModule,

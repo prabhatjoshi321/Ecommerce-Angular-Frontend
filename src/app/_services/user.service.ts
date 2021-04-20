@@ -68,6 +68,10 @@ export class UserService {
     return this.http.get(GlobalConstants.apiURL + 'product/lawyer_service_index', { responseType: 'json' });
   }
 
+  getLoans(): Observable<any> {
+    return this.http.get(GlobalConstants.apiURL + 'admin/loan_index', { responseType: 'json' });
+  }
+
   // ADMIN PANEL GET REQUESTS
 
   getAdmin_users(): Observable<any> {

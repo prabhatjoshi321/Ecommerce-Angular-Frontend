@@ -1,3 +1,6 @@
+import { TestimonialsComponent } from './testimonials/testimonials.component';
+import { AdminloanComponent } from './adminloan/adminloan.component';
+import { LoancalcComponent } from './loancalc/loancalc.component';
 import { AllusersComponent } from './allusers/allusers.component';
 import { UsercreatorComponent } from './usercreator/usercreator.component';
 import { EditproductrentComponent } from './editproductrent/editproductrent.component';
@@ -72,6 +75,9 @@ const routes: Routes = [
   {path: 'lawyerprofile', component: LawyerprofileComponent},
   {path: 'adminlawyerservices', component: AdminlawyerservicesComponent},
   {path: 'allusers', component: AllusersComponent},
+  {path: 'loancalc', component: LoancalcComponent},
+  {path: 'adminloan', component: AdminloanComponent},
+  {path: 'testimonials', component: TestimonialsComponent},
   {path: '**', component: NotfoundComponent},
 
 ];

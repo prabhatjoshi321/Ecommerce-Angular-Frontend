@@ -247,9 +247,24 @@ export class AuthService {
     }), httpOptions);
   }
 
+  admin_loans(data): Observable<any> {
+    return this.http.post(AUTH_API + 'admin/admin_loans', JSON.stringify({
+      bank: data.bank,
+      address: data.address,
+      interest_rate: data.interest_rate,
+      type: data.type,
+    }), httpOptions);
+  }
+
   city_search(data): Observable<any> {
     return this.http.post(AUTH_API + 'product/city_search', JSON.stringify({
       city: data,
+    }), httpOptions);
+  }
+
+  admin_loan_delete(data): Observable<any> {
+    return this.http.post(AUTH_API + 'admin/loan_delete', JSON.stringify({
+      id: data,
     }), httpOptions);
   }
 
