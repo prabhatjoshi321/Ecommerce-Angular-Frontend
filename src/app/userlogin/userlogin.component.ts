@@ -44,6 +44,8 @@ export class UserloginComponent implements OnInit {
 
     text : string;
 
+  err_code: number;
+
   constructor(
     private titleService: Title,
     private authService: AuthService,
@@ -88,7 +90,8 @@ export class UserloginComponent implements OnInit {
       err => {
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
-        console.log(err)
+        this.err_code = err
+        console.log(this.err_code)
       }
     );
   }
