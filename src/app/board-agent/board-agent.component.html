@@ -236,6 +236,7 @@
               </div>
               <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
                 Signup failed!<br />{{ errorMessage }}
+                <div>{{ error_cause | json }}</div>
               </div>
 
               </form>
@@ -486,7 +487,8 @@ Aadhar Number must be at most 12 digits
             </div>
             <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
               Signup failed!<br />{{ errorMessage }}
-            </div>
+                <div>{{ error_cause | json }}</div>
+              </div>
 
 
             </form>
@@ -776,6 +778,7 @@ Aadhar Number must be at most 12 digits
           </div>
           <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
             Signup failed!<br />{{ errorMessage }}
+            <div>{{ error_cause | json }}</div>
           </div>
           </form>
         </div>

@@ -14,6 +14,7 @@ export class BoardAgentComponent implements OnInit {
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
+  error_cause: any = [];
   theFile: any = null;
   fileToUpload: File = null;
   imageURL:string;
@@ -59,9 +60,11 @@ export class BoardAgentComponent implements OnInit {
       },
         err => {
           this.errorMessage = err.error.message;
+          this.error_cause = err.error.errors;
           this.isSignUpFailed = true;
           console.log(this.form,this.fileToUpload);
           console.log(err);
+          console.log(this.error_cause)
         }
       );
     }
@@ -80,6 +83,7 @@ export class BoardAgentComponent implements OnInit {
       },
         err => {
           this.errorMessage = err.error.message;
+          this.error_cause = err.error.errors;
           this.isSignUpFailed = true;
           console.log(this.form,this.fileToUpload);
           console.log(err);
@@ -101,6 +105,7 @@ export class BoardAgentComponent implements OnInit {
       },
         err => {
           this.errorMessage = err.error.message;
+          this.error_cause = err.error.errors;
           this.isSignUpFailed = true;
           console.log(this.form,this.fileToUpload);
           console.log(err);
@@ -138,6 +143,7 @@ export class BoardAgentComponent implements OnInit {
       },
         err => {
           this.errorMessage = err.error.message;
+          this.error_cause = err.error.errors;
           this.verify = true;
           this.isFailedVerify = true;
           console.log(err);
