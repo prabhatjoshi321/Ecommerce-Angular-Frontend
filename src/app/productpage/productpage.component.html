@@ -41,12 +41,12 @@
 						<li class="nav-item">
 							<a class="nav-link active" id="slider-tab" data-toggle="tab" href="#slider_tabs" role="tab" aria-controls="slider_tabs" aria-selected="true"><span class="flaticon-photo-camera color-white"></span></a>
 						</li>
-						<li class="nav-item">
+						<!-- <li class="nav-item">
 							<a class="nav-link" id="map-tab" data-toggle="tab" href="#map_tabs" role="tab" aria-controls="map_tabs" aria-selected="false"><span class="flaticon-pin color-white"></span></a>
 						</li>
 						<li class="nav-item">
 					    	<a class="nav-link" id="street-view-tab" data-toggle="tab" href="#street_view" role="tab" aria-controls="street_view" aria-selected="false"><span class="flaticon-street-view color-white"></span></a>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a (click)="onShare()" class="nav-link" id="share-tab" data-toggle="tab" href="#share_tab" role="tab" aria-controls="share_tab" aria-selected="false"><span class="flaticon-share color-white"></span></a>
           </li>
@@ -70,19 +70,19 @@
                       </ol>
                       <div class="carousel-inner">
                         <div class="carousel-item active">
-                          <img src="{{ p_img1 }}" class="d-block w-100" alt="...">
+                          <img src="{{ p_img1 }}" class="d-block w-100" alt="..." height="600">
                         </div>
                         <div class="carousel-item">
-                          <img src="{{ p_img2 }}" class="d-block w-100" alt="...">
+                          <img src="{{ p_img2 }}" class="d-block w-100" alt="..." height="600">
                         </div>
                         <div class="carousel-item">
-                          <img src="{{ p_img3 }}" class="d-block w-100" alt="...">
+                          <img src="{{ p_img3 }}" class="d-block w-100" alt="..." height="600">
                         </div>
                         <div class="carousel-item">
-                          <img src="{{ p_img4 }}" class="d-block w-100" alt="...">
+                          <img src="{{ p_img4 }}" class="d-block w-100" alt="..." height="600">
                         </div>
                         <div class="carousel-item">
-                          <img src="{{ p_img5 }}" class="d-block w-100" alt="...">
+                          <img src="{{ p_img5 }}" class="d-block w-100" alt="..." height="600">
                         </div>
                       </div>
                       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -384,9 +384,11 @@
 				</div>
 				<div class="col-lg-5 col-xl-4">
 					<div class="single_property_social_share">
-						<div class="price float-left fn-400">
-              <h2 *ngIf="pdata.expected_pricing != 0">Rs. {{pdata.expected_pricing}}</h2>
+						<div class="price float-left fn-400" *ngIf="pdata.expected_rent != null">
 							<h2 *ngIf="pdata.expected_rent != 0">Rs. {{pdata.expected_rent}}<small>/{{pdata.duration_of_rent_aggreement}}</small></h2>
+						</div>
+						<div class="price float-left fn-400" *ngIf="pdata.expected_pricing != null">
+              <h2 *ngIf="pdata.expected_pricing != 0">Rs. {{pdata.expected_pricing}}</h2>
 						</div>
 						<!-- <div class="spss mt20 text-right tal-400">
 							<ul class="mb0">
@@ -551,9 +553,9 @@
 								<h4 class="mb30">Location <small class="float-right">{{pdata.address}}</small></h4>
 								<div class="property_video p0">
 									<div class="thumb">
-										<div class="h400" id="map-canvas2"></div>
+										<div class="h200" id="map-canvas2"></div>
 										<div class="overlay_icon">
-											<a href="#"><img class="map_img_icon" src="./../../assets/css/images/header-logo.png" alt="header-logo.png"></a>
+											<a href="{{ map_url }}"><img class="flaticon-maps-and-flags" src="./assets/css/images/header-logo.png" alt="header-logo.png"></a>
 										</div>
 									</div>
 								</div>

@@ -25,6 +25,7 @@ export class ProductpageComponent implements OnInit {
   p_img5;
   form: any = {};
   Review;
+  map_url;
 
 
   constructor(
@@ -74,8 +75,8 @@ export class ProductpageComponent implements OnInit {
         this.p_img3 = GlobalConstants.ftpURL + data["product"]["0"]["product_image3"];
         this.p_img4 = GlobalConstants.ftpURL + data["product"]["0"]["product_image4"];
         this.p_img5 = GlobalConstants.ftpURL + data["product"]["0"]["product_image5"];
-
-
+        this.map_url = "https://maps.google.com/?q=" + data["product"]["0"]["map_latitude"] + "," + data["product"]["0"]["map_longitude"];
+        console.log(this.map_url)
         console.log(this.product_data);
         console.log(this.user_data);
 

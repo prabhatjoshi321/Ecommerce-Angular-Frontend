@@ -325,13 +325,15 @@
                <div class="item">
                  <div class="feat_property home7">
                    <div class="thumb">
-                     <img class="img-whp" src="{{ftpstring}}{{ number.product_image1 }}" alt="fp1.jpg">
+                     <img class="img-whp" src="{{ftpstring}}{{ item.product_image1 }}" alt="fp1.jpg">
                      <div class="thmb_cntnt">
                        <ul class="tag mb0">
                          <!-- <li class="list-inline-item"><a >For Rent</a></li> -->
                          <!-- <li class="list-inline-item"><a >Featured</a></li> -->
                        </ul>
-                       <a class="fp_price" >Rs. {{ number.expected_pricing }}<small></small></a>
+                       <!-- <a class="fp_price" >Rs. {{ item.expected_pricing }}<small></small></a> -->
+                       <a *ngIf="item.expected_pricing != 0" class="fp_price" >Rs. {{ item.expected_pricing }}<small></small></a>
+                       <a *ngIf="item.expected_rent != 0" class="fp_price" >Rs. {{ item.expected_rent }}<small></small></a>
                      </div>
                    </div>
                  </div>
