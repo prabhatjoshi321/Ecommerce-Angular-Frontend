@@ -1,5 +1,5 @@
 import { GlobalConstants } from './../global-constants';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { TokenStorageService } from './../_services/token-storage.service';
 import { AuthService } from './../_services/auth.service';
@@ -45,16 +45,34 @@ export class UserloginComponent implements OnInit {
     text : string;
 
   err_code: number;
+  access_token: string;
+  data;
+
 
   constructor(
     private titleService: Title,
     private authService: AuthService,
     private tokenStorage: TokenStorageService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute,
     ) { }
 
   ngOnInit(): void {
     this.titleService.setTitle('Login');
+
+    {this.route.queryParams.subscribe(params => {
+      let token = params['token'];
+      let data = params['data'];
+      console.log(token);
+      console.log(data);
+      if(token != null){
+        this.tokenStorage.saveToken(token);
+        console.log(this.tokenStorage.getToken());
+        this.tokenStorage.saveUser(data);
+        this.roles = this.tokenStorage.getUser().name;
+      }
+    })}
+
     console.log(this.tokenStorage.getUser())
     if (this.tokenStorage.getToken()){
       this.isLoggedIn = true;
@@ -102,6 +120,10 @@ export class UserloginComponent implements OnInit {
 
   redirect_to_profile(): void {
     window.location.href=GlobalConstants.siteURL+"profile"
+  }
+
+  redirect_login_google(): void {
+    window.location.href=GlobalConstants.googleURL
   }
 
   dashboard() :void {

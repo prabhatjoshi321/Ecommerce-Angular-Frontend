@@ -20,6 +20,14 @@ export class UserService {
     return this.http.get(GlobalConstants.apiURL + 'auth/user', { responseType: 'json' });
   }
 
+  googleLogin(): Observable<any> {
+    return this.http.get(GlobalConstants.apiURL + 'auth/redirect', { responseType: 'json' });
+  }
+
+  googleCallback(): Observable<any> {
+    return this.http.get(GlobalConstants.apiURL + 'auth/callback', { responseType: 'json' });
+  }
+
   getModeratorBoard(): Observable<any> {
     return this.http.get(GlobalConstants.apiURL + 'auth/mod', { responseType: 'json' });
   }

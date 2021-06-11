@@ -74,6 +74,9 @@ export class ProfileComponent implements OnInit {
         this.price_for_service = data.price_for_service
         this.law_firm_number = data.law_firm_number
         this.practice_number = data.practice_number
+        if(this.profile_pic.indexOf('googleusercontent.com') == -1){
+          this.profile_pic = this.ftpstring + this.profile_pic
+        }
         if(this.usertype == 1){
           this.usercat = "Customer";
         }
