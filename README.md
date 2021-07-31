@@ -1,6 +1,6 @@
 # Ecommerce Angular Frontend
 
-| Project Title : **Ecommerce**                             Prepared By : **Prabhat Joshi** |
+| Project Title : **Ecommerce**                      Prepared By : **Prabhat Joshi** |
 | --- |
 
 ### **Product Characteristics and Requirements:**
