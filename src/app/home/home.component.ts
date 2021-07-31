@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.home_call();
-    this.titleService.setTitle('Housing Street');
+    this.titleService.setTitle('Ecommerce');
     this.currentUser = this.tokenService.getUser().username;
     this.login = this.tokenService.getToken();
 

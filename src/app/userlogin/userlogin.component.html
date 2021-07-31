@@ -123,6 +123,9 @@
             </div>
             <div class="row mt40" *ngIf="isLoggedIn == false">
               <div class="col-lg">
+                <button type="submit" (click)="redirect_login_facebook()"  class="btn btn-block color-white bgc-fb mb0"><i class="fa fa-facebook float-left mt5"></i> Facebook</button>
+              </div>
+              <div class="col-lg">
                 <button type="button" (click)="redirect_login_google()" class="btn btn2 btn-block color-white bgc-gogle mb0"><i class="fa fa-google float-left mt5"></i> Google</button>
               </div>
             </div>

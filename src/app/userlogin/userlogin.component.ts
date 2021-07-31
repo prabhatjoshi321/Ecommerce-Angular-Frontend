@@ -126,6 +126,10 @@ export class UserloginComponent implements OnInit {
     window.location.href=GlobalConstants.googleURL
   }
 
+  redirect_login_facebook(): void {
+    window.location.href=GlobalConstants.fbURL
+  }
+
   dashboard() :void {
     if(this.tokenStorage.getUser().usertype > 6){
       window.location.href=GlobalConstants.siteURL+"adminpanel"}
