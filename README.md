@@ -690,3 +690,5 @@ Description:
 
 
 #### Theme was inspired by Renthouse Theme
+
+## [Link to the Hosted Site!](https://www.housingstreet.com)
