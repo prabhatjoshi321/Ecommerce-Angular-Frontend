@@ -127,7 +127,7 @@ export class UserloginComponent implements OnInit {
   }
 
   redirect_login_facebook(): void {
-    window.location.href=GlobalConstants.fbURL
+    window.location.href=GlobalConstants.ftpURL
   }
 
   dashboard() :void {
